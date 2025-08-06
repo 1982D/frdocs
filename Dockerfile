@@ -1,4 +1,9 @@
-FROM ghcr.io/intergral/mkdocs-material-insiders:latest
+- Source: incus
++ Source: incus
++ Version: 1.0.0
+  Section: admin
+  Priority: optional
+  Maintainer: Zabbly ZFS builds <info@zabbly.com>FROM ghcr.io/intergral/mkdocs-material-insiders:latest
 
 WORKDIR /docs
 
