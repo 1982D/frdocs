@@ -1,13 +1,13 @@
 # Go
 
-This guide demonstrates how to instrument a Go application with OpenTelemetry to send traces and metrics to FusionReactor Cloud.
+This guide demonstrates how to instrument a Go application with OpenTelemetry to send traces and metrics to OpsPilot.
 
 <iframe src="https://player.vimeo.com/video/816527416?h=34c72de814" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/816527416">Instrumenting a Go app using OpenTelemetry</a> from <a href="https://vimeo.com/user109619720">FusionReactorAPM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Go**: Go 1.21 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Go application.
 
@@ -71,7 +71,7 @@ func setupMetrics(ctx context.Context) (*sdkmetric.MeterProvider, error) {
 		ctx,
 		otlpmetrichttp.WithInsecure(),
 		otlpmetrichttp.WithEndpoint(endpoint),
-		// FusionReactor Cloud is Prometheus-based and requires Cumulative temporality
+		// OpsPilot is Prometheus-based and requires Cumulative temporality
 		otlpmetrichttp.WithTemporalitySelector(func(kind sdkmetric.InstrumentKind) metricdata.Temporality {
 			return metricdata.CumulativeTemporality
 		}),
@@ -227,9 +227,9 @@ Run your instrumented application:
 go run .
 ```
 
-## Step 5: Verify in FusionReactor Cloud
+## Step 5: Verify in OpsPilot
 
-1. **View in FusionReactor Cloud**:
+1. **View in OpsPilot**:
    - Navigate to **Explore > Traces** to see your Go application traces
    - Navigate to **Explore > Metrics** and search for `demo_counter` to see the counter metric
    - Your service should appear as `test-go-server-http`
@@ -238,14 +238,14 @@ go run .
 
 * Instrument HTTP handlers using `go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp`
 * Add database instrumentation with `go.opentelemetry.io/contrib/instrumentation/database/sql/otelsql`
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your Go application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Go application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

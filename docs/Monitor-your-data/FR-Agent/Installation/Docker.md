@@ -58,8 +58,7 @@ RUN mkdir -p /opt/fusionreactor/instance/{Instance Name}/conf
 ```
 
 ## System properties to add to a container
-FusionReactor has System properties to configure the instance password, license key, Enterprise Dashboard and FusionReactor
- Cloud. These arguments can be found in [FusionReactor System Properties](../Configuration/FusionReactor-System-Properties.md).
+FusionReactor has System properties to configure the instance password, license key, Enterprise Dashboard and OpsPilot. These arguments can be found in [FusionReactor System Properties](../Configuration/FusionReactor-System-Properties.md).
 
 ## Persisting log files using Docker volumes
 To persist the FusionReactor logs outside of the container, you can use a Docker volume so that logs are stored on the host machine. For example:

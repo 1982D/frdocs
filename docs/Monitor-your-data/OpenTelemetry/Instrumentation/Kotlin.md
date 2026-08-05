@@ -1,13 +1,13 @@
 # Kotlin
 
-This guide demonstrates how to instrument a Kotlin application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Kotlin application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 !!! warning "Beta Status"
     OpenTelemetry Kotlin is currently in **Beta**. APIs may change between releases. Suitable for testing and development, but review release notes carefully before production use.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Kotlin**: Kotlin 1.8+ with JVM target installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Kotlin application.
 
@@ -158,9 +158,9 @@ The application will calculate 20 Fibonacci numbers and send telemetry to your l
     **If you see:** Connection errors or export failures
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
 
@@ -174,14 +174,14 @@ You should see:
 * Use the Java agent for automatic instrumentation of Kotlin/JVM applications
 * Instrument coroutines with custom spans
 * Add instrumentation to Ktor or Spring Boot applications
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

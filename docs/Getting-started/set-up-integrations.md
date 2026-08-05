@@ -6,7 +6,7 @@ Welcome to the **Set up integrations** guide. This page introduces the **Observa
 
 ## Observability Agent overview
 
-The **Observability Agent** by FusionReactor is built as a wrapper around **Grafana Alloy**, providing a simplified way to forward metrics from various parts of your tech stack to **FusionReactor Cloud** - all with minimal configuration.
+The **Observability Agent** by FusionReactor is built as a wrapper around **Grafana Alloy**, providing a simplified way to forward metrics from various parts of your tech stack to **OpsPilot** - all with minimal configuration.
 
 
 
@@ -14,7 +14,7 @@ The **Observability Agent** by FusionReactor is built as a wrapper around **Graf
 
 - **Centralized Monitoring**: Collect metrics from across your entire stack - ColdFusion, Java, databases, servers, containers, and more.
 - **Simple Installation**: Deploy quickly using **FRAM**, **Docker**, or install snippets.
-- **Cloud Dashboards**: Visualize data in **Explore** and the **Integration Dashboards** in FusionReactor Cloud.
+- **Cloud Dashboards**: Visualize data in **Explore** and the **Integration Dashboards** in OpsPilot.
 
 
 
@@ -38,7 +38,7 @@ You can monitor a wide variety of infrastructure components using supported expo
 
 #### **Step 1**: Generate an API Key
 
-Head to your [FusionReactor Cloud Account Settings](https://app.fusionreactor.io/account/settings) to create an API key.
+Head to your [OpsPilot Account Settings](https://app.fusionreactor.io/account/settings) to create an API key.
 
 
 #### **Step 2**: Install the Observability Agent
@@ -59,6 +59,6 @@ Choose the appropriate installation method:
 Once installed, your metrics will appear in:
 
 - **Explore**
-- **Integration Dashboards** inside **FusionReactor Cloud**
+- **Integration Dashboards** inside **OpsPilot**
 
 

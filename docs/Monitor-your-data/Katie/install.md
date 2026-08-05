@@ -98,7 +98,7 @@ For Claude Desktop, the configuration to communicate with this is:
 
 ## Configuring Claude Code
 
-This configuration uses the **MCP** in a local Docker container to connect to **FusionReactor Cloud**.
+This configuration uses the **MCP** in a local Docker container to connect to **OpsPilot**.
 
 ### 1. Start the Docker container locally
 
@@ -145,7 +145,7 @@ claude mcp list
 
 | Prompt | Description |
 |-------|-------------|
-| `What clusters are connected?` | See what clusters are connected via their Katie Agents to FusionReactor Cloud. |
+| `What clusters are connected?` | See what clusters are connected via their Katie Agents to OpsPilot. |
 | `What namespaces are available?` | Self-explanatory. |
 | `List all the pods in the 'otel-demo' namespace, along with their resource requirements and usage.` | Self-explanatory. |
 | `Are any pods in trouble?` | Gets a short summary of any pod problems. |

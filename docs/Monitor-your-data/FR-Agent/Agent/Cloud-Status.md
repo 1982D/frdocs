@@ -35,13 +35,12 @@ the system changes from Degraded to **Failed**.
 ## Control Channel
 
 The **Control Channel **is used to provided a two-way communications
-channel between FusionReactor and FusionReactor Cloud.  It's used to
+channel between FusionReactor and OpsPilot.  It's used to
 provide immediate, accurate information to the Cloud and is the basis
 for real-time functionality like **Stack trace**, **Running
 Requests **etc.
 
-This channel is established between FusionReactor and FusionReactor
-Cloud when the instance starts.  FusionReactor tries to keep this
+This channel is established between FusionReactor and OpsPilot when the instance starts.  FusionReactor tries to keep this
 channel open as long as the instance is running, and will attempt to
 reconnect it if it becomes unavailable.
 
@@ -53,7 +52,7 @@ when you can expect to see that item.
 |Text|Appears|Description|
 |--- |--- |--- |
 |Status|Always|A short description about the state of the connection.|
-|Endpoint|Always|A URL describing the server, protocol and port used by this instance to establish a connection to FusionReactor Cloud|
+|Endpoint|Always|A URL describing the server, protocol and port used by this instance to establish a connection to OpsPilot|
 |Connected Since|Connected|A date/time string representing the instant at which the connection was established.|
 |Disconnected Since|Disconnected|A date/time string representing the instant at which the connection was lost.|
 |Attempting to Reconnect|Disconnected|Yes/No. Indicates whether the Control Channel system is attempting to reconnect. This should normally be Yes. Some types of forced disconnect may result in No, however. If this is the case, FusionReactor will attempt to reestablish the connection only on the next instance restart.|
@@ -65,13 +64,13 @@ when you can expect to see that item.
 |--- |--- |--- |
 |Network - DNS|An exception of the form "Can't resolve xx.yy"|The endpoint couldn't be resolved from a name into an IP address. <br><br>Ensure the instance is configured to use a DNS server that can resolve standard IP4 internet addresses.<br>Ensure the instance is connected to the network.|
 |Network - Connection|An exception of the form "Couldn't connect to xx.yy" or "Timed out connecting to xx.yy"|The endpoint couldn't be contacted.<br><br>Ensure the instance is connected to the network.<br>Ensure the instance can connect through your firewall to the Control Channel. Information on required firewall punches and static routing (if required) can be found in technote [FRS-418] FusionReactor Cloud Firewall DNS and Static IP address rules.
-FusionReactor Cloud may be experience network connectivity issues. In this case, the connection will be periodically retried by FusionReactor, and will reconnect up to a maximum of one minute after FusionReactor Cloud becomes available.|
+OpsPilot may be experience network connectivity issues. In this case, the connection will be periodically retried by FusionReactor, and will reconnect up to a maximum of one minute after OpsPilot becomes available.|
 
 ## Telemetry Shippers
 
 The **Telemetry Shippers** periodically collect useful information, such as metrics, logs and spans/traces (transactions),
 gathered by the FusionReactor agent, packages them
-into the appropriate form and sends them to the Cloud.  FusionReactor Cloud then ingests this data and makes it
+into the appropriate form and sends them to the Cloud.  OpsPilot then ingests this data and makes it
 available to you in various useful forms.
 
 PrometheusRemoteWriteShipper is responsible for metrics, LogShipper for logs and SpanShipper for spans/traces (transactions).
@@ -81,7 +80,7 @@ transferred are stored in a queue (one for each shipper).  These queues have a 
 earlier data requests are dropped to make room for newer ones.
 
 When the connection returns, the Telemetry Shippers sends any queued requests.  During the period of outage, you
-may see holes appearing in data within FusionReactor Cloud.  Once
+may see holes appearing in data within OpsPilot.  Once
 these messages start flowing again, these void areas should close.  While this backfill
 occurs, you may see a **Metric Lag Warning** on this page.
 

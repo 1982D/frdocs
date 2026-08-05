@@ -8,7 +8,7 @@ The FusionReactor Settings page lets you modify the FusionReactor in order to:
 * Secure the FusionReactor API
 * Configure Application and Transaction name detection
 * Configure FusionReactor to either track or ignore specific URLS
-* Configure a proxy for FusionReactor to contact its external servers for licensing and the FusionReactor Cloud
+* Configure a proxy for FusionReactor to contact its external servers for licensing and the OpsPilot
 * Configure which error types should be tracked in FusionReactor
 
 !!! note

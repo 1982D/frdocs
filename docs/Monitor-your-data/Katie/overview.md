@@ -34,13 +34,13 @@ ip-172-20-6-214 is at risk - no pod scheduling capacity remaining.
 ## Prerequisites
 
 * Katie consists of two elements: an agent, which runs in your Kubernetes cluster, and an MCP tool, which you run locally on your computer.  
-* Communication between the two is facilitated by **FusionReactor Cloud**.
+* Communication between the two is facilitated by **OpsPilot**.
 
 ## Next Steps: Install Katie Components
 
 ### Katie Agent
 
-The Katie Agent is a single pod that runs inside your cluster and responds to live data requests from FusionReactor Cloud.
+The Katie Agent is a single pod that runs inside your cluster and responds to live data requests from OpsPilot.
 
 As a cluster administrator, you’ll need to install the Katie Agent in each Kubernetes cluster you want to integrate with AI. The easiest way to do this is by using our Helm chart. Installation instructions are available on our [GitHub repository](https://github.com/intergral/katie-helm).
 

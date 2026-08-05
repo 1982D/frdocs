@@ -1,6 +1,6 @@
 # OpenTelemetry FAQ
 
-This page answers frequently asked questions about using OpenTelemetry with FusionReactor Cloud.
+This page answers frequently asked questions about using OpenTelemetry with OpsPilot.
 
 ---
 
@@ -38,7 +38,7 @@ Add manual instrumentation later only when you need to:
 * **Data transformation**: Filter, enrich, or scrub sensitive data before it leaves your network
 * **Reliability**: Queue and retry mechanisms handle network failures gracefully
 
-For local development and testing, you can send data directly to FusionReactor Cloud using OTLP endpoints.
+For local development and testing, you can send data directly to OpsPilot using OTLP endpoints.
 
 ### When should I initialize OpenTelemetry in my application?
 
@@ -60,9 +60,9 @@ Initialize OpenTelemetry **at the very start of your application**, before loadi
 * **Trace**: A collection of spans linked together under a unique trace ID, representing a complete request flow through your system
 * **Transaction**: FusionReactor's term for a top-level operation, typically mapped to a trace's root span
 
-### How do I see my service name in FusionReactor Cloud?
+### How do I see my service name in OpsPilot?
 
-The OpenTelemetry `service.name` resource attribute becomes the `job` label in FusionReactor Cloud.
+The OpenTelemetry `service.name` resource attribute becomes the `job` label in OpsPilot.
 
 **Set it during initialization:**
 
@@ -87,7 +87,7 @@ Yes. You can run both simultaneously:
 * **FusionReactor Agent**: Provides deep JVM/CFML insights, profiling, and error tracking
 * **OpenTelemetry**: Captures distributed traces, custom metrics, and standardized telemetry
 
-They complement each other and send data to FusionReactor Cloud independently.
+They complement each other and send data to OpsPilot independently.
 
 ### What should I include in span attributes?
 
@@ -111,7 +111,7 @@ Follow [OpenTelemetry Semantic Conventions](https://opentelemetry.io/docs/concep
 
 ### What's the difference between OTLP gRPC and HTTP?
 
-Both protocols send telemetry data to FusionReactor Cloud, but they have different characteristics:
+Both protocols send telemetry data to OpsPilot, but they have different characteristics:
 
 | Feature | gRPC (port 4317) | HTTP (port 4318) |
 |---------|------------------|------------------|
@@ -138,7 +138,7 @@ processors:
     send_batch_size: 1024  # Or when 1024 spans collected
 ```
 
-### Why is my data not appearing in FusionReactor Cloud?
+### Why is my data not appearing in OpsPilot?
 
 Common causes:
 
@@ -209,9 +209,9 @@ For detailed sampling configurations and strategies by traffic level, see the [C
 
 ## Visualization & Querying
 
-### How do I query my OpenTelemetry metrics in FusionReactor Cloud?
+### How do I query my OpenTelemetry metrics in OpsPilot?
 
-FusionReactor Cloud uses PromQL for querying metrics. OpenTelemetry metrics are automatically converted to Prometheus format.
+OpsPilot uses PromQL for querying metrics. OpenTelemetry metrics are automatically converted to Prometheus format.
 
 **Metric naming convention:**
 * Counter: `<metric_name>_total`
@@ -233,7 +233,7 @@ http_requests_total{http_method="POST", http_status_code="200"}
 
 ### Can I create custom dashboards with OpenTelemetry data?
 
-Yes. Navigate to **Dashboards > Create Dashboard** in FusionReactor Cloud. You can:
+Yes. Navigate to **Dashboards > Create Dashboard** in OpsPilot. You can:
 
 * Query traces using TraceQL
 * Query metrics using PromQL
@@ -263,7 +263,7 @@ logging.info(f"Processing order", extra={
 })
 ```
 
-In FusionReactor Cloud's **Explore** view, click a trace to see correlated logs automatically.
+In OpsPilot's **Explore** view, click a trace to see correlated logs automatically.
 
 ---
 
@@ -329,7 +329,7 @@ connectors:
 See the [OpenTelemetry Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/) page for detailed debugging guides, including:
 
 * Collector not receiving data
-* Data not exporting to FusionReactor Cloud
+* Data not exporting to OpsPilot
 * Configuration errors
 * Performance issues
 
@@ -345,7 +345,7 @@ docker run --network host \
   --otlp-insecure
 ```
 
-Check FusionReactor Cloud's **Explore > Traces** for a service named `telemetrygen` within 60 seconds.
+Check OpsPilot's **Explore > Traces** for a service named `telemetrygen` within 60 seconds.
 
 ---
 
@@ -354,7 +354,7 @@ Check FusionReactor Cloud's **Explore > Traces** for a service named `telemetryg
 ### Where can I get additional help?
 
 * **Documentation**: [Official OpenTelemetry Documentation](https://opentelemetry.io/docs/)
-* **FusionReactor Support**: Contact support via the chat bubble in FusionReactor Cloud
+* **FusionReactor Support**: Contact support via the chat bubble in OpsPilot
 * **Community**: [OpenTelemetry Community Slack](https://cloud-native.slack.com/archives/CJFCJHG4Q)
 
 !!! question "Need more help?"

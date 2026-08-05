@@ -1,6 +1,6 @@
 # OpenTelemetry Troubleshooting
 
-This guide helps you diagnose and resolve common issues when using OpenTelemetry with FusionReactor Cloud.
+This guide helps you diagnose and resolve common issues when using OpenTelemetry with OpsPilot.
 
 ---
 
@@ -15,10 +15,10 @@ Before diving into specific issues, run these quick checks:
 
 ---
 
-## Data Not Appearing in FusionReactor Cloud
+## Data Not Appearing in OpsPilot
 
 ### Symptom
-You've instrumented your application and configured your telemetry pipeline, but data doesn't appear in FusionReactor Cloud.
+You've instrumented your application and configured your telemetry pipeline, but data doesn't appear in OpsPilot.
 
 ### Diagnostic Steps
 
@@ -63,7 +63,7 @@ Check your pipeline logs for export errors. Look for keywords like:
 
 **Common error patterns:**
 
-* **"connection refused"**: Pipeline cannot reach FusionReactor Cloud (network issue)
+* **"connection refused"**: Pipeline cannot reach OpsPilot (network issue)
 * **"unauthorized"** or **"401"**: Invalid API key
 * **"timeout"**: Network latency or connectivity issue
 
@@ -80,7 +80,7 @@ docker run --network host \
   --otlp-insecure
 ```
 
-Check FusionReactor Cloud (**Explore > Traces**) for a service named `telemetrygen` within 60 seconds.
+Check OpsPilot (**Explore > Traces**) for a service named `telemetrygen` within 60 seconds.
 
 **If test data appears**: Your pipeline is working correctly. The issue is with your application instrumentation.
 
@@ -114,13 +114,13 @@ otelcol.exporter.otlphttp "fusionreactor" {
 ```
 
 To get your API key:
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **User Menu > Account > API Keys**
 3. Generate a new key or copy an existing one
 
 #### Network Connectivity
 
-Test connectivity to FusionReactor Cloud from your pipeline environment:
+Test connectivity to OpsPilot from your pipeline environment:
 
 ```bash
 # Test basic connectivity
@@ -539,7 +539,7 @@ Pipeline consumes excessive CPU.
 ### Slow Data Ingestion
 
 #### Symptom
-Telemetry data takes several minutes to appear in FusionReactor Cloud.
+Telemetry data takes several minutes to appear in OpsPilot.
 
 #### Causes & Solutions
 
@@ -553,7 +553,7 @@ processors:
 
 **Cause 2: Network latency**
 * Test latency: `ping api.fusionreactor.io`
-* Consider deploying pipeline closer to applications or FusionReactor Cloud
+* Consider deploying pipeline closer to applications or OpsPilot
 
 **Cause 3: Exporter queue backlog**
 ```yaml
@@ -604,13 +604,13 @@ def background_task():
 ### Duplicate Metrics or Traces
 
 #### Symptom
-Same telemetry appears multiple times in FusionReactor Cloud.
+Same telemetry appears multiple times in OpsPilot.
 
 #### Causes & Solutions
 
 **Cause 1: Multiple exporters in application**
-* Application configured to send to both pipeline and FusionReactor Cloud directly
-* **Solution**: Send only to your pipeline, let it forward to FusionReactor Cloud
+* Application configured to send to both pipeline and OpsPilot directly
+* **Solution**: Send only to your pipeline, let it forward to OpsPilot
 
 **Cause 2: Multiple pipeline instances**
 * Duplicate pipelines ingesting same data
@@ -693,7 +693,7 @@ Access metrics at: `http://localhost:8888/metrics`
 failed to export: connection refused
 ```
 
-**Cause**: Pipeline cannot reach FusionReactor Cloud endpoint.
+**Cause**: Pipeline cannot reach OpsPilot endpoint.
 
 **Solution**:
 1. Verify endpoint URL in exporter config
@@ -729,7 +729,7 @@ failed to export: 401 Unauthorized
 **Cause**: Invalid or missing API key.
 
 **Solution**:
-1. Verify API key in FusionReactor Cloud: **User Menu > Account > API Keys**
+1. Verify API key in OpsPilot: **User Menu > Account > API Keys**
 2. Check API key is correctly set in your pipeline configuration
 3. Ensure no extra spaces or characters in the API key
 
@@ -759,11 +759,11 @@ When contacting support, provide:
 2. **Pipeline logs** showing the error
 3. **Application instrumentation code** (initialization section)
 4. **OpenTelemetry SDK versions** used
-5. **FusionReactor Cloud account region** (US or EU)
+5. **OpsPilot account region** (US or EU)
 
 ### Contact Support
 
-* **FusionReactor Support**: Use the chat bubble in FusionReactor Cloud
+* **FusionReactor Support**: Use the chat bubble in OpsPilot
 * **Community Forum**: [FusionReactor Community](https://community.fusionreactor.io/)
 
 ### Additional Resources

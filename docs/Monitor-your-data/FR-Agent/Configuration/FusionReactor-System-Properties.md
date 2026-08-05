@@ -84,7 +84,7 @@ fr.ed.ds.target | Not defined | hostname:port | 8.1.0 | If specified, causes the
 fr.ed.ds.groups | Not defined | Comma-separated list | 8.1.0 | If provided, the instance will auto-register with the ED DS, specifying it is a part of the given groups.
 
 
-## FusionReactor Cloud
+## OpsPilot
 
 Property | Default value | Values accepted | Version added | Description
 --- | --- | --- | --- | ---
@@ -216,7 +216,7 @@ Property | Default value  | Version added | Description
 `fr.jdbc.skip_get_connection_parser`| false | 12.1.0 | Can prevent blocked threads when using JDBC but reduces monitoring capability.
 `fr.jdbc.connection_parser_type`| MySQL | 12.1.0 | When `-Dfr.jdbc.skip_get_connection_parser=true`, will attempt to parse the connection as the given database type. Currently, only `oracle` and `mysql` are supported. 
 
-## FR Cloud UI Tunnel
+## OpsPilot UI Tunnel
 | Property           | Default value | Version added | Description                          |
 |--------------------|---------------|---------------|--------------------------------------|
 | `fr.ui.ws.enabled` | true          | 12.1.0        | Enable/disable the websocket tunnel. |

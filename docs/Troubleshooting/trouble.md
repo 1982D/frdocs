@@ -1,12 +1,12 @@
 ﻿# Troubleshooting Cloud connections
 
 ## System status
-The status of various components of the **FusionReactor Cloud** system can be seen [here](https://fusionreactor-status.freshstatus.io/).
+The status of various components of the **OpsPilot** system can be seen [here](https://fusionreactor-status.freshstatus.io/).
 
 ## Missing, incomplete or malformed data
 
 ### Network issues
-FusionReactor is designed to be resilient to connectivity issues when shipping data to **FusionReactor Cloud**.
+FusionReactor is designed to be resilient to connectivity issues when shipping data to **OpsPilot**.
 
 If your instance of FusionReactor has connectivity issues up to 60 mins of data is kept locally, once connectivity has been restored this data will be shipped intelligently in order to refrain from overloading the transport system.
 
@@ -14,7 +14,7 @@ Data will then appear to 'back fill' and gaps in the data will be removed.
 
 ### Live functionality not working correctly
 
-Some functionality of **FusionReactor Cloud** requires a web socket connection to communicate directly with the FusionReactor instance. Examples of this functionality are recent or running transactions and the live graphing modes.
+Some functionality of **OpsPilot** requires a web socket connection to communicate directly with the FusionReactor instance. Examples of this functionality are recent or running transactions and the live graphing modes.
 
 If you are experiencing issues with these areas of the software then you should refer to the following sections of this guide.
 
@@ -78,16 +78,16 @@ Below is an example using IBM WebSphere, which supplies its own keystore. Adapt 
 
 ### Firewall
 
-Some users run FusionReactor behind restricted firewalls which do not allow all outbound connections. In this case, these users may need to add specific firewall rules to allow FusionReactor to communicate with **FusionReactor Cloud**.
+Some users run FusionReactor behind restricted firewalls which do not allow all outbound connections. In this case, these users may need to add specific firewall rules to allow FusionReactor to communicate with **OpsPilot**.
 
 #### Using DNS firewall rules
 
-In order to communicate with **FusionReactor Cloud**, each FusionReactor instance attempts to connect to the following services, which are identified by their DNS names:
+In order to communicate with **OpsPilot**, each FusionReactor instance attempts to connect to the following services, which are identified by their DNS names:
 
 * wss://cc.fusionreactor.io - port tcp/2804
 * https://api.fusionreactor.io - port tcp/443
 
-These services require outgoing firewall rules for FusionReactor to communicate with FusionReactor Cloud. All communications are protected by SSL cyphers.
+These services require outgoing firewall rules for FusionReactor to communicate with OpsPilot. All communications are protected by SSL cyphers.
 
 !!! tip
     If possible, the firewall should be configured with the DNS names of these services, since they can change in response to scaling events.
@@ -169,7 +169,7 @@ In order to keep the size of shipped data within an acceptable margin, a culling
 
 The algorithm looks at culling subtransactions of the long bucket first, then slow, and then error last. We do it in this order so that the error transactions are less likely to be trimmed because they're most important.
 
-If subtransactions were trimmed from the shipped data, this will be indicated in **FusionReactor Cloud**.
+If subtransactions were trimmed from the shipped data, this will be indicated in **OpsPilot**.
 
 ___
 

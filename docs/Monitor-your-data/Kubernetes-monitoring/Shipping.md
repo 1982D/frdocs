@@ -1,15 +1,15 @@
-# Shipping Kubernetes monitoring data to FusionReactor Cloud
+# Shipping Kubernetes monitoring data to OpsPilot
 
 
 
 ## Introduction
 
-This guide explains how to deploy the Kubernetes-Prometheus-Stack to send metric data from your Kubernetes cluster(s) directly to FusionReactor Cloud.  This data can then be visualized in the **Kubernetes** dashboard set.
+This guide explains how to deploy the Kubernetes-Prometheus-Stack to send metric data from your Kubernetes cluster(s) directly to OpsPilot.  This data can then be visualized in the **Kubernetes** dashboard set.
 
 ![!Screenshot](/Monitor-your-data/Kubernetes-monitoring/images/K8scluster.png)
 
 The [Kubernetes-Prometheus-Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) is a deployable Helm
-chart which enables monitoring of Kubernetes clusters in FusionReactor Cloud.
+chart which enables monitoring of Kubernetes clusters in OpsPilot.
 
 
 Many aspects of the deployment can be customized using the Helm `values` input file. 
@@ -28,17 +28,17 @@ Prior to beginning, ensure you have the following:
 
 -   Access to your cluster via `kubectl` and `helm`.
 
--   A valid FusionReactor Cloud account, and an API key for the account.
+-   A valid OpsPilot account, and an API key for the account.
 
--   A valid FusionReactor Cloud user in your account, with access to FusionReactor Cloud.
+-   A valid OpsPilot user in your account, with access to OpsPilot.
 
 !!! tip
-    API keys can be managed under **FusionReactor Cloud** \> **User Menu** \> **Account** \> **API Keys**
+    API keys can be managed under **OpsPilot** \> **User Menu** \> **Account** \> **API Keys**
 
 
 ## Procedure
 
-This is the procedure for configuring the Kubernetes-Prometheus-Stack to ship metrics data directly to FusionReactor Cloud.
+This is the procedure for configuring the Kubernetes-Prometheus-Stack to ship metrics data directly to OpsPilot.
 
 ### **Step 1**: Download files 
 
@@ -56,7 +56,7 @@ Change `CLUSTER_NAME` to your Kubernetes cluster name.
 
 - `fr-cloud-authentication-secret.yaml`
 
-Change `PASSWORD` to your FR Cloud API key. 
+Change `PASSWORD` to your OpsPilot API key. 
 
 !!! tip
     Ensure you copy and paste the **entire** key.
@@ -74,14 +74,14 @@ kubectl apply -n kube-prometheus-stack -f fr-cloud-kps-authentication-secret.yam
 helm upgrade --install -n kube-prometheus-stack -f fr-cloud-kps-values.yaml kube-prometheus-stack prometheus-community/kube-prometheus-stack --version 52.0.1
 ```
 
-If the stack deploys correctly, it will begin shipping data to FusionReactor Cloud.
+If the stack deploys correctly, it will begin shipping data to OpsPilot.
 
 !!! tip
     Check this using `kubectl get pods -n kube-prometheus-stack`.
 
 ### **Step 4**: View your data
 
-This data can be viewed in **FusionReactor Cloud** \>
+This data can be viewed in **OpsPilot** \>
 **Dashboards** \> **Kubernetes** 
 
 

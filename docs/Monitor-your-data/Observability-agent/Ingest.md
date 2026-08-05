@@ -1,4 +1,4 @@
-# Ingesting data into the FusionReactor Cloud. 
+# Ingesting data into the OpsPilot. 
 
 
 <iframe src="https://player.vimeo.com/video/810456295?h=3294f36424" width="640" height="353" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -6,7 +6,7 @@
 
 ## Setting up Grafana Alloy
 
-This is a simple procedure that gives additional insight into your product and the metrics it produces, so you can quickly investigate and pinpoint issues. Scraped metrics are available in both **Explore** and the **Integrations Dashboards** within the **FusionReactor Cloud**.
+This is a simple procedure that gives additional insight into your product and the metrics it produces, so you can quickly investigate and pinpoint issues. Scraped metrics are available in both **Explore** and the **Integrations Dashboards** within the **OpsPilot**.
 
 
 !!! example "Example: Using Docker with two containers (one for Grafana Alloy, and the other with the MySQL database)"
@@ -55,14 +55,14 @@ integrations:
 ```
 
 !!! tip
-    This code allows the agent to scrape and write metrics to FusionReactor Cloud. Copy the indentation correctly as the yaml syntax is very sensitive.
+    This code allows the agent to scrape and write metrics to OpsPilot. Copy the indentation correctly as the yaml syntax is very sensitive.
 
 ### **Step 3**: Authenticate with our ingest endpoints.
 
 Replace the **credentials** under **authorization** with your API key to authenticate with our ingest endpoints.
 
 !!! info
-    To generate a new API key, go to **FusionReactor Cloud** > **Account Settings** > **API Keys** > **Generate**. Copy this key and paste it under **credentials**.
+    To generate a new API key, go to **OpsPilot** > **Account Settings** > **API Keys** > **Generate**. Copy this key and paste it under **credentials**.
 
 
 ### **Step 4**: Create the containers 
@@ -100,9 +100,9 @@ The above example involves volume mounting the agent config file.  Alternatively
 
 Run “docker-compose up -d” to bring up the containers. 
 
-### **Step 6**: Navigate to FusionReactor Cloud 
+### **Step 6**: Navigate to OpsPilot 
 
-Navigate to FusionReactor Cloud to access the many features available such as Dashboards, without needing any additional configuration. 
+Navigate to OpsPilot to access the many features available such as Dashboards, without needing any additional configuration. 
 
 ### **Step 7**: Display the Metrics browser 
 
@@ -116,7 +116,7 @@ Grafana Alloy is a powerful tool to pull metrics from your servers, and this is 
 
 ## Local Grafana Agent example
 
-The following video demonstrates how to set up Grafana Alloy so that it can be used to ingest data into the FusionReactor Cloud. The example uses Linux with Grafana Alloy already installed, but the agent is also usable on Docker, Windows and MacOS.
+The following video demonstrates how to set up Grafana Alloy so that it can be used to ingest data into the OpsPilot. The example uses Linux with Grafana Alloy already installed, but the agent is also usable on Docker, Windows and MacOS.
 
 <iframe src="https://player.vimeo.com/video/810501529?h=3294f36424" width="640" height="353" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/810501529">Ingest data into FusionReactor using a local Grafana Agent.</a> from <a href="https://vimeo.com/user109619720">FusionReactorAPM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

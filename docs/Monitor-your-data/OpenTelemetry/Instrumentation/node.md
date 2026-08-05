@@ -1,13 +1,13 @@
 # Node.js
 
-This guide demonstrates how to instrument a Node.js application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Node.js application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 <iframe src="https://player.vimeo.com/video/816527416?h=34c72de814" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/816527416">Instrumenting a Go app using OpenTelemetry</a> from <a href="https://vimeo.com/user109619720">FusionReactorAPM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Docker Desktop**: [Install Docker Desktop](https://www.docker.com/products/docker-desktop/) to build and run the application container.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Node.js application.
 
@@ -298,9 +298,9 @@ for i in {1..10}; do curl http://localhost:3000/fibonacci/$i; done
     **If you see:** `ECONNREFUSED` or `connect ECONNREFUSED`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 6: Verify in FusionReactor Cloud
+## Step 6: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = node-otel-demo`
@@ -317,7 +317,7 @@ You should see:
 * Add database instrumentation with `@opentelemetry/instrumentation-pg` or `@opentelemetry/instrumentation-mongodb`
 * Instrument Redis with `@opentelemetry/instrumentation-redis`
 * Add custom business metrics using the Metrics API
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot
 * Enable additional auto-instrumentations for your specific frameworks
 
 ---
@@ -325,7 +325,7 @@ You should see:
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

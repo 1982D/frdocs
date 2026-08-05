@@ -1,6 +1,6 @@
-# Installing the FusionReactor Cloud MCP
+# Installing the OpsPilot MCP
 
-The FusionReactor Cloud MCP adapter connects AI tooling such as Claude Desktop to your FusionReactor Cloud data using the Model Context Protocol, enabling read-only queries against metrics, logs, dashboards, and panels.
+The OpsPilot MCP adapter connects AI tooling such as Claude Desktop to your OpsPilot data using the Model Context Protocol, enabling read-only queries against metrics, logs, dashboards, and panels.
 
 !!! info "This feature is part of OpsPilot"
     This functionality is available in **OpsPilot**, our cloud-native observability platform.

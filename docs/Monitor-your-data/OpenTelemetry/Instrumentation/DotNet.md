@@ -1,10 +1,10 @@
 # .NET
 
-This guide demonstrates how to instrument a .NET application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a .NET application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **.NET**: .NET 6.0 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your .NET application.
 
@@ -118,7 +118,7 @@ Sets up the two OpenTelemetry providers:
 - **Tracer Provider** - Sends trace data to the collector
 - **Meter Provider** - Sends metrics data (including .NET runtime metrics) to the collector
 
-Both providers use the same service name (`fibonacci-service`), which appears as the `job` label in FusionReactor Cloud.
+Both providers use the same service name (`fibonacci-service`), which appears as the `job` label in OpsPilot.
 
 ## Step 3: Run locally
 
@@ -134,9 +134,9 @@ The application will calculate 20 Fibonacci numbers and send telemetry to your l
     **If you see:** `Failed to send spans` or `No connection could be made`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
    - **Metrics**: Go to **Explore > Metrics** and search for .NET runtime metrics prefixed with `process_runtime_dotnet` (e.g. `process_runtime_dotnet_gc_collections_count`)
@@ -153,14 +153,14 @@ You should see:
 * Use automatic instrumentation for ASP.NET Core applications with [`OpenTelemetry.Instrumentation.AspNetCore`](https://opentelemetry.io/docs/languages/net/automatic/)
 * Instrument HTTP clients with `OpenTelemetry.Instrumentation.Http`
 * Instrument database calls with `OpenTelemetry.Instrumentation.SqlClient`
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your .NET application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your .NET application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

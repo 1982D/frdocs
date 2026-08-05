@@ -2,7 +2,7 @@
 
 # Static endpoints
 
-Some users run FusionReactor behind restricted firewalls which don't allow all outbound connections. In this case, these users may need to add specific firewall rules to allow FusionReactor to communicate with FusionReactor Cloud.
+Some users run FusionReactor behind restricted firewalls which don't allow all outbound connections. In this case, these users may need to add specific firewall rules to allow FusionReactor to communicate with OpsPilot.
 
 ## Using DNS firewall rules
 
@@ -14,7 +14,7 @@ In order to communicate with the FusionReactor infrastructure, each FusionReacto
 
 ### Firewall configuration
 
-- Allow outbound SSL traffic to FusionReactor Cloud services.
+- Allow outbound SSL traffic to OpsPilot services.
 - Configure rules using DNS names (recommended) for automatic updates.
 - If using IP addresses, verify current values with `nslookup`.
 

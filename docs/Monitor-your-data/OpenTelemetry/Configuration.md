@@ -1,6 +1,6 @@
 # OpenTelemetry Configuration
 
-This guide covers essential OpenTelemetry configuration topics for FusionReactor Cloud, including semantic conventions, resource attributes, service naming, and sampling strategies.
+This guide covers essential OpenTelemetry configuration topics for OpsPilot, including semantic conventions, resource attributes, service naming, and sampling strategies.
 
 ---
 
@@ -8,13 +8,13 @@ This guide covers essential OpenTelemetry configuration topics for FusionReactor
 
 Semantic conventions are standardized naming and structure rules for OpenTelemetry attributes. Following these conventions ensures consistency across your observability stack and compatibility with tools, dashboards, and other systems.
 
-**FusionReactor Cloud follows the official OpenTelemetry semantic conventions.** This guide provides common examples and FusionReactor-specific mappings. For the complete specification and all available conventions, refer to the [OpenTelemetry Semantic Conventions documentation](https://opentelemetry.io/docs/concepts/semantic-conventions/).
+**OpsPilot follows the official OpenTelemetry semantic conventions.** This guide provides common examples and FusionReactor-specific mappings. For the complete specification and all available conventions, refer to the [OpenTelemetry Semantic Conventions documentation](https://opentelemetry.io/docs/concepts/semantic-conventions/).
 
 ### Why semantic conventions matter
 
 * **Consistency**: All services use the same attribute names
 * **Interoperability**: Dashboards and queries work across different applications
-* **Searchability**: Easy filtering and correlation in FusionReactor Cloud
+* **Searchability**: Easy filtering and correlation in OpsPilot
 * **Best practices**: Leverage community knowledge and tooling
 
 ### Common semantic conventions
@@ -68,10 +68,10 @@ Resource attributes describe the entity producing telemetry data (your service, 
 
 #### service.name
 
-The most important resource attribute. It identifies your service in FusionReactor Cloud.
+The most important resource attribute. It identifies your service in OpsPilot.
 
 !!! warning "Important mapping"
-    In FusionReactor Cloud, `service.name` becomes the `job` label for querying.
+    In OpsPilot, `service.name` becomes the `job` label for querying.
 
 **How to set it:**
 
@@ -120,7 +120,7 @@ resource = Resource.create({
 })
 ```
 
-Query in FusionReactor Cloud:
+Query in OpsPilot:
 ```promql
 http_requests_total{job="checkout-api", service_version="2.3.1"}
 ```
@@ -142,7 +142,7 @@ resource = Resource.create({
 ```
 
 !!! tip "Filter by environment"
-    In FusionReactor Cloud: `job="checkout-api" AND deployment_environment="production"`
+    In OpsPilot: `job="checkout-api" AND deployment_environment="production"`
 
 #### service.namespace
 
@@ -217,7 +217,7 @@ service.namespace: ecommerce
 deployment.environment.name: production
 ```
 
-Query in FusionReactor Cloud:
+Query in OpsPilot:
 ```promql
 {job="checkout-api", service_namespace="ecommerce", deployment_environment="production"}
 ```
@@ -261,7 +261,7 @@ Sampling reduces telemetry volume and costs by collecting a subset of traces whi
 ### When to use sampling
 
 * **High-traffic applications**: Reduce data volume without losing visibility
-* **Cost management**: Control telemetry data costs in FusionReactor Cloud
+* **Cost management**: Control telemetry data costs in OpsPilot
 * **Performance**: Reduce overhead on applications and collectors
 
 ### Head sampling
@@ -483,11 +483,11 @@ docker run --network host \
   --otlp-insecure
 ```
 
-Check FusionReactor Cloud's **Explore > Traces** for a service named `telemetrygen` within 60 seconds.
+Check OpsPilot's **Explore > Traces** for a service named `telemetrygen` within 60 seconds.
 
 ### Verify resource attributes
 
-Query your service in FusionReactor Cloud to see resource attributes:
+Query your service in OpsPilot to see resource attributes:
 
 ```promql
 {job="your-service-name"}

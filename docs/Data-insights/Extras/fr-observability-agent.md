@@ -4,7 +4,7 @@
     Installation requires FRAM to be licensed with a valid Cloud license.
 
 ## Introduction
-Starting with FusionReactor 12, the Observability Agent can be installed via FRAM's on-prem UI for a simpler way to configure, and get started with, sending data from non-FusionReactor sources to FusionReactor Cloud.
+Starting with FusionReactor 12, the Observability Agent can be installed via FRAM's on-prem UI for a simpler way to configure, and get started with, sending data from non-FusionReactor sources to OpsPilot.
 
 This enables the ability to analyse metrics within **Explore** and **Integration Dashboards**, providing insight into potential issues concerning your data sources.
 

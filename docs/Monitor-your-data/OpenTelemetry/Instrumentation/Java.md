@@ -1,10 +1,10 @@
 # Java
 
-This guide demonstrates how to instrument a Java application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Java application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Java**: Java 8 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Java application.
 
@@ -98,7 +98,7 @@ java -javaagent:opentelemetry-javaagent.jar \
 ### Configuration options explained
 
 * `-javaagent:opentelemetry-javaagent.jar`: Attaches the OpenTelemetry agent
-* `-Dotel.service.name`: Sets the service name (appears as `job` in FusionReactor Cloud)
+* `-Dotel.service.name`: Sets the service name (appears as `job` in OpsPilot)
 * `-Dotel.exporter.otlp.endpoint`: Points to your local collector
 * `-Dotel.exporter.otlp.protocol`: Uses HTTP protocol (port 4318)
 
@@ -106,9 +106,9 @@ java -javaagent:opentelemetry-javaagent.jar \
     **If you see:** `Failed to export spans` or `Connection refused`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
    - **Metrics**: Search for JVM metrics like `process.runtime.jvm.memory.usage{job="fibonacci-service"}`
@@ -124,14 +124,14 @@ You should see:
 * Use the agent with Spring Boot applications for automatic REST endpoint instrumentation
 * Configure [agent extensions](https://opentelemetry.io/docs/languages/java/automatic/extensions/) for custom instrumentation
 * Add manual instrumentation for business-specific tracing using the [Java SDK](https://opentelemetry.io/docs/languages/java/instrumentation/)
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your Java application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Java application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

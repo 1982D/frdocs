@@ -1,10 +1,10 @@
 # PHP
 
-This guide demonstrates how to instrument a PHP application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a PHP application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **PHP**: PHP 8.0 or later with the following extensions:
   - `ext-json`
   - `ext-curl`
@@ -320,7 +320,7 @@ The application will send telemetry to your local collector at `localhost:4318`.
     **If you see:** `Connection refused` or `Failed to export`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 5: Verify in FusionReactor Cloud
+## Step 5: Verify in OpsPilot
 
 1. Generate some traffic:
    ```bash
@@ -328,7 +328,7 @@ The application will send telemetry to your local collector at `localhost:4318`.
    for i in {1..10}; do curl "http://localhost:8000/fibonacci?n=$i"; done
    ```
 
-2. Log in to **FusionReactor Cloud**
+2. Log in to **OpsPilot**
 
 3. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = php-otel-demo`
@@ -348,14 +348,14 @@ You should see:
 * Instrument Laravel applications with [laravel-otel](https://github.com/open-telemetry/opentelemetry-php-contrib/tree/main/src/Instrumentation/Laravel)
 * Instrument Symfony applications with [symfony-otel](https://github.com/open-telemetry/opentelemetry-php-contrib/tree/main/src/Instrumentation/Symfony)
 * Add database instrumentation with PDO or Doctrine extensions
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

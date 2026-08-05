@@ -6,7 +6,7 @@ For FusionReactor users, Alloy is recommended when you need a highly programmabl
 
 ## How it works
 
-Alloy acts as a programmable intermediary. It receives OTLP data from your instrumented applications, processes it for efficiency or security, and exports it to FusionReactor Cloud using the OTLP protocol.
+Alloy acts as a programmable intermediary. It receives OTLP data from your instrumented applications, processes it for efficiency or security, and exports it to OpsPilot using the OTLP protocol.
 
 
 
@@ -42,7 +42,7 @@ otelcol.processor.batch "default" {
   }
 }
 
-// 3. Export data to FusionReactor Cloud
+// 3. Export data to OpsPilot
 otelcol.exporter.otlphttp "fusionreactor" {
   client {
     endpoint = "https://api.fusionreactor.io"

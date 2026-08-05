@@ -1,13 +1,13 @@
 # Erlang/Elixir
 
-This guide demonstrates how to instrument an Erlang or Elixir application with OpenTelemetry to send traces and metrics to FusionReactor Cloud.
+This guide demonstrates how to instrument an Erlang or Elixir application with OpenTelemetry to send traces and metrics to OpsPilot.
 
 !!! note "Platform Status"
     OpenTelemetry Erlang/Elixir is **stable for traces and metrics**. Logs are in beta. Works with both Erlang and Elixir applications.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Erlang/OTP**: 22+ or **Elixir**: 1.11+ installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your application.
 
@@ -138,9 +138,9 @@ Add to `config/sys.config`:
 ].
 ```
 
-## Step 5: Verify in FusionReactor Cloud
+## Step 5: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
    - **Metrics**: Search for application metrics
@@ -155,14 +155,14 @@ You should see:
 * Instrument Phoenix applications with `opentelemetry_phoenix`
 * Add Ecto instrumentation with `opentelemetry_ecto`
 * Instrument HTTP clients with automatic libraries
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

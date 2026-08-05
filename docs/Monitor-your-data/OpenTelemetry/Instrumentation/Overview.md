@@ -28,7 +28,7 @@ Manual instrumentation captures specific business logic or custom events that au
 
 ## Supported Languages
 
-OpenTelemetry supports 12+ languages. Select your language below to get started with instrumentation for FusionReactor Cloud.
+OpenTelemetry supports 12+ languages. Select your language below to get started with instrumentation for OpsPilot.
 
 ### Production-Ready (Stable)
 
@@ -73,7 +73,7 @@ These languages are under active development:
 
 ## Next step: Shipping your data
 
-Once your application is instrumented, the next step is sending that data to FusionReactor Cloud.
+Once your application is instrumented, the next step is sending that data to OpsPilot.
 
 [Shipping Telemetry Overview →](/Monitor-your-data/OpenTelemetry/Shipping/overview/)
 
@@ -95,7 +95,7 @@ After instrumenting your application, explore these topics:
 ### eBPF Instrumentation
 
 !!! info "Coming Soon"
-    eBPF (Extended Berkeley Packet Filter) instrumentation provides kernel-level observability without code changes or agent installation. This feature is coming soon to FusionReactor Cloud.
+    eBPF (Extended Berkeley Packet Filter) instrumentation provides kernel-level observability without code changes or agent installation. This feature is coming soon to OpsPilot.
 
     eBPF enables:
 
@@ -108,7 +108,7 @@ After instrumenting your application, explore these topics:
 ### Kubernetes Operator
 
 !!! info "Coming Soon"
-    The OpenTelemetry Operator for Kubernetes provides automated instrumentation injection for containerized workloads. This feature is coming soon to FusionReactor Cloud.
+    The OpenTelemetry Operator for Kubernetes provides automated instrumentation injection for containerized workloads. This feature is coming soon to OpsPilot.
 
     The Operator enables:
 

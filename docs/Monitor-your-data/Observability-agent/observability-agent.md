@@ -133,10 +133,10 @@ To add integrations without being prompted for credentials, there are several en
 
 | **Variable**                | **Type**      |**Description**                                                   |
 |--------------------------|----------|---------------------------------------------------------------|
-| `api_key`           | `string` | API Key to authenticate with your FusionReactor Cloud Account. [Generate an API key](/Monitor-your-data/Observability-agent/overview/#step-1-generate-an-api-key).              |
+| `api_key`           | `string` | API Key to authenticate with your OpsPilot Account. [Generate an API key](/Monitor-your-data/Observability-agent/overview/#step-1-generate-an-api-key).              |
 |`metricsEndpoint`   | `string` | Default: `https://api.fusionreactor.io/v1/metrics`            |
 | `logsEndpoint`      | `string` | Default: `https://api.fusionreactor.io/v1/logs`               |
-| `logs_user`	| `string` |	Username to authenticate with your FusionReactor Cloud Account (observability-agent-flow only)|
+| `logs_user`	| `string` |	Username to authenticate with your OpsPilot Account (observability-agent-flow only)|
 
 
 

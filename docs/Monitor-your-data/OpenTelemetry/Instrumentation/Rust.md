@@ -1,13 +1,13 @@
 # Rust
 
-This guide demonstrates how to instrument a Rust application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Rust application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 !!! warning "Beta Status"
     OpenTelemetry Rust is currently in **Beta**. APIs may change between releases. Suitable for testing and development, but review release notes carefully before production use.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Rust**: Rust 1.65 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Rust application.
 
@@ -110,7 +110,7 @@ async fn main() {
 
 **`init_tracer()` function:**
 - Configures the OTLP HTTP exporter pointing to the collector
-- Sets the service name (appears as `job` in FusionReactor Cloud)
+- Sets the service name (appears as `job` in OpsPilot)
 - Uses Tokio runtime for async operations
 
 ## Step 3: Run locally
@@ -127,9 +127,9 @@ The application will calculate 20 Fibonacci numbers and send telemetry to your l
     **If you see:** `Connection refused` or `Failed to export`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
    - **Metrics**: Search for Rust application metrics
@@ -143,14 +143,14 @@ You should see:
 
 * Add tracing to async operations using `#[tracing::instrument]` macro
 * Instrument HTTP servers with `opentelemetry-http` and frameworks like Actix or Axum
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your Rust application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Rust application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

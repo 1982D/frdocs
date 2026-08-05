@@ -108,7 +108,7 @@ Testing your scrape pattern displays a list of matching log files that will now 
 
 ## Log exclusion
 
-Log exclusions can exclude any logs sending to the FusionReactor cloud, either for security or to reduce data volume.
+Log exclusions can exclude any logs sending to OpsPilot, either for security or to reduce data volume.
 
 Similar to the scrape pattern you can add a regex pattern match for logs that will be blacklisted from sending, with the option of using the wildcard character: ```*```
 

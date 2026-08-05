@@ -8,7 +8,7 @@
 Distributed tracing is a technique of tracking application requests as they move from frontend devices to backend services and databases. Developers use distributed tracing to troubleshoot applications and optimize application performance. You can pinpoint requests with errors or high latency and quickly diagnose performance issues to gain real-time visibility of the user experience.
 
 
-FusionReactor Cloud is able to provide distributed trace information which is captured and displayed in a graphical format, so you can visualize the entire request flow and quickly identify any issues or bottlenecks.  
+OpsPilot is able to provide distributed trace information which is captured and displayed in a graphical format, so you can visualize the entire request flow and quickly identify any issues or bottlenecks.  
 
 
 

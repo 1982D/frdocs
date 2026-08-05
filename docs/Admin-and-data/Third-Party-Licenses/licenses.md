@@ -8,7 +8,7 @@ search:
 
 ## FusionReactor use of Grafana
 
-Parts of **FusionReactor Cloud** use [Grafana](https://grafana.com/) and other open source software.
+Parts of **OpsPilot** use [Grafana](https://grafana.com/) and other open source software.
 
 ### Copyright notice for Grafana
 

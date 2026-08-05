@@ -1,10 +1,10 @@
 # Ruby
 
-This guide demonstrates how to instrument a Ruby application with OpenTelemetry to send traces and metrics to FusionReactor Cloud.
+This guide demonstrates how to instrument a Ruby application with OpenTelemetry to send traces and metrics to OpsPilot.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Ruby**: Ruby 3.0 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Ruby application.
 
@@ -102,7 +102,7 @@ Calculates the Fibonacci sequence while creating telemetry:
 
 **OpenTelemetry configuration:**
 Sets up the tracer provider:
-- **Service Name** - Identifies the application (appears as `job` in FusionReactor Cloud)
+- **Service Name** - Identifies the application (appears as `job` in OpsPilot)
 - **Span Processor** - Batches and exports spans to the collector
 - **Automatic Instrumentation** - `use_all()` enables instrumentation for common Ruby libraries
 
@@ -120,9 +120,9 @@ The application will calculate 20 Fibonacci numbers and send telemetry to your l
     **If you see:** `Connection refused` or `Failed to export`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fibonacci-service`
    - **Metrics**: Search for Ruby runtime metrics (if using instrumentation)
@@ -137,14 +137,14 @@ You should see:
 * Instrument Rails applications with [`opentelemetry-instrumentation-rails`](https://opentelemetry.io/docs/languages/ruby/automatic/)
 * Add HTTP instrumentation with `opentelemetry-instrumentation-http`
 * Instrument database calls with `opentelemetry-instrumentation-active_record`
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your Ruby application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Ruby application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 

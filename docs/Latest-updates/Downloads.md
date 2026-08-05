@@ -175,7 +175,7 @@ detect which services are running on your machine, and automatically create a co
 
 ### FRAM
 
-After you have installed or upgraded your FRAM version, you’ll find the Observability Agent installer on the FRAM summary screen. Click the **Install** button, then **Configure Install**, and here you can configure your integrations to start monitoring them with FusionReactor Cloud.
+After you have installed or upgraded your FRAM version, you’ll find the Observability Agent installer on the FRAM summary screen. Click the **Install** button, then **Configure Install**, and here you can configure your integrations to start monitoring them with OpsPilot.
 
 !!! note
     To install the Observability Agent via FRAM, you must have a minimum version of FusionReactor 12.
@@ -248,7 +248,7 @@ Change `CLUSTER_NAME` to your Kubernetes cluster name.
 
 - `fr-cloud-authentication-secret.yaml`
 
-Change `PASSWORD` to your FR Cloud API key. 
+Change `PASSWORD` to your OpsPilot API key. 
 
 **Step 3**: Run the following commands to create a new namespace to hold & deploy stack 
 

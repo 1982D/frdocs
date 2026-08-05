@@ -10,7 +10,7 @@ Attributes are information providing extra insight into the span.
 !!! note "Potential cause of truncated attribute values"
     An attribute value ending in `...` indicates that it has been truncated to limit data size.
 
-## FusionReactor Cloud UI attributes
+## OpsPilot UI attributes
 These are attributes required for transaction rendering in FusionReactor's Cloud UI.
 
 | Attribute Key/Name | Attribute Value |
@@ -118,7 +118,7 @@ Add to JVM arguments/options by prepending with `-D`.
 
 | Property key | Default | Description |
 | -- | -- | -------- |
-| `fr.observability.trace.attributes.datapack.enabled` | `true` | If enabled, sets datapack (cloud UI) attributes on spans. WARNING: Transactions/spans will no longer be rendered in the FusionReactor Cloud UI. |
+| `fr.observability.trace.attributes.datapack.enabled` | `true` | If enabled, sets datapack (cloud UI) attributes on spans. WARNING: Transactions/spans will no longer be rendered in the OpsPilot UI. |
 | `fr.observability.trace.attributes.datapack.obfuscation.enabled`  | `false`  | If enabled, attempts to obfuscate datapack span attributes. |
 | `fr.observability.trace.attributes.semantics.enabled`             | `true`  | If enabled, sets semantic attributes on spans. |
 | `fr.observability.trace.attributes.semantics.obfuscation.enabled` | `false` | If enabled, doesn't set or obfuscates `net.peer.port`, `net.peer.name`, `net.peer.ip`, `db.statement`, query string in `http.url` (for FusionRequest/WebRequests), `http.client_ip`, and `db.cassandra.coordinator.dc` semantic attributes. |

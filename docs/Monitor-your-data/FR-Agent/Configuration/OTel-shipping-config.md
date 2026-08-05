@@ -2,14 +2,14 @@
 
 ## Overview
 
-The FusionReactor agent now supports shipping observability data to any OpenTelemetry (OTel) compatible provider. By default, the agent ships to FusionReactor Cloud, but you can configure it to send data to any single OTel endpoint or use an OTel collector or Grafana Alloy to send data to multiple destinations simultaneously.
+The FusionReactor agent now supports shipping observability data to any OpenTelemetry (OTel) compatible provider. By default, the agent ships to OpsPilot, but you can configure it to send data to any single OTel endpoint or use an OTel collector or Grafana Alloy to send data to multiple destinations simultaneously.
 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1139978038?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="OTel Shipping Configuration"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Key Concepts
 
 ### Default behavior
-- **FusionReactor Cloud is the default destination** - no configuration needed.
+- **OpsPilot is the default destination** - no configuration needed.
 - All metrics, traces, and logs are automatically shipped to FusionReactor.
 
 ### Single endpoint shipping

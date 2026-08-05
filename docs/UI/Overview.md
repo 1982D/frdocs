@@ -211,24 +211,24 @@ The Cloud Status icons are only shown in a Cloud-licensed FusionReactor.
 
 The Cloud status indicator appears to the left of the clock.  The
 indicator shows you the current status of the instance's connection to
-FusionReactor Cloud.
+OpsPilot.
 
 When a Cloud license is installed, FusionReactor will attempt to make
 two connection to the Cloud:
 
--   A **Control Channel **connection, which enables FusionReactor Cloud
+-   A **Control Channel **connection, which enables OpsPilot
     to interact directly with this instance.  This allows FusionReactor
     to provide immediate responses to requests for data:  running
     transactions, stack traces etc.
 -   A **Metric Transport** connection, which ships historical and
-    statistical information to FusionReactor Cloud every minute.
+    statistical information to OpsPilot every minute.
 
 |Icon|Status|Meaning|
 |--- |--- |--- |
 |![](/attachments/245547453/245547665.png)|OK|Both the Control Channel and at least one Datapack Transport are available and successfully connected.|
-|![](/attachments/245547453/245547682.png)|Degraded|The Control Channel connection has failed, but at least one Metric Transport is successfully uploading periodic data. FusionReactor cloud will show statistical data, but immediate requests for data will not run successfully, and may time out.|
-|![](/attachments/245547453/245547682.png)|Degraded|The Metric Transport is failing to upload data, but a Control Channel connection is established. FusionReactor cloud will not show any new statistical data while in this state.|
-|![](/attachments/245547453/245547693.png)|Disconnected|Neither the Control Channel nor any Metric Transport could connect to FusionReactor cloud.|
+|![](/attachments/245547453/245547682.png)|Degraded|The Control Channel connection has failed, but at least one Metric Transport is successfully uploading periodic data. OpsPilot will show statistical data, but immediate requests for data will not run successfully, and may time out.|
+|![](/attachments/245547453/245547682.png)|Degraded|The Metric Transport is failing to upload data, but a Control Channel connection is established. OpsPilot will not show any new statistical data while in this state.|
+|![](/attachments/245547453/245547693.png)|Disconnected|Neither the Control Channel nor any Metric Transport could connect to OpsPilot.|
 
 FusionReactor only starts attempting to transfer periodic information
 one minute after startup.  If the Datapack Transport cannot connect, but
@@ -238,10 +238,10 @@ to a minute after starting up until the first datapack fails.
 The Cloud menu item can be dropped down to allow access to:
 
 -   **Configure Cloud**:  The user can turn on data obfuscation for data
-    sent to FusionReactor cloud, and enable **Class Decompiling**, which
-    allows FusionReactor Cloud to request the source code for Java
+    sent to OpsPilot, and enable **Class Decompiling**, which
+    allows OpsPilot to request the source code for Java
     classes, where this is available.
--   **Open Cloud:**  Opens the FusionReactor Cloud application in a new
+-   **Open Cloud:**  Opens the OpsPilot application in a new
     tab or window.
 -   **Status: **Shows the status of the two communications channels,
     along with some hints to problem resolution (where applicable) and a

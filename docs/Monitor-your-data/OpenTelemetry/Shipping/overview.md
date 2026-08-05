@@ -1,8 +1,8 @@
-# Shipping OpenTelemetry data to FusionReactor Cloud
+# Shipping OpenTelemetry data to OpsPilot
 
-Shipping OpenTelemetry (OTel) data to FusionReactor Cloud centralizes your observability and enables OpsPilot AI analysis, faster troubleshooting, and cross-tier performance optimization. Using a vendor-agnostic OTLP pipeline ensures your monitoring remains flexible and future-proof.
+Shipping OpenTelemetry (OTel) data to OpsPilot centralizes your observability and enables OpsPilot AI analysis, faster troubleshooting, and cross-tier performance optimization. Using a vendor-agnostic OTLP pipeline ensures your monitoring remains flexible and future-proof.
 
-To send your telemetry data to FusionReactor Cloud, you'll need a component that receives data from your instrumented applications and forwards it via OTLP. There are two recommended options:
+To send your telemetry data to OpsPilot, you'll need a component that receives data from your instrumented applications and forwards it via OTLP. There are two recommended options:
 
 
 ### 1. [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/)
@@ -26,7 +26,7 @@ Before and after setting up your telemetry pipeline, explore these topics:
 
 - **[Instrumentation Overview](/Monitor-your-data/OpenTelemetry/Instrumentation/Overview/)**: Instrument your application to generate telemetry
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common collector and pipeline issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about shipping telemetry data
 

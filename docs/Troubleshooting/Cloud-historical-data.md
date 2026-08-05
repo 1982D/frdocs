@@ -1,6 +1,6 @@
 # How to view historical data
 
-FusionReactor Cloud stores up to 13 months of metric data and up to 30 days of trace and log data, accessible through the Servers view, Applications list, and the Explore feature using the time picker.
+OpsPilot stores up to 13 months of metric data and up to 30 days of trace and log data, accessible through the Servers view, Applications list, and the Explore feature using the time picker.
 
 !!! info "This feature is part of OpsPilot"
     This functionality is available in **OpsPilot**, our cloud-native observability platform.

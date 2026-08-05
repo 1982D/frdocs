@@ -1,20 +1,20 @@
 # OpenTelemetry Collector
 
-The OpenTelemetry (OTel) Collector is a high-performance, vendor-agnostic proxy that receives, processes, and exports telemetry data. It acts as the central hub of your observability pipeline, allowing you to aggregate data from multiple services before securely shipping it to FusionReactor Cloud.
+The OpenTelemetry (OTel) Collector is a high-performance, vendor-agnostic proxy that receives, processes, and exports telemetry data. It acts as the central hub of your observability pipeline, allowing you to aggregate data from multiple services before securely shipping it to OpsPilot.
 
 ### Key Components
 
 * **Receivers**: Ingest data from your applications via the OTLP protocol (gRPC or HTTP).
 * **Processors**: Refine and transform data through batching, filtering, and resource limiting for efficiency and stability.
-* **Exporters**: Send processed telemetry to FusionReactor Cloud via OTLP/HTTP.
+* **Exporters**: Send processed telemetry to OpsPilot via OTLP/HTTP.
 
-## Shipping Telemetry to FusionReactor Cloud
+## Shipping Telemetry to OpsPilot
 
 The recommended approach is to use a **Unified OTLP Pipeline**. This allows you to send Traces, Metrics, and Logs through a single, efficient exporter.
 
 ### Prerequisites
 
-* A FusionReactor Cloud account.
+* A OpsPilot account.
 * Docker Desktop installed on your machine.
 
 
@@ -71,7 +71,7 @@ service:
 
 ### **Step 2:** Obtain your API Key
 
-1. Log in to **FusionReactor Cloud**.
+1. Log in to **OpsPilot**.
 2. Navigate to **Account Settings > API Keys**.
 3. Generate a new key and save it securely.
 
@@ -142,8 +142,8 @@ docker run --network host ghcr.io/open-telemetry/opentelemetry-collector-contrib
 ```
 
 
-2. **Check FusionReactor Cloud**:
-* Log in to your **FusionReactor Cloud** dashboard.
+2. **Check OpsPilot**:
+* Log in to your **OpsPilot** dashboard.
 * Navigate to **Explore > Traces**.
 * You should see a service named **`telemetrygen`** appearing within 60 seconds.
 

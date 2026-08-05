@@ -1,10 +1,10 @@
 # Python
 
-This guide demonstrates how to instrument a Python application with OpenTelemetry to send traces, metrics, and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Python application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
 ## Prerequisites
 
-* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in FusionReactor Cloud.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
 * **Python**: Python 3.8 or later installed on your system.
 * **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Python application.
 
@@ -27,7 +27,7 @@ Create a file named `fib.py` with the following code. This example calculates Fi
 
 ```python
 # Fibonacci by Iteration
-# Example Python code for FusionReactor Cloud integration
+# Example Python code for OpsPilot integration
 
 import sys
 import logging
@@ -113,7 +113,7 @@ def initialize_otel(endpoint: str) -> tuple:
     )
 
     # Initialize Metrics
-    # FusionReactor Cloud is Prometheus-based and requires Cumulative temporality
+    # OpsPilot is Prometheus-based and requires Cumulative temporality
     cumulative = {
         Counter: AggregationTemporality.CUMULATIVE,
         UpDownCounter: AggregationTemporality.CUMULATIVE,
@@ -181,7 +181,7 @@ Sets up the three OpenTelemetry providers:
 - **Meter Provider** - Sends metrics data to the collector
 - **Logger Provider** - Sends log data to the collector
 
-All three providers use the same service name (`fib_by_iteration`), which appears as the `job` label in FusionReactor Cloud.
+All three providers use the same service name (`fib_by_iteration`), which appears as the `job` label in OpsPilot.
 
 ## Step 3: Run locally
 
@@ -197,9 +197,9 @@ The application will calculate 20 Fibonacci numbers and send telemetry to your l
     **If you see:** `Connection refused` or `Max retries exceeded`
     **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-## Step 4: Verify in FusionReactor Cloud
+## Step 4: Verify in OpsPilot
 
-1. Log in to **FusionReactor Cloud**
+1. Log in to **OpsPilot**
 2. Navigate to **Explore**:
    - **Traces**: Select `Resource Service Name = fib_by_iteration`
    - **Metrics**: Go to **Explore > Metrics**, select `fib_iteration_counter`, and run the query. Filter by `job = fib_by_iteration` to scope to your service.
@@ -215,14 +215,14 @@ You should see:
 * Add automatic instrumentation for popular frameworks using [`opentelemetry-instrumentation`](https://opentelemetry.io/docs/languages/python/automatic/)
 * Instrument HTTP requests with `opentelemetry-instrumentation-requests`
 * Instrument database calls with `opentelemetry-instrumentation-sqlalchemy`
-* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in FusionReactor Cloud to visualize your Python application metrics
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Python application metrics
 
 ---
 
 ## Related Guides
 
 - **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
-- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in FusionReactor Cloud
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
 - **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
 - **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
 
