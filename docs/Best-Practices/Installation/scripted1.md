@@ -1,6 +1,6 @@
 # Java/Lucee/CFML & databases 
 
-![!Screenshot](/frdocs/Best-Practices/Installation/Images/Script1.png)
+![!Screenshot](/Best-Practices/Installation/Images/Script1.png)
 
 Manually installing FusionReactor requires you to directly place the FusionReactor installation files and configure the JVM arguments on your application servers.
 
@@ -12,8 +12,9 @@ Manually installing FusionReactor requires you to directly place the FusionReact
 !!! note 
     Ensure that you always use the latest version of FusionReactor.
 
-=== "Windows"
+#### Windows
 
+??? info "View more"
 
     ```
     mkdir -p C:\\FusionReactor\instance\{name}
@@ -21,8 +22,9 @@ Manually installing FusionReactor requires you to directly place the FusionReact
     curl -o C:\\FusionReactor\instance\{name}\frjvmti_x64.dll https://download.fusionreactor.io/FR/Latest/frjvmti_x64.dll
 
     ```
+#### Linux
 
-=== "Linux"
+??? info "View more"
 
     ```
     mkdir -p /opt/fusionreactor/instance/{name}
@@ -30,10 +32,9 @@ Manually installing FusionReactor requires you to directly place the FusionReact
     curl -o /opt/fusionreactor/instance/{name}/frjvmti_x64.dll https://download.fusionreactor.io/FR/Latest/frjvmti_x64.dll
 
     ```
+#### MacOS
 
-
-
-=== "MacOS"
+??? info "View more"
 
     ```
     mkdir -p /Applications/fusionreactor/instance/{name}
@@ -47,7 +48,7 @@ JVM arguments for your application server are only read when the server/JRE (Jav
 ### c) Add FusionReactor to the JVM arguments 
 
 !!! info 
-    App servers use different methods to do this and we advise reading the [Manual configuration examples](/Installation/Manual/Manual-Configuration-Examples/)
+    App servers use different methods to do this and we advise reading the [Manual configuration examples](/Monitor-your-data/FR-Agent/Installation/Configuration-examples/)
 
 ```
 ENV JAVA_OPTS="-javaagent:/opt/fusionreactor/instance/{name}/fusionreactor.jar=name=tomcat,address=8088 -agentpath:/opt/fusionreactor/instance/{name}/libfrjvmti_x64.so"
@@ -72,7 +73,9 @@ The Observability Agent provides you with the necessary tools and insights to ef
 <iframe src="https://player.vimeo.com/video/946516448?h=2875944fd9" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/946516448">How to install the observability Agent locally</a> from <a href="https://vimeo.com/user109619720">FusionReactor APM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-=== "Windows" 
+### Windows
+
+??? info "View more" 
    
     To download and run the installer, open powershell admin terminal, navigate to your desired download folder and run: 
 
@@ -84,7 +87,8 @@ The Observability Agent provides you with the necessary tools and insights to ef
     !!! info
         The installer for Windows assumes you are installing Grafana Alloy in the default location on the C drive. This is required for the config file to be placed in the correct location for Grafana Alloy to read it.
 
-=== "Linux" 
+### Linux
+??? info "View more" 
 
     To download and run the installer, in a terminal, run:
 
@@ -94,6 +98,7 @@ The Observability Agent provides you with the necessary tools and insights to ef
     chmod a+x "observability-agent-autoconf.sh"
     sudo /bin/bash observability-agent-autoconf.sh
     ````
+### Further options
 
 !!! info "Learn more"
-    Further [options](/frdocs/Monitor-your-data/Observability-agent/Installation/Snippets/#options) are available when installing the Observability Agent.
+    Further [options](/Monitor-your-data/Observability-agent/Installation/Snippets/#options) are available when installing the Observability Agent.

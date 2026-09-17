@@ -1,6 +1,6 @@
 # JDBC Event Snapshot History
 
-This page tracks the last ( n ) JDBC transactions which had an Event
+This page tracks the last (n) JDBC transactions which had an Event
 Snapshot generated. 
 
 !!! note

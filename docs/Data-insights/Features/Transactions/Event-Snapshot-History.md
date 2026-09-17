@@ -62,7 +62,7 @@ ERROR log messages or higher from log4j, slf4j and apache commons logging.  
 **Event Snapshots** are generated on the first log ERROR call. This captures all the stack variables and the call stack when this error is called This allows the developer to know when a log error statement was triggered and why. 
 
 !!! info "Learn more"
-    [Debug → Settings](/Debugger/Settings)
+    [Debug → Settings](/Data-insights/Features/Debugger/Settings/)
 
 ## Exception Snapshots
 
@@ -81,7 +81,7 @@ The number of files stored on the disk can be limit by a number to retain or a m
 
 
 !!! info "Learn more"
-    [Debug → Settings](/Debugger/Settings)
+    [Debug → Settings](/Data-insights/Features/Debugger/Settings/)
 
 ## Enabling support for Event Snapshots
 
@@ -96,10 +96,10 @@ Once enabled, **Event Snapshots** are triggered when exceptions occur, otherwise
 
 Before **Event Snapshots** can fire, they need to be enabled in the User Interface.  This is done from the **Debug** menu, on the **Event Snapshot** tab.
 
-![](/frdocs/attachments/245553109/245553115.png)
+![](/attachments/245553109/245553115.png)
 
 ## User Interface
-![](/frdocs/attachments/245553109/245553130.png)
+![](/attachments/245553109/245553130.png)
 
 Above is an example of the **Event Snapshot UI**. This **Event Snapshot** was triggered from the second attempt to call postgresql. The first
 triggers an error to be tracked on a transaction, then the second call triggers the **Event Snapshot** generation when the exception is first
@@ -125,10 +125,10 @@ frame which has variables (org.postgresql.core.v3.ConnectionFactoryImpl). On th
 
 Selecting the stack frame which corresponds to my code displays:
 
-![](/frdocs/attachments/245553109/245553125.png)
+![](/attachments/245553109/245553125.png)
 Much of the information appears to be missing, but simply expanding the 'ds' field displays:
 
-![](/frdocs/attachments/245553109/245553120.png)
+![](/attachments/245553109/245553120.png)
 
 
 ___

@@ -5,15 +5,12 @@ and under certain server configurations.
 
 
 !!! info "Learn more"
-    [ColdFusion Plugin](../Plugins/FusionReactor-ColdFusion-Plugin.md)
+    [ColdFusion Plugin](/Data-insights/Extras/Plugins/FusionReactor-ColdFusion-Plugin/)
 
 
-The ColdFusion Metrics page is used to display various details
-specifically for ColdFusion servers. Much this information is
-retrieved from the ColdFusion built-in Profiler and helps to
-understand the true state of your server traffic.
+The **ColdFusion Metrics** page displays detailed performance information specifically for ColdFusion servers. Much of this data is gathered from the built-in ColdFusion Profiler and provides valuable insights into the true state of your server traffic.
 
-![](/frdocs/attachments/245549433/245549445.png)
+![](/attachments/245549433/245549445.png)
 
 ## Graphs
 
@@ -53,25 +50,24 @@ The table has the following fields:
 |**Gateway**|Number of hits of Event Gateway requests.|
 |**RCFC**|Number of hits of RCFC (Remote ColdFusion Component) requests.|
 |**WebServices**|Number of hits of Web Service requests.|
-|**Total**|The sum of all the request types.|
+|**Total**|Sum of all the request types.|
 
 
 ## DB Pool Stats
 
-DB Pool Stats gives an overview of the state of the database pool. The
-database pool caches database connections so that they can be reused in
-future requests, reducing processing time.
+The **DB Pool Stats** section provides an overview of the current state of the database connection pool. The pool caches database connections so they can be reused across requests, improving efficiency and reducing processing time.
 
-The DB Pool Stats table has the following fields:
+The DB Pool Stats table includes the following fields:
 
-|Field|Description|
-|--- |--- |
-|**DSN**|The Data Source Name of the statistic.|
-|**Open**|The number of currently open cache database connections.|
-|**Avg Open**|The average number of connection checked out from the pool over time|
-|**Total**|The total number of connection in the pool (includes both available and connections in use).|
-|**Avg Total**|The average Total connection in the pool over time.|
-|**Max**|The maximum possible connections configured for this data source.|
+| **Field**     | **Description**                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| **DSN**       | The Data Source Name for the statistic.                                                        |
+| **Open**      | The number of currently open (active) cached database connections.                             |
+| **Avg Open**  | The average number of connections checked out from the pool over time.                         |
+| **Total**     | The total number of connections in the pool (including both available and in-use connections). |
+| **Avg Total** | The average total number of connections in the pool over time.                                 |
+| **Max**       | The maximum number of connections allowed for this data source, as configured.                 |
+
 
 
 ___

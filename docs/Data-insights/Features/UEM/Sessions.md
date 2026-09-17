@@ -10,7 +10,7 @@ User Sessions shows two graphs of the following data points :</span>
 Below is a sample image of the **User Sessions** page with little data
 shown.
 
-![Session Page](/frdocs/attachments/245551465/245551493.png)
+![Session Page](/attachments/245551465/245551493.png)
 
 ## Sessions Graph
 
@@ -96,7 +96,7 @@ for that application since the server started.
 !!! tip
      clicking the **Track** button, creates a graph series for the application, and moves the entries to the **Tracked Applications** table.
 
-![Sessions Table](/frdocs/attachments/245551465/245551487.png)
+![Sessions Table](/attachments/245551465/245551487.png)
 
 !!! info
     In order to have tracked applications the settings **Enable** and **Track Session Per Application** need to be enabled in the [User Settings](Settings.md).

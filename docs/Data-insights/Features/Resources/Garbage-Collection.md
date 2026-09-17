@@ -11,7 +11,7 @@ Machine (JVM).
 !!! note
     The Freed Memory graph only appears in Java versions 1.7 or higher.
 
-![](/frdocs/attachments/245551760/245551789.png)
+![](/attachments/245551760/245551789.png)
 ## Duration Graph
 
 The first graph is the **Duration Graph** which shows a series per
@@ -27,7 +27,7 @@ To deselect and reselect each independent value, simply
 click on their respective names. When a value is deselected (greyed
 out) then that value is no longer displayed on the activity graph.
 
-![](/frdocs/attachments/245551760/245551771.png)
+![](/attachments/245551760/245551771.png)
 
 Placing your mouse pointer on a data point within the graph shows a
 tool-tip with details about that sample, including:
@@ -54,7 +54,7 @@ To deselect and reselect each independent value, simply
 click on their respective names. When a value is deselected (greyed
 out) then that value is no longer displayed on the activity graph.
 
-![](/frdocs/attachments/245551760/245551765.png)
+![](/attachments/245551760/245551765.png)
 
 Placing your mouse pointer on a data point within the graph shows a
 tool-tip with details about that sample, including:
@@ -80,7 +80,7 @@ To deselect and reselect each independent value, simply
 click on their respective names. When a value is deselected (greyed
 out) then that value is no longer displayed on the activity graph.
 
-![](/frdocs/attachments/245551760/245551783.png)
+![](/attachments/245551760/245551783.png)
 
 Placing your mouse pointer on a data point within the graph shows a
 tool-tip with details about that sample, including:

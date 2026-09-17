@@ -18,9 +18,9 @@ If FusionReactor cannot contact the server or receive a valid response, you’ll
 
 There are three alternative approaches to activate FusionReactor:
 
-1. [Configuring a proxy](/frdocs/Admin-and-data/Licensing/Troubleshooting/#configuring-a-proxy)
-1. [Setting a firewall rule](/frdocs/Admin-and-data/Licensing/Troubleshooting/#setting-a-firewall-rule) to allow contact to the licensing server.
-1. [Performing a manual activation](/frdocs/Admin-and-data/Licensing/Troubleshooting/#performing-a-manual-activation).
+1. [Configuring a proxy](/Admin-and-data/Licensing/Troubleshooting/#configuring-a-proxy)
+1. [Setting a firewall rule](/Admin-and-data/Licensing/Troubleshooting/#setting-a-firewall-rule) to allow contact to the licensing server.
+1. [Performing a manual activation](/Admin-and-data/Licensing/Troubleshooting/#performing-a-manual-activation).
 
 ## Configuring a proxy
 
@@ -50,7 +50,7 @@ If the test is successful, FusionReactor will be able to activate through your p
 
       - Configure static IP in firewall rules.
       - Requires additional application server properties.
-      - See [Firewall Configuration Guide](/frdocs/Admin-and-data/Licensing/Static-Licensing-Endpoints/#using-dns-firewall-rules).
+      - See [Firewall Configuration Guide](/Admin-and-data/Licensing/Static-Licensing-Endpoints/#using-dns-firewall-rules).
 
 ## Manual activation process
 
@@ -61,6 +61,6 @@ For servers without external access:
 - Required for upgrades and license renewals.
 
 !!! info "Learn more"
-    [Manual Activation](/frdocs/Admin-and-data/Licensing/Manual-Activation/)
+    [Manual Activation](/Admin-and-data/Licensing/Manual-Activation/)
 
 

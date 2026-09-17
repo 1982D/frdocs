@@ -9,7 +9,7 @@ Mapped Buffer Pool graph. This works both ways.
 Below is a sample image of the **Buffer Pool Graph**, which is currently
 set to **Direct**.
 
-![](/frdocs/attachments/245551730/245551740.png)
+![](/attachments/245551730/245551740.png)
 
 Several time spans are available, with differing resolutions. These will
 be filled as data points that are collected by FusionReactor.

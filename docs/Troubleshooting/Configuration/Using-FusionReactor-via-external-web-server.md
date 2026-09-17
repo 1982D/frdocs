@@ -35,10 +35,10 @@ If you have security concerns about exposing the FR interface via your external 
 
 🔎**Find it**: **FusionReactor** > **Settings** > **Web Root**
 
-There are optionally configurable aspects of this feature using the [Web Root](/Settings/Main-Menu/#webroot) and [URI Matching settings](/Settings/Main-Menu/#webroot) in the FusionReactor Settings page, as discussed below.
+There are optionally configurable aspects of this feature using the [Web Root](/Data-insights/Features/Settings/Main-Menu/#webroot) and [URI Matching settings](/Data-insights/Features/Settings/Main-Menu/#webroot) in the FusionReactor Settings page, as discussed below.
 
 
- ![Screenshot](../images/configuration/webroot.png)
+ ![Screenshot](/Troubleshooting/images/webroot.png)
 ### Web Root
 
 The first setting here is **Web Root**. This is the root path for FusionReactor requests (whether accessed via an external web server or FusionReactor's own web server). The default web root value is /fusionreactor, but this could be changed, if you prefer. For example, changing this **Web Root** setting to /this/is/fusionreactor will make FusionReactor available from the path http://127.0.0.1:8088/this/is/fusionreactor.
@@ -51,5 +51,5 @@ The next setting controls the file extension (.cfm, .jsp, etc.) which would be u
 
 When using UEM via an external web server, there are additional considerations. 
 
-> 📖 **Learn more:**
-> [UEM manual](/UEM-and-Sessions/User-Experience-Monitoring/#using-uem-with-an-external-web-server).
+!!! info "Learn more"
+    [UEM manual](/Data-insights/Features/UEM/User-Experience-Monitoring/#script-examples#using-uem-with-an-external-web-server).

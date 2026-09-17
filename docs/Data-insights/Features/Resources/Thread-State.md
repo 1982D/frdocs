@@ -3,7 +3,7 @@
 The **Thread State** page displays a graph of samples currently stored
 in memory by FusionReactor.
 
-![](/frdocs/attachments/245551896/245551912.png)
+![](/attachments/245551896/245551912.png)
 
 If you're running a large number of threads this sampler could impact
 performance. This graph can be disabled in [Resource Settings](Settings.md)

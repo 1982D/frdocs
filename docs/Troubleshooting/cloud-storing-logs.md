@@ -9,9 +9,9 @@ Find the default instance log/archive folder locations in the instance’s **Log
 !!! info
     For ephemeral instances these folders are located within the container, so they cannot be changed to a location outside of the container via these fields.
 
-![!Screenshot](../Cloud/new-img/trouble/logsettings1.png)
+![!Screenshot](/Troubleshooting/images/logsettings1.png)
 
-![!Screenshot](../Cloud/new-img/trouble/logsettings2.png)
+![!Screenshot](/Troubleshooting/images/logsettings2.png)
 
 With Docker volumes you can specify and mount any persistent local folders as the folders used for logs and archived logs inside your container, in your docker-compose.yaml file. 
 
@@ -28,7 +28,7 @@ If necessary, you can also manually create and name the local folders that you w
 
 In the example below, a local **logs** and **archive** folder have been named under Volumes, which will be created and located in the same directory as the docker-compose.yaml file. 
 
-![!Screenshot](../Cloud/new-img/trouble/example.png)
+![!Screenshot](/Troubleshooting/images/example.png)
 
 ## Configure FusionReactor logging with Docker-Compose
 

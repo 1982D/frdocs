@@ -7,7 +7,7 @@ the users browser and how long the request took to transfer to the
 client machine, over the network. This data is visible on the requests
 as a sub transaction.
 
-[![UEM Graph](/attachments/245551537/245551548.jpg)](/attachments/245551537/245551548.jpg)
+![UEM Graph](/attachments/245551537/245551548.jpg)
 
 The image above shows the UEM graph from a live server on the User
 Experience page.
@@ -22,7 +22,7 @@ the clients machine.
 
 Below is a sample image of the User Experience Graph with little data.
 
-[![ User Experience Graph](/attachments/245551440/245551458.png)](/attachments/245551440/245551458.png)
+![ User Experience Graph](/attachments/245551440/245551458.png)
 
 ### Activity Graph
 
@@ -108,7 +108,7 @@ the time of server execution is not included in the client time.
 
 
 !!! note
-    It is safe to cache the FRAPI object to use for other [FRAPI](../FRAPI/FRAPI.md) calls.
+    It is safe to cache the FRAPI object to use for other [FRAPI](/Data-insights/Extras/FRAPI/) calls.
 
 #### JSP Script example
 
@@ -233,12 +233,12 @@ authentication.
 5.  Right-click on the first of the two files, and select **Features View**. 
     
     !!! note
-    This will select just this file within the virtual directory, in the display on the left.
+        This will select just this file within the virtual directory, in the display on the left.
 
 6.  Double click the **Authentication** icon 
 
     !!! note
-    We are not setting this at the virtual directory level, but just for the selected file.
+        We are not setting this at the virtual directory level, but just for the selected file.
 
 7.  Disable all forms of authentication other than **Anonymous Authentication**, leaving this  enabled.
 8.  Repeat from step 5-7 for the other file.

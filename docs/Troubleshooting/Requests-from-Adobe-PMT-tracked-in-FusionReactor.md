@@ -8,7 +8,7 @@ When configuring the PMT you can specify the heartbeat interval which would limi
 
 It is also possible to navigate to **FusionReactor** (top left) > **Restrictions** and add the following restriction:
 
-![](/images/Troubleshooting/PMT_Restriction_host.png)
+![](/Troubleshooting/images/PMT_Restriction_host.png)
 
 ````
 Match Strategy: Exact Match
@@ -24,7 +24,7 @@ This will stop FusionReactor from tracking the heartbeat requests from the PMT p
 
 It is possible for certain configurations of the ColdFusion connector to not have a hostname, this can result in the restriction above not stopping the connector requests being ignored by FusionReactor. If this is the case, we recommend using the restriction below:
 
-![](/images/Troubleshooting/PMT_Restriction_nohost.png)
+![](/Troubleshooting/images/PMT_Restriction_nohost.png)
 
 ````
 Match Strategy: Exact Match

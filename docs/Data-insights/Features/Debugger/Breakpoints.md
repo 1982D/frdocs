@@ -18,7 +18,7 @@ In addition, breakpoints have global configurations that apply to **all** breakp
 
 These settings govern whether the trigger should activate the handler for any given breakpoint.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552950.png)
+![](/Data-insights/Features/Debugger/images/245552950.png)
 
 The table displays the configured breakpoints.  
 
@@ -28,7 +28,7 @@ The table displays the configured breakpoints.
 
 Clicking the **information button** opens a popup with detailed state information about the breakpoint.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552944.png)
+![](/Data-insights/Features/Debugger/images/245552944.png)
 
 The locations section of this window contains the following fields:
 
@@ -48,12 +48,12 @@ the class has been loaded or if it's enabled.
 If there is an issue with the breakpoint, the icon will change to the
 following:
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552956.png)
+![](/Data-insights/Features/Debugger/images/245552956.png)
 
 The information button's locations section will also change to 'Issues',
 and display information about issues with the breakpoint.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552938.png)
+![](/Data-insights/Features/Debugger/images/245552938.png)
 
 ## Creating breakpoints
 
@@ -61,7 +61,7 @@ To create a new breakpoint you can click on the "New Breakpoint" button
 on the top right of the **Debugger** page. A modal dialog will open
 allowing you to specify the configuration for the breakpoint.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245553003.png)
+![](/Data-insights/Features/Debugger/images/245553003.png)
 
 ## Breakpoint triggers
 
@@ -196,7 +196,7 @@ There are 4 supported handlers :
 
 ### Enable Interactive Debugger - Pause thread
 
-The interactive debugger allows you to pause and manually step through a thread’s execution, enabling you to observe variable values as the thread progresses. Any paused threads are displayed in the **Paused Threads** section of the [Debugger](https://frdocs/Data-insights/Features/Debugger/Overview/) page.
+The interactive debugger allows you to pause and manually step through a thread’s execution, enabling you to observe variable values as the thread progresses. Any paused threads are displayed in the **Paused Threads** section of the [Debugger](https://Data-insights/Features/Debugger/Overview/) page.
 
 The interactive debugger supports pausing a thread indefinitely or for a specific duration before automatically resuming. If you view the paused thread before the timeout expires, **the thread will remain paused indefinitely**, regardless of the initial timeout setting.
 
@@ -223,7 +223,7 @@ After an email is sent, the debugger can pause the thread in the interactive deb
 
 ### Sampler graph - capture event data
 
-A breakpoint can be configured to generate a sample, enabling you to graph how often a specific breakpoint is triggered. This helps identify patterns in code execution and can highlight when certain issues occur. Once a breakpoint is set to trigger a sampler, the resulting graph will be available on the [Sampler Graphs](../Debugger/Overview.md#sampler-graphs) page. The graph series will remain until the breakpoint is deleted by the user.
+A breakpoint can be configured to generate a sample, enabling you to graph how often a specific breakpoint is triggered. This helps identify patterns in code execution and can highlight when certain issues occur. Once a breakpoint is set to trigger a sampler, the resulting graph will be available on the [Sampler Graphs](/Data-insights/Features/Debugger/Overview/#sampler-graphs) page. The graph series will remain until the breakpoint is deleted by the user.
 
 ### Set Field Value
 
@@ -236,7 +236,7 @@ value which is being set.  In other words, if the field is set to null, then th
 
 ### Editing breakpoints
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552992.png)
+![](/Data-insights/Features/Debugger/images/245552992.png)
 
 You can edit the breakpoint by clicking the **Edit** button (the middle button). This opens the same dialog as the one used to create a new breakpoint.
 
@@ -248,16 +248,16 @@ to the left of the breakpoint name.
 An enabled breakpoint can have one of the following icons:
 
 
-- A **solid red square** ![](/frdocs/Data-insights/Features/Debugger/images/245552962.png)
+- A **solid red square** ![](/Data-insights/Features/Debugger/images/245552962.png)
 indicates the breakpoint is enabled and properly installed.
-- A **broken red square** ![](/frdocs/Data-insights/Features/Debugger/images/245552956.png) indicates an issue with the breakpoint. You can view the breakpoint's state, including any problems, by clicking the information button next to the breakpoint name.
-- A **disabled breakpoint** is represented by this icon:   ![](/frdocs/Data-insights/Features/Debugger/images/245552980.png)  
+- A **broken red square** ![](/Data-insights/Features/Debugger/images/245552956.png) indicates an issue with the breakpoint. You can view the breakpoint's state, including any problems, by clicking the information button next to the breakpoint name.
+- A **disabled breakpoint** is represented by this icon:   ![](/Data-insights/Features/Debugger/images/245552980.png)  
 
 When the breakpoint is disabled, it will appear as shown:
 
 
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552986.png)
+![](/Data-insights/Features/Debugger/images/245552986.png)
 
 
 ### Deleting breakpoints

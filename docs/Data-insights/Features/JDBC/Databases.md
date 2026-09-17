@@ -4,7 +4,7 @@ The Databases page shows an overview of the statistics gathered by
 FusionReactor, related to database connections.
 
 
-![](/frdocs/attachments/245551341/245551346.png)
+![](/attachments/245551341/245551346.png)
 
 
 ## Page controls

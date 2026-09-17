@@ -1,3 +1,9 @@
+---
+search:
+  exclude: true
+---
+
+
 # Third Party Licenses
 
 Intergral Information Solutions GmbH, Im Hoelderle 3, 72224 Ebhausen.

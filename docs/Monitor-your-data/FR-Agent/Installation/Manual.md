@@ -11,17 +11,9 @@ Manually installing FusionReactor requires you to directly place the FusionReact
 
 ## Installing FusionReactor
 
-### **Step 1**: Create a directory structure for FusionReactor
+### **Step 1**: Create the FusionReactor directory and download installation files
 
-To begin installing FusionReactor onto your application server, first create a directory structure for FusionReactor files to be stored within. This directory will contain your logs, configurations and installation files.
-
-!!! warning
-    Make sure the user running your application server has read and write permissions for this directory. Without these permissions, the server might not start, or it could fail to save logs and configurations.
-
- The recommended FusionReactor directory structure is ```{FusionReactor root}/instance/{Instance Name}```.
-
-!!! tip
-    You can use a unique name for your server, but make sure to remember it. 
+Create the recommended directory structure `/{FusionReactor root}/instance/{Instance Name}` to store FusionReactor files (logs, configurations, etc.). 
 
 Below is the recommended directory structure:
 
@@ -31,28 +23,25 @@ Below is the recommended directory structure:
 | **Linux** | ```/opt/fusionreactor/instance/myInstance``` |
 | **MacOS** | ```/Applications/FusionReactor/instance/myInstance``` |
 
-### **Step 2**: Download the FusionReactor installation files
-The installation of FusionReactor requires a Java agent to run the core FusionReactor product when your application starts.
+!!! warning
+    Ensure the user running your application server server has read and write permissions to this directory, otherwise you may be unable to start the application server or save any information such as logs or configuration to disk.
 
-There is also a Debug library that can be optionally added for use of the Debugger and Event Snapshot features. 
 
-Download the **fusionreactor.jar** file and **Debug library**, [here](https://www.fusion-reactor.com/download-fusionreactor/).
+Then, download the **fusionreactor.jar** file and optionally the **Debug library** (for full functionality in trial, ultimate, or developer editions) from [here](https://www.fusion-reactor.com/download-fusionreactor/). 
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/dlweb.jpg)
+
+!!! info
+    The Debug library is a zip file containing platform-specific libraries (frjvmti_x64.dll for Windows, libfrjvmti_x64.so for Linux, libfrjvmti_x64.dylib for MacOS).
 
 !!! tip
     We recommend installing this argument if you have a trial, ultimate or developer edition to access the full functionality of FusionReactor.
 
 
-The debug library is a zip file containing the libraries for all supported platforms.
+![!Screenshot](/Monitor-your-data/FR-Agent/Images/downloadweb.png)
 
-| Library | Platform |
-|--- |--- |
-| frjvmti_x64.dll | Windows |
-| libfrjvmti_x64.so | Linux |
-| libfrjvmti_x64.dylib | MacOS |
 
-### **Step 3**: Place the FusionReactor installation files into the directory structure
+
+### **Step 2**: Place the FusionReactor installation files into the directory structure
 With your directory structure configured, place the **fusionreactor.jar** and **debug lib** into your newly created instance directory.
 
 !!! tip
@@ -62,11 +51,11 @@ With your directory structure configured, place the **fusionreactor.jar** and **
 !!! note
     You only need to copy the debug library specific to your operating system.
 
-### **Step 4**: Stop your application server
+### **Step 3**: Stop your application server
 
 JVM arguments for your application server are only read when the server/JRE (Java Runtime Environment) is started. We recommend stopping your application server before adding or modifying any of your JVM arguments.
 
-### **Step 5**: Add additional JVM arguments to your application server configuration
+### **Step 4**: Add additional JVM arguments to your application server configuration
 
 To run FusionReactor, you must add JVM arguments to initialize the FusionReactor installation files.
 
@@ -89,7 +78,7 @@ Below are some examples of adding FusionReactor to a java process that runs a ja
 
 For a **comprehensive** list of example configurations:
 !!! info "Learn more"
-    [Configuration examples](/frdocs/Monitor-your-data/FR-Agent/Installation/Configuration-examples/)
+    [Configuration examples](/Monitor-your-data/FR-Agent/Installation/Configuration-examples/)
 
 !!! example
     #### **Windows:**
@@ -110,7 +99,7 @@ For a **comprehensive** list of example configurations:
 
 In order to complete the installation of FusionReactor, you must restart your application server for the changes to the JVM arguments to take effect.
 
-### **Step 6**: Start your application server
+### **Step 5**: Start your application server
 With your JVM arguments now modified, FusionReactor should start within the Java process.
 
 To confirm this, view your application logs looking for the FusionReactor block as below:

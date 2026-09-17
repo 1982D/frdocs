@@ -1,101 +1,98 @@
-# JMX MBeans
 
-FusionReactor's JMX functionality (JMX MBeans, JMX MBean Overview, JMX
-MBean Graphs, and AWS CloudWatch Metrics) are available in
-**FusionReactor Enterprise Edition** and **Ultimate Edition** (both
-on-premise and Cloud license types) only.
 
-## Introduction
+## JMX MBeans
 
-**Java Management Extensions - Management Beans** are a technology
-introduced into the Java language in version 5.0. 
+FusionReactor’s **JMX functionality** (JMX MBeans, JMX MBean Overview, JMX MBean Graphs, and AWS CloudWatch Metrics) is available **only** in the **FusionReactor Enterprise Edition** and **Ultimate Edition** (both on-premise and Cloud license types).
 
-The JMX MBean system is a mechanism whereby the internals of a software
-application can be exposed in a controlled, standard way.  Users with
-suitable software can then inspect and (in some cases) change these
-values.  An MBean-instrumented application can also allow a connected
-client to trigger certain operations and be notified when values change.
+### Introduction
 
-FusionReactor 7 adds support for reading and writing most types of JMX
-bean data.  
+**Java Management Extensions (JMX)** were introduced in Java 5.0 as a standard technology for monitoring and managing applications.
+
+The **JMX MBean system** provides a way to expose the internals of a software application in a controlled, standardized manner. With the appropriate tools, users can:
+
+* Inspect and, in some cases, modify exposed values.
+* Trigger certain operations within the application.
+* Subscribe to notifications when values change.
+
+With FusionReactor 7, support was added for reading and writing most types of JMX bean data.
+
+
 
 !!! info
     Triggered operations and value notifications are not yet supported.
 
-## JMX MBeans view
 
-Found in **Metrics &gt; JMX MBeans.**
 
-The JMX MBeans view consists of a tree representation of the current JMX
-hierarchy on the left, and tab panes for attributes and metadata on the
-right.
+## JMX MBeans View
 
-![](/frdocs/attachments/245549330/245549375.png)
+Located under **Metrics > JMX MBeans**, the JMX MBeans view consists of:
 
-The tree can be unfolded to drill down through the hierarchy of JMX
-services.  Where an object supports instrumentation, it is colored blue
-with an orange bullet.  Clicking this link causes the objects attributes
-and metadata to be retrieved and displayed.
+* A **tree representation** of the current JMX hierarchy on the left.
+* **Tab panes** on the right displaying attributes and metadata for the selected MBean.
 
-The tree can be fully hidden and revealed using the **Hide All**
-and **Show All** buttons. 
 
-The **Show All** button recursively retrieves and opens the JMX
-instrumentation hierarchy for the tracked server. 
+
+
+![](/attachments/245549330/245549375.png)
+
+
+
+The tree can be expanded to navigate through the hierarchy of JMX services. Objects that support instrumentation are highlighted in **blue** with an **orange bullet**. Clicking on such an object retrieves and displays its attributes and metadata.
+
+The tree can be fully hidden or revealed using the **Hide All** and **Show All** buttons.
+
+* **Show All:** Recursively retrieves and opens the entire JMX instrumentation hierarchy for the tracked server.
+
+
+
 
 !!! note
     This can take significant time for production Java applications.
+
 
 ## Attributes
 
 Attributes for the selected MBean are displayed in a table:
 
-|Name|Description|
-|--- |--- |
-|**Name**|This is the JMX-registered name of the attribute. These are often represented as camelCase variable names.|
-|**Value**|The current value of the variable. If the value is not a simple type, FusionReactor attempts to display it in a logical way (arrays, for instance, are shown in square brackets). Where values are marked by the JMX instrumentation as changeable, these are shown as editable. Press Return to commit these values back to the server.<br><br>It is not recommended to change JMX-instrumented values unless you are familiar with the effects of the change. Often, software engineers provide this functionality as an internal test mechanism; changing these values 'beneath' the software application can have unintended consequences.|
-|**Type**|This is the Java type of the tracked object.|
+| Name      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**  | The JMX-registered name of the attribute, often represented in **camelCase**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Value** | The current value of the attribute. If the value is not a simple type, FusionReactor attempts to display it logically (for example, arrays are shown in square brackets). Values marked as **changeable** by the JMX instrumentation are editable-press **Return** to commit changes back to the server. <br><br>**Caution:** Modifying JMX-instrumented values is not recommended unless you fully understand the effects. These changes are often intended for internal testing and can have unintended consequences if altered incorrectly. |
+| **Type**  | The Java type of the tracked attribute.                                                                                                                                                                                                                                                                                                                                                                                                          
 
-### JMX MBean tracking
+### JMX MBean Tracking
 
-FusionReactor is able to track and graph JMX values over time.  Simple
-numeric values can be tracked, and these are displayed in
-the **Attributes** tab with a **Play** icon: :fa-play:
+FusionReactor can **track and graph JMX values over time**. Simple numeric values are displayed in the **Attributes** tab with a **Play** icon (:fa-play:).
 
-Once clicked, FusionReactor begins periodic sampling of the value. The
-stored data can be displayed in **Metrics &gt; JMX Bean Graphs**.  A new
-button cluster replaces the play icon:
+Clicking the **Play** icon starts periodic sampling of the value. The collected data can then be viewed under **Metrics > JMX Bean Graphs**. Once tracking begins, the **Play** icon is replaced by a set of buttons with the following functionality:
 
-From left to right, the functionality presented is as follows:
+| Functionality                             | Description                                                                                                                                                                                                                                                                   |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![](/attachments/245549330/245549352.png) | Displays the FusionReactor graph associated with this tracked value.                                                                                                                                                                                                          |
+| ![](/attachments/245549330/245549358.png) | Sends this metric to **AWS CloudWatch Metrics**. Clicking the button opens a dialog to select CloudWatch Dimensions for the series (see AWS CloudWatch Metrics). The **Play** icon changes to a **Stop** icon to indicate active transfer. Clicking again stops the transfer. |
+| ![](/attachments/245549330/245549369.png) | Removes this value from all FusionReactor tracking.                                                                                                                                                                                                                           |
 
-|Functionality|Description|
-|--- |--- |
-| ![](/frdocs/attachments/245549330/245549352.png) |Displays the FusionReactor graph associated with this tracked data.|
-| ![](/frdocs/attachments/245549330/245549358.png) |Instructs the FusionReactor AWS CloudWatch Metrics system to begin transferring this metric to CloudWatch. When Clicked, a dialog requests the CloudWatch Dimensions to be used for this series (see AWS CloudWatch Metrics). <br> The Play icon changes to a Stop icon to indicate this metric is being transferred to CloudWatch. Click this button again to stop transferring this value to CloudWatch.|
-| ![](/frdocs/attachments/245549330/245549369.png) |Removes this value from all FusionReactor tracking.|
 
 ### Metadata
 
+Metadata for the selected MBean is displayed in a table. It includes information for:
 
-Attributes for the selected MBean are displayed in a table.  Metadata is
-listed for the bean itself (**MBeanInfo**) and each attribute exposed by
-that bean (**MBeanAttributeInfo).**
+* The **MBean** itself (**MBeanInfo**).
+* Each attribute exposed by the MBean (**MBeanAttributeInfo**).
+
+
 
 ## JMX MBean Overview
 
 The **MBean Tracking Overview** provides a list of all attributes
 currently tracked by FusionReactor.
 
-![](/frdocs/attachments/245549391/245549397.png)
+![](/attachments/245549391/245549397.png)
 
-Attributes are listed by their owning bean, described in its position in
-the tree using **slash notation**. 
 
-The same operation button cluster as in **[JMX
-MBean](#jmx-mbean-tracking), **with the
-addition of the looking-glass icon.  When clicked, this opens the **[JMX
-MBean](#jmx-mbeans-view)** page with the attribute already
-focussed.
+Attributes are listed according to their **owning bean**, represented by its position in the tree using **slash notation**.
+
+The same operation button cluster from **[JMX MBean Tracking](#jmx-mbean-tracking)** is available here, with the addition of a **looking-glass icon**. Clicking this icon opens the **[JMX MBeans View](#jmx-mbeans-view)** page with the selected attribute already focused.
 
 
 ## JMX MBean Graphs
@@ -103,20 +100,19 @@ focussed.
 The **JMX MBean Graphs** page displays the tracked data for a single
 MBean-tracked value.
 
-![](/frdocs/attachments/245549403/245549408.png)
+![](/attachments/245549403/245549408.png)
 
 The drop-down at the top can be used to select which attribute should be
 displayed.
 
-![](/frdocs/attachments/245549403/245549414.png)
+![](/attachments/245549403/245549414.png)
 
-The range selector presents **Live**, **last hour**, **last
-day** or **last week** values, while the zoom selector zooms the graph
-into the selected range.  
 
-Using the two selectors together makes it
-possible to get both a high-level overview together with low-level
-fine-grained data in a single graph.
+The **range selector** allows you to view data for **Live**, **Last Hour**, **Last Day**, or **Last Week**. The **zoom selector** lets you zoom into a specific portion of the graph within the selected range.
+
+Using both selectors together enables you to see a **high-level overview** while also examining **fine-grained, detailed data** in the same graph.
+
+
 
 ___
 

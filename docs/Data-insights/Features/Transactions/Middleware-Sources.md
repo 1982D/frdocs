@@ -4,7 +4,7 @@ The **Middleware / Framework Data Sources** page shows an over view of the
 statistics gathered by FusionReactor, related to frameworks used.
 Currently tracking Kafka, Redis (Redisson).
 
-![](/frdocs/attachments/245550935/245550940.png)
+![](/attachments/245550935/245550940.png)
 
 ## Page controls
 

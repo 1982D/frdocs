@@ -52,7 +52,7 @@ if a server changes state.
 
 1.  Go to the **Server Shutdown/Start Up Alerts** tab.
 
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245549013.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245549013.png)
 
     -   To send an email when an instance becomes
         unavailable, select **On Shutdown** on the **Send Alert Email** tab.
@@ -64,7 +64,7 @@ if a server changes state.
 
 2.  The **Enable** option must be selected on the **Generate Notification** tab.
 
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245549019.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245549019.png)
 
 ## Operational impacts of scripting
 
@@ -103,13 +103,13 @@ should be **offlined** from FusionReactor **before** being shut down. 
     This can be done within the **Enterprise Dashboard**, by clicking the
     **+/-** button on the server icon:
 
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245549049.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245549049.png)
 
     ... or from within **Enterprise &gt; Manage Servers** by selecting the
     **Modify** icon for the affected server, then changing its **Status** to
     **Offline**:
 
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245549044.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245549044.png)
 
 FusionReactor will not monitor these systems. When maintenance is
 complete, the servers should be online again by reversing the process.

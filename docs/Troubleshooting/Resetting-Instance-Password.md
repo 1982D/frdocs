@@ -45,6 +45,6 @@ Now that the configuration has been saved you can restart your Application Serve
 
 When you go to FusionReactor for the first time, you will be prompted to enter a new password for the Administrator user.
 
-![New Password Dialogue](/images/configuration/Enter-New-Password.jpg)
+![New Password Dialogue](/Troubleshooting/images/Enter-New-Password.jpg)
 
 You can then navigate to the Manage Users page to set passwords for your Manager and Observer Users.

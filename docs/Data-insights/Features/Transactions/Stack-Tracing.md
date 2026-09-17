@@ -18,7 +18,7 @@ header colors matches the thread state.
 !!! info "Learn more"
     [Threads](../Resources/Threads.md) 
 
-![](/frdocs/attachments/245550463/245550478.png)
+![](/attachments/245550463/245550478.png)
 
 The headers format is
 
@@ -39,12 +39,12 @@ called the next frame, or in which code is currently execution.
 
 The stack traces in FusionReactor are are displayed in two formats: **Rich** and **Plain** 
 
-![](/frdocs/attachments/245550463/245550498.png)
+![](/attachments/245550463/245550498.png)
 
--   Clicking on the **blue** class name opens up the [decompile](../UI/Overview.md#decompilation) code
+-   Clicking on the **blue** class name opens up the [decompile](/UI/Overview/) code
     for the specific class.
 
--   Clicking on the **red** method name opens up the [decompile](../UI/Overview.md#decompilation) code
+-   Clicking on the **red** method name opens up the [decompile](/UI/Overview/) code
     for the method, or methods if there are more than one method with
     the same name, of the specific class.
 
@@ -53,12 +53,12 @@ The stack traces in FusionReactor are are displayed in two formats: **Rich** and
     location prefilled. 
 
 
-With **FusionReactor** it is possible to [decompile](../UI/Overview.md#decompilation) both Java and CFML (cfc
+With **FusionReactor** it is possible to [decompile](/UI/Overview/) both Java and CFML (cfc
 and cfm files). If **FusionReactor** has access to the CFML code we will
 display the cfm or cfc file as it is stored on disk, however if
 **FusionReactor** has no access to the code decompiled Java code for your
 CFML will be displayed. Allowing **FusionReactor** access to the application
-code can be configured in [Debug Sources](../Debugger/Sources.md)
+code can be configured in [Debug Sources](/Data-insights/Features/Debugger/Sources/)
 
 ## Debug
 
@@ -69,15 +69,15 @@ With the introduction of the **Production Debugger** in **FusionReactor** 6,
 Stack Traces have also been given an extra feature to create breakpoints
 directly for a source file by clicking on it in the Stack Trace:
 
-![](/frdocs/attachments/245550463/245550473.png)
+![](/attachments/245550463/245550473.png)
 
 It is also possible to create a trigger directly for a Request that
 failed due to an **Exception**, from the **Request Detail** page:
 
-![](/frdocs/attachments/245550463/245550508.png)
+![](/attachments/245550463/245550508.png)
 
 !!! info "Learn more"
-    [Debug](../Debugger/Overview.md).
+    [Debug](/Data-insights/Features/Debugger/Overview/).
 
 
 ## Locks
@@ -124,7 +124,7 @@ displayed at the top of the page to show this.
 !!! info 
     Lock links are available from any page showing locks (Stack Traces, Debug Frames, Profiles).
 
-[![](/attachments/245550463/245550493.png)](/attachments/245550463/245550493.png)
+![](/attachments/245550463/245550493.png)
 
 ## Thread / Transaction table
 

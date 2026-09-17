@@ -5,7 +5,7 @@ a list of all JDBC transaction in a sequential order that have used the
 highest amount of memory on this instance.
 
 !!! example "Example: JDBC statement data obfuscated"
-    ![](/frdocs/attachments/245550873/245550904.png)
+    ![](/attachments/245550873/245550904.png)
     
 ## Highest memory usage transactions table
 

@@ -10,7 +10,7 @@ such as ColdBox.
 The transaction name (App/Txn) is made visible in various views, such as
 the **Transaction or Request History**.
 
-![](/frdocs/attachments/288489490/288391179.jpg)
+![](/attachments/288489490/288391179.jpg)
 
 In this example App is *Struts 2* and Txn is the actual transaction name
 which is extracted from the application URL e.g. *addToCart.action*.
@@ -21,7 +21,7 @@ In this example, we are using the Transaction Page Identifier Type = URL
 element with the SES (Search Engine Safe) Element Offset = 3, which can
 be seen in the example below.
 
-![](/frdocs/attachments/288489490/288391191.jpg)
+![](/attachments/288489490/288391191.jpg)
 
 
 ## Example using URL Element

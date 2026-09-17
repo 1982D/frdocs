@@ -77,7 +77,7 @@ Except when required by law, paid subscription fees, usage fees and charges are 
 Use of any of our software agents (each an "Agent") is governed by the terms of the license agreement that accompanies or is included with the Agent, or by the license agreement expressly stated in the service page(s) accompanying the Agent. These license terms may be posted with the Agent downloads or at the service page where the Agent can be accessed.
 
 !!! info
-    Review our [license page](licenses.md) for the licenses governing our Agents.
+    Review our [license page](/Admin-and-data/Third-Party-Licenses/licenses/) for the licenses governing our Agents.
 
 ## Use of Decompiler
 The service includes decompiling functionality ("Decompiler") that enables reproducing source code from the original binary code. You hereby acknowledge that the binary code and source code may be protected by copyright, trademark and other laws which may prohibit you from decompiling them and/or using Decompiler. 

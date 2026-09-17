@@ -7,4 +7,4 @@ further.
 The content of this graph is already covered on the [System
 Metrics](System-Metrics.md) page.
 
-![](/frdocs/attachments/245554897/245554903.png)
+![](/attachments/245554897/245554903.png)

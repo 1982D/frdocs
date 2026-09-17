@@ -5,7 +5,7 @@ currently stored in memory by FusionReactor.
 
 Below is a sample image of the **Heap/Non Heap Memory Graph**.
 
-![](/frdocs/attachments/245549160/245551670.png)
+![](/attachments/245549160/245551670.png)
 
 This graph is very efficient as it allows you to quickly analyze non
 heap memory, heap memory and a combination of both. Not only that but,

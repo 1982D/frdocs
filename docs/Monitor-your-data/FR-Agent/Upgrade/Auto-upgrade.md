@@ -7,17 +7,17 @@
 Upgrading the full installer of FusionReactor requires you to download a newer version of the full installer and run the new installer on the server that currently has FusionReactor installed.
 
 !!! note
-    Upgrading the FRAM Service does not upgrade the instances of FusionReactor on your Application Server. This is done to prevent FusionReactor restarting your applications when an upgrade is performed. Go to the Instance Manager and upgrade [each instance](/frdocs/Monitor-your-data/FR-Agent/Installation/FRAM/) individually.
+    Upgrading the FRAM Service does not upgrade the instances of FusionReactor on your Application Server. This is done to prevent FusionReactor restarting your applications when an upgrade is performed. Go to the Instance Manager and upgrade [each instance](/Monitor-your-data/FR-Agent/Installation/FRAM/) individually.
 
 If FusionReactor is not currently installed on the server, you'll be guided through the full installation process.
 
 When running the installer, you'll first see a **Welcome** screen.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-welcome.jpg)
+![](/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-welcome.jpg)
 
 Clicking the **Next** button will proceed with the installation and open the **License Agreement** screen.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-license-agreement.jpg)
+![](/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-license-agreement.jpg)
 
 Carefully review the license agreement before continuing, then choose the **I accept the agreement** option (if you accept the terms and conditions) and click **Next** to proceed. 
 
@@ -25,11 +25,11 @@ Selecting **Cancel** if you do not accept the license agreement will exit the in
 
 Clicking **Next** displays the FusionReactor **Update** screen. Here you can choose whether to start the FRAM Service after the upgrade is complete and add a Desktop shortcut (Windows only) for FRAM providing it does not already exist.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-confirmation.jpg)
+![](/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-confirmation.jpg)
 
 Clicking **Next** will perform the upgrade then display the **Installation Completed** screen.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-complete.jpg)
+![](/Monitor-your-data/FR-Agent/Images/Upgrade-full-installer-complete.jpg)
 
 ___
 

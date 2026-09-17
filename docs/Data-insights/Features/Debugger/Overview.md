@@ -1,4 +1,4 @@
-
+﻿
 
 # Overview
 
@@ -22,19 +22,19 @@ The **FusionReactor Production Debugger** is available in the Ultimate(6.0+), De
      - Field access/modification breakpoints  
      - Exception thrown/caught breakpoints  
      - Conditional breakpoints & rate limiting  
-     - **Breakpoint Email Alerts** – Get notifications with stack traces and variable context  
+     - **Breakpoint Email Alerts**  -  Get notifications with stack traces and variable context  
 
 - **Additional Debugging Tools**  
-     - **Breakpoint Samplers** – Capture debugging data without disrupting execution  
+     - **Breakpoint Samplers**  -  Capture debugging data without disrupting execution  
 
 The **Debugger** is accessible from the left navigation bar in FusionReactor. Paused threads are indicated by an icon in the top navigation bar:  
 
-![Debug Icon](/frdocs/Data-insights/Features/Debugger/images/245552736.png)  
+![Debug Icon](/Data-insights/Features/Debugger/images/245552736.png)  
 
 Breakpoints can be set from the debugger page, stack traces, error details, or via the **New Breakpoint** button when viewing paused thread details.  
 
 
-![Debug Screenshot](/frdocs/Data-insights/Features/Debugger/images/245552742.png)
+![Debug Screenshot](/Data-insights/Features/Debugger/images/245552742.png)
 
 ## Interactive debugger
 
@@ -43,13 +43,13 @@ The **FusionReactor Production Debugger** allows you to **pause threads** and in
 
 You can access the **interactive debugger** from:  
 - The **Debugger** page by clicking the debug icon on a paused thread.  
-- A [running request or transaction](../Transactions/Activity.md) with a paused thread.  
-- The [Resources → Threads](../Resources/Threads.md) page by selecting the debug icon on a paused thread.  
+- A [running request or transaction](/Data-insights/Features/Transactions/Activity/) with a paused thread.  
+- The [Resources → Threads](/Data-insights/Features/Resources/Threads/) page by selecting the debug icon on a paused thread.  
 
 The **Debugger** page provides an overview of **source and class files, configured breakpoints, and paused threads**, allowing for efficient debugging and issue resolution.  
 
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552794.png)
+![](/Data-insights/Features/Debugger/images/245552794.png)
 
 This page is split into 4 sections:
 
@@ -65,9 +65,9 @@ The source files tree viewer allows you to browse and select files from configur
 You can seamlessly switch between source files and class files using the tabs at the top of the section.
 
 !!! info "Learn more"
-    [Sources](/frdocs/Data-insights/Features/Debugger/Sources/)
+    [Sources](/Data-insights/Features/Debugger/Sources/)
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552800.png)
+![](/Data-insights/Features/Debugger/images/245552800.png)
 
 #### Source Code
 
@@ -90,7 +90,7 @@ You can configure the **Fire Count** and **Pause Time** for interactive breakpoi
 
 The breakpoint section shows currently configured breakpoints.
 
-![](/frdocs/Data-insights/Features/Debugger/images/243499042.png)
+![](/Data-insights/Features/Debugger/images/243499042.png)
 
 The information button (i) can be used to view details about
 the breakpoint. Edit (to the right of information) can be used to edit
@@ -98,7 +98,7 @@ the configuration of the breakpoint. The red cross (rightmost button)
 can be used to remove the breakpoint permanently. 
 
 !!! info "Learn more"
-    [Breakpoints](/frdocs/Data-insights/Features/Debugger/Breakpoints/)
+    [Breakpoints](/Data-insights/Features/Debugger/Breakpoints/)
 
 #### Paused Threads
 
@@ -106,16 +106,16 @@ can be used to remove the breakpoint permanently.
 
 The **Paused Threads** section at the bottom of the page displays all threads currently paused in the debugger.  
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552842.png)  
+![](/Data-insights/Features/Debugger/images/245552842.png)  
 
 This table provides details about paused threads, including:  
-- **Thread** – The name or identifier of the thread.  
-- **Location** – The class, method, and line number where the thread is paused.  
-- **Timeout** – The time remaining before the thread resumes execution, unless it hits another interactive breakpoint (only shown if a timeout is configured).  
+- **Thread**  -  The name or identifier of the thread.  
+- **Location**  -  The class, method, and line number where the thread is paused.  
+- **Timeout**  -  The time remaining before the thread resumes execution, unless it hits another interactive breakpoint (only shown if a timeout is configured).  
 
 Each thread has a dedicated row with control buttons, allowing you to view thread details or manage its execution.  
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552918.png)  
+![](/Data-insights/Features/Debugger/images/245552918.png)  
 
 The available controls for each paused thread, from left to right, are:  .
 
@@ -141,7 +141,7 @@ The Debug button will take the user into the thread-specific view. 
 The **Thread** view shows the details of a specific thread once the thread
 has been paused in the interactive debugger.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552806.png)
+![](/Data-insights/Features/Debugger/images/245552806.png)
 
 This bottom part of the UI changes to show
 
@@ -151,7 +151,7 @@ This bottom part of the UI changes to show
 
 In the top-right corner of the debug source code viewer, you'll find three buttons (from left to right):
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552830.png)
+![](/Data-insights/Features/Debugger/images/245552830.png)
 
 1. The first button scrolls the editor to the line where the thread is paused.  
 2. The second button displays the stack trace for the paused thread.  
@@ -167,36 +167,36 @@ The viewer supports syntax highlighting for Java, JSP, and CFML files.
 
 Lines with configured breakpoints are highlighted in red, and a red square appears in the margin to indicate the breakpoint.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552923.png)
+![](/Data-insights/Features/Debugger/images/245552923.png)
 
 The line where the current thread is paused will be shows with a green
 arrow in the margin and a green highlighted line:
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552908.png)
+![](/Data-insights/Features/Debugger/images/245552908.png)
 
 When both occur simultaneously, such as when the thread is paused at a breakpoint location, you'll see a green-highlighted line along with a combination of the green arrow and red box in the margin.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552913.png)
+![](/Data-insights/Features/Debugger/images/245552913.png)
 
 Disabled breakpoints in the source code appear as grey square.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552873.png)
+![](/Data-insights/Features/Debugger/images/245552873.png)
 
 When the breakpoint is disabled and the thread is paused on the line you'll
 see a green arrows with a grey square.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552868.png)
+![](/Data-insights/Features/Debugger/images/245552868.png)
 
 At the top of the viewer, you'll find the thread information, which displays details about the request running on this thread, along with other relevant thread data. This information corresponds to the thread details shown on the [Stack Trace](../Transactions/Stack-Tracing.md) page in the [Resource -> Threads](../Resources/Threads.md) section.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552812.png)
+![](/Data-insights/Features/Debugger/images/245552812.png)
 
 ### Stack Trace/Stack Frames
 
 The **Stack Trace** view in the debugger shows the stack frames of the
 currently-paused thread.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552863.png)
+![](/Data-insights/Features/Debugger/images/245552863.png)
 
 Clicking on any of the frames allows the user to select which stack
 frame they would like to view. When changing the stack frame, simply
@@ -207,10 +207,10 @@ frame shows which stack frame you are currently viewing.
 The icons on the top right of the **Frames** section of the UI are the
 following (left to right):
 
--   Decompile the currently-selected frame ![](/frdocs/Data-insights/Features/Debugger/images/245552782.png)
--   Scroll the UI to show the currently-shown frame![](/frdocs/Data-insights/Features/Debugger/images/245552770.png)
--   Go up a frame (from the current) ![](/frdocs/Data-insights/Features/Debugger/images/245552764.png)
--   Go down a frame (towards where the thread started) ![](/frdocs/Data-insights/Features/Debugger/images/245552776.png)
+-   Decompile the currently-selected frame ![](/Data-insights/Features/Debugger/images/245552782.png)
+-   Scroll the UI to show the currently-shown frame![](/Data-insights/Features/Debugger/images/245552770.png)
+-   Go up a frame (from the current) ![](/Data-insights/Features/Debugger/images/245552764.png)
+-   Go down a frame (towards where the thread started) ![](/Data-insights/Features/Debugger/images/245552776.png)
 
 ### Variable viewer
 
@@ -218,7 +218,7 @@ The Variable viewer shows the variables currently available on the
 thread at the specific location that the interactive debugger has
 paused.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552818.png)
+![](/Data-insights/Features/Debugger/images/245552818.png)
 
 Variables are displayed in a tree structure, with the top-most nodes representing local variables within the function. For non-static method calls, a '`this`' object will be shown (unless optimized away), representing the object on which the method is called.  
 
@@ -236,7 +236,7 @@ Fields or variables of primitive types (e.g., `int`, `boolean`) or `java.lang.St
 Watches can be set in the **Debugger → Thread** view once a thread is paused at a breakpoint (located at the bottom right of the FR page). Valid watches include Java or CFML expressions. The interactive debugger will attempt to evaluate these watches using the current variables and CF scopes at runtime.
 
 
-![](/frdocs/Data-insights/Features/Debugger/images/2245553043.png)
+![](/Data-insights/Features/Debugger/images/245553043.png)
 
 Click the **+** to add a new watch, or press the red **X** to delete a watch. To modify a watch, simply click on the expression being evaluated. Watches are not deleted when the thread resumes; they will be re-evaluated the next time a breakpoint is hit.
 
@@ -246,7 +246,7 @@ The interactive debugger allows the user to control the flow of the
 thread, allowing them to view the variables, source and stack as the
 thread progresses through the code.
 
-![](/frdocs/Data-insights/Features/Debugger/images/2245552788.png)
+![](/Data-insights/Features/Debugger/images/245552788.png)
 
 This is done via the controls at the top of the code viewer when viewing
 a paused thread.
@@ -276,7 +276,7 @@ Clicking the **Step Over** button causes the thread to execute until it reaches 
 
 When the thread is paused inside a CFML-specific file (CFC or CFM), the **Variables View** will display CFML scopes. These function similarly to local variables, but are sourced from the scope locations available at the point where the thread is paused.
 
-![](/frdocs/Data-insights/Features/Debugger/images/2245552824.png)
+![](/Data-insights/Features/Debugger/images/245552824.png)
 
 ### CFML Set Variable
 
@@ -284,7 +284,7 @@ When the thread is paused inside a CFML-specific file (CFC or CFM), the top tool
 
 To use it, type the variable name in the **Variable** field, enter the expression in the **Expression** field, and then click the **Set** button to apply the changes.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245552903.png)
+![](/Data-insights/Features/Debugger/images/245552903.png)
 
 **Variable**
 
@@ -302,7 +302,7 @@ To use it, type the variable name in the **Variable** field, enter the expressio
 The sampler graphs page of the debugger allows the user to see how often
 a breakpoint is being hit.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245553077.png)
+![](/Data-insights/Features/Debugger/images/245553077.png)
 
 In the top right of the page the user can select which specific
 breakpoint sampler series to view.
@@ -315,16 +315,16 @@ daunting when you first start to use it.
 We have prepared some examples, which include the code, breakpoints and
 results, to aid your introduction to the debugger.
 
--   [Debug Example: Setting a conditional breakpoint in ColdFusion loop](/frdocs/Data-insights/Features/Debugger/Debug-Example-1/)
--   [Debug Example: Setting an automatic breakpoint following a ColdFusion Exception throw](/frdocs/Data-insights/Features/Debugger/Debug-Example-2/)
--   [Debug Example: Setting an email alert on first occurrence of an exception](/frdocs/Data-insights/Features/Debugger/Debug-Example-3/)
--   [Debug Example: Setting conditional breakpoint in catch block](/frdocs/Data-insights/Features/Debugger/Debug-Example-4/)
--   [Debug Example: Filter on a specific IP Address in JSP/Servlet requests](/frdocs/Data-insights/Features/Debugger/Debug-Example-5/)
+-   [Debug Example: Setting a conditional breakpoint in ColdFusion loop](/Data-insights/Features/Debugger/Debug-Example-1/)
+-   [Debug Example: Setting an automatic breakpoint following a ColdFusion Exception throw](/Data-insights/Features/Debugger/Debug-Example-2/)
+-   [Debug Example: Setting an email alert on first occurrence of an exception](/Data-insights/Features/Debugger/Debug-Example-3/)
+-   [Debug Example: Setting conditional breakpoint in catch block](/Data-insights/Features/Debugger/Debug-Example-4/)
+-   [Debug Example: Filter on a specific IP Address in JSP/Servlet requests](/Data-insights/Features/Debugger/Debug-Example-5/)
 
 ## Manual installation
 
 The debugger relies on a native library. If FusionReactor is not
-installed by FRAM, the [Manual Debug Installation](../Installation/Manual/Manual-Installation.md)
+installed by FRAM, the [Manual Debug Installation](/Monitor-your-data/FR-Agent/Installation/Manual/)
 instructions must be followed to enable the Production Debugger.
 
 ## Known issues and limitations

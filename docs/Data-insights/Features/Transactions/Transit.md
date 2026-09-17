@@ -18,7 +18,7 @@ You can view the following:
 |**Time / Activity**|Choose either the run time average series or the count series for the selected type.|
 
 
-![](/frdocs/attachments/245550911/245550928.png)
+![](/attachments/245550911/245550928.png)
 
 
 !!! note

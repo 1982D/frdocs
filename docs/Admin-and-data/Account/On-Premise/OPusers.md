@@ -2,9 +2,9 @@
 
 FusionReactor has three user accounts / roles
 
-1.  [Administrator](#administrators)
-2.  [Manager](#managers)
-3.  [Observer](#observers)
+1.  [Administrator](#administrator)
+2.  [Manager](#manager)
+3.  [Observer](#observer)
 
 ##  Roles
 
@@ -43,7 +43,7 @@ Administrators can:
     In hosting environments this account might be used by the hosting provider to configure FusionReactor for customers on their application server instances.
 
 
-### Managers
+### Manager
 
 Managers are instance-level administrators who can manage a single FusionReactor installation.
 
@@ -93,7 +93,7 @@ Clicking any server link on the Enterprise Dashboard automatically logs you into
     A Manager on an instance monitoring another instance of FusionReactor will also be granted Manager-level access to the monitored instance.  
 
 !!! info "Learn more"
-    [Enterprise Dashboard](#)
+    [Enterprise Dashboard](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard/)
 
 ## Access management configuration
 FusionReactor Identity manages system access through role-based authentication. It replaces the previous password management system in versions 8.2.0 and above.
@@ -135,7 +135,7 @@ from this tab.
     desired new password twice, and click **Save Login Settings**.
 
 !!! info "Learn more"
-    [Roles](/frdocs/Admin-and-data/Account/On-Premise/OPusers/#roles)
+    [Roles](/Admin-and-data/Account/On-Premise/OPusers/#roles)
 
 
 

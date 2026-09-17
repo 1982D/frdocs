@@ -46,7 +46,7 @@ To work around we have build a libc.so6 version 2.14.1 for uses on Centos (64 bi
     ````
 
 !!! info
-    [Download libc.so.6](../downloads/libc.so.6.bz2)
+    [Download libc.so.6](/downloads/libc.so.6.bz2)
 
 ___
 

@@ -3,7 +3,7 @@
 The **Thread Activity** page shows you a graph of samples currently
 stored in memory by FusionReactor. 
 
-![](/frdocs/attachments/245551870/245551890.png)
+![](/attachments/245551870/245551890.png)
 
 ## Thread Activity Graph
 

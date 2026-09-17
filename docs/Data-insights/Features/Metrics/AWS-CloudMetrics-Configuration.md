@@ -1,32 +1,40 @@
 ## AWS CloudMetrics setting
 
-The FusionReactor AWS CloudWatch Metrics system requires some
-configuration prior to use.  
+Before using the FusionReactor AWS CloudWatch Metrics system, some configuration is required.
 
-This can be done by navigating to **Metrics &gt; AWS CloudWatch
-Metrics** and clicking on the **Configure** button at the top of the
-page.
+To configure: 
 
-|**Name**|**Value**|
-|--- |--- |
-|**AWS Access Key**|The AWS Access Key of a user or IAM identity under which metrics will be pushed to CloudWatch.|
-|**AWS Secret Key**|The AWS Secret Key corresponding to the Access Key above.|
-|**AWS Region**|The AWS region to which the CloudWatch metrics should be pushed.|
-|**AWS Namespace**|The CloudWatch Namespace under which metrics will be named. See note below.|
-|**AWS Dimensions**|The default set of AWS dimensions which will be applied in the AWS CloudMetrics page.|
-|**Send Stale Data**|Controls whether stale datapoint (JMX metrics for which no new data has been received in the last minute) are sent using their old value.|
-|**AWS CloudWatch Active**|Master enablement for the metrics shipping system.|
+1. Navigate to Metrics > AWS CloudWatch Metrics.
+
+2. Click the Configure button at the top of the page.
+
+
+| **Name**                  | **Description / Value**                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **AWS Access Key**        | The AWS Access Key of a user or IAM identity under which metrics will be pushed to CloudWatch.                                 |
+| **AWS Secret Key**        | The Secret Key corresponding to the Access Key above.                                                                          |
+| **AWS Region**            | The AWS region where CloudWatch metrics will be sent.                                                                          |
+| **AWS Namespace**         | The CloudWatch namespace under which metrics will be organized. See note below for guidance.                                   |
+| **AWS Dimensions**        | The default set of AWS dimensions that will be applied to metrics in the CloudMetrics page.                                    |
+| **Send Stale Data**       | Determines whether stale datapoints (JMX metrics that haven’t updated in the last minute) are sent using their previous value. |
+| **AWS CloudWatch Active** | Master switch to enable or disable the metrics shipping system entirely.                                                       |
+
+
 
 
 ## Troubleshooting
 
-In case of problems, in the first instance, ensure the configuration
-form is correctly filled in.  In particular any trailing spaces must be
-removed.
+If you encounter issues with AWS CloudMetrics, follow these steps:
 
-The user or IAM identity or role identified by the AWS Access Key must
-have permissions to write AWS CloudWatch metric data.  This requires the
-following AWS permission:
+1. **Verify Configuration:**
+
+    * Ensure the configuration form is filled out correctly.
+    * Remove any trailing spaces from fields, as these can cause errors.
+
+2. **Check AWS Permissions:**
+
+    * The user, IAM identity, or role associated with the AWS Access Key must have permission to write CloudWatch metrics.
+    * Ensure the necessary AWS permission is granted:
 
 ```JSON
     {

@@ -1,8 +1,7 @@
 # Crash Protection Log
 
 The Crash Protection Logs (crashprotection.log) are a set of rotating files which you can
-configure from the [Protection
-Settings](../../Crash-Protection/Settings.md) page.
+configure from the [Protection Settings](/Data-insights/Features/Crash-protection/Settings/) page.
 
 The log file is formatted as follows:
 

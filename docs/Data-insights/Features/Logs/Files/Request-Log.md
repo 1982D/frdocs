@@ -1,12 +1,10 @@
 # Request Log
 
-The Request log (request.log) are simple space-separated files that can be easily
-imported into FusionAnalytics, database or spreadsheet applications. You
-can change the amount of data shown on the Request Log screen by
-changing the View Size on the [Request
-Settings](../../Requests/Settings.md) page. Refer to [Log
-Settings](../Settings.md) to see where the logs are being
-stored.
+
+
+The **Request Log** (`request.log`) consists of simple space-separated files that can be easily imported into FusionAnalytics, databases, or spreadsheet applications. You can adjust the amount of data displayed on the Request Log screen by modifying the **View Size** on the [Request Settings](../../Requests/Settings.md) page. For information on where the logs are stored, see [Log Settings](../Settings.md).
+
+
 
 The log file is formatted as follows:
 
@@ -41,7 +39,7 @@ The log file is formatted as follows:
 |JDBC Total Time (ms)|27|The total amount of time spent running JDBC queries at the time of this log.|
 |JDBC Total DB Time (ms)|28|The total amount of time spent by the database running JDBC queries at the time of this log.|
 |JDBC Total Rows|29|The total number of rows returned by JDBC queries at the time of this log.|
-|Bytes Sent|30 [AD)|The amount of data which was sent back to the client.|
+|Bytes Sent|30 (AD)|The amount of data which was sent back to the client.|
 |Time to First Byte (ms)|31|The number of milliseconds it took to deliver the first bit of data.|
 |Time to Last Byte (ms)|32|The number of milliseconds it took to deliver the complete content.|
 |Time to Stream Open (ms)|33|The number of milliseconds before the data stream was opened.|

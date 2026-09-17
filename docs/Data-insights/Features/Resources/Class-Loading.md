@@ -4,7 +4,7 @@ The **Class Loading** page shows a graph of samples currently stored
 in memory by FusionReactor. Class loading shows the number of classes
 being loaded and unloaded.
 
-![](/frdocs/attachments/245551820/245551835.png)
+![](/attachments/245551820/245551835.png)
 ## Why would I want to see Class Loading?
 
 

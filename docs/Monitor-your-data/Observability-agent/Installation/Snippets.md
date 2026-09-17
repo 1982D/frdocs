@@ -12,7 +12,7 @@ detect which services are running on your machine, and automatically create a co
      A Node/Windows exporter integration will be added by default.
 
 !!! note
-    If you aim to monitor external systems or script the installation variables, utilizing [environment variables](/frdocs/Monitor-your-data/Observability-agent/Configuration/) is necessary.
+    If you aim to monitor external systems or script the installation variables, utilizing [environment variables](/Monitor-your-data/Observability-agent/Configuration/) is necessary.
 
 
 ## Prerequisites

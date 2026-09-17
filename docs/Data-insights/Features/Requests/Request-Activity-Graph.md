@@ -7,7 +7,7 @@ clicking the 'Time' button to be switched to the WebRequest Time Graph.
 
 Below is a sample image of the JDBC Activity Graph.
 
-![](/frdocs/attachments/245549756/245549777.png)
+![](/attachments/245549756/245549777.png)
 
 !!! note
     The Request Activity Graph is the same as [Transaction->Activity(../Transactions/Activity-Graph.md) but filtered    

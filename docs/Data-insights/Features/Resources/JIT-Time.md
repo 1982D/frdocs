@@ -3,7 +3,7 @@
 The **JIT Time** page will show you a graph of the JIT time samples
 currently stored in memory by FusionReactor.
 
-![](/frdocs/attachments/245551800/245551805.png)
+![](/attachments/245551800/245551805.png)
 
 ## Activity Graph
 

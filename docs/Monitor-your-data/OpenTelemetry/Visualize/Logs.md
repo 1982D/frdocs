@@ -1,16 +1,16 @@
 # Visualizing your logs
 
-Logs in OpenTelemetry serve as the methodology for integrating logging information into observability, enriching it with additional telemetry data, and establishing connections with pertinent OpenTelemetry traces. To fulfill this purpose, log entries adhere to an abstract and generalized path, accommodating both unstructured text and structured information.
+OpenTelemetry logs integrate logging information into your observability stack, enriching it with additional telemetry data and linking it to related traces. Log entries can accommodate both unstructured text and structured information, making them flexible for various logging needs.
 
-To visualize your logs, simply navigate to FusionReactor Cloud, in a browser and  access the many features available such as the **Log Browser** dashboard, which gives you loads to get started with without needing any additional configuration. Alternatively, you can view your logs in **Explore** by accessing the dropdown located to the left of the screen and selecting **Logs** from the dropdown or via the **Logging** tab.
+To visualize your logs, simply navigate to OpsPilot in a browser and access the **Log Browser** dashboard, which provides comprehensive logging features without requiring additional configuration. Alternatively, you can view your logs in **Explore** by selecting **Logs** from the datasource dropdown, or via the **Logging** tab.
 
 ## Python example
 
 !!! info
-    The following example relies on a user having first [instrumented a Python application](/Cloud/OpenTelemetry/Python/) to ship data to FR CLoud. 
+    The following example relies on a user having first [instrumented a Python application](/Monitor-your-data/OpenTelemetry/Instrumentation/Python/) to ship data to OpsPilot. 
 
 
-In the FR Cloud **Logging** window, open the **Job** dropdown and select `fib_by_iteration`. All the log message emitted by the Python code appear.
+In the OpsPilot **Logging** window, open the **Job** dropdown and select `fib_by_iteration`. All the log messages emitted by the Python code will appear.
 
 
-![!Screenshot](/frdocs/Monitor-your-data/OpenTelemetry/images/pythonlogs1.png)*Logs supplied by Python*
+![!Screenshot](/Monitor-your-data/OpenTelemetry/images/pythonlogs1.png)*Logs supplied by Python*

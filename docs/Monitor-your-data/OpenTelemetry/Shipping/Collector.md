@@ -1,154 +1,174 @@
 # OpenTelemetry Collector
 
-## What is the OpenTelemetry Collector
+The OpenTelemetry (OTel) Collector is a high-performance, vendor-agnostic proxy that receives, processes, and exports telemetry data. It acts as the central hub of your observability pipeline, allowing you to aggregate data from multiple services before securely shipping it to OpsPilot.
 
-The OpenTelemetry Collector manages the reception, processing, and export of telemetry data, serving as a central hub for efficient data flow between instrumented applications and designated backends.
+### Key Components
 
-Here is a common setup which includes receivers, processors and exporters: 
+* **Receivers**: Ingest data from your applications via the OTLP protocol (gRPC or HTTP).
+* **Processors**: Refine and transform data through batching, filtering, and resource limiting for efficiency and stability.
+* **Exporters**: Send processed telemetry to OpsPilot via OTLP/HTTP.
 
-![!Screenshot](/frdocs/Monitor-your-data/OpenTelemetry/images/Otelcollector.png)
+## Shipping Telemetry to OpsPilot
 
-The setup operates as a structured pipeline with key components in the OpenTelemetry Collector.
+The recommended approach is to use a **Unified OTLP Pipeline**. This allows you to send Traces, Metrics, and Logs through a single, efficient exporter.
 
-### Receivers
-The initial stage involves Receivers, which can handle data in various protocols such as Prometheus (for time series data), Jaeger (for distributed tracing of user requests), and OTLP. 
+### Prerequisites
 
-### Processors
-In the middle of the pipeline are the processors, responsible for manipulating and enriching data before exporting it to the destination. With 25 processors currently available, functionalities include batch (for data compression), memory_limiter (for memory management), filtering (to remove unnecessary logs), resource detection (for obtaining information from the host), and Kubernetes attributes processing (for automatically discovering and extracting metadata from Kubernetes resources). A combination of transform and attributes processors is employed for redacting sensitive data.
-
-### Exporters
-At the final stage, exporters come into play, tasked with sending data to specific backends. With almost 50 exporters available, the choice often depends on your backend requirements. 
-
-## Shipping OpenTelemetry data to FusionReactor Cloud
-
-<iframe src="https://player.vimeo.com/video/816507894?h=7ba5f16a15" width="640" height="353" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/816507894">Shipping OpenTelemetry data to FusionReactor Cloud</a> from <a href="https://vimeo.com/user109619720">FusionReactorAPM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+* A OpsPilot account.
+* Docker Desktop installed on your machine.
 
 
 
-### **Step 1**: Create an otel-config.yaml file
+### **Step 1:** Create `otel-config.yaml`
 
-For our OTel Collector we need to create an otel-config.yaml file. 
+Create a configuration file to define how the Collector should handle your data.
 
-!!! tip
-    Be careful with the indentation here as yaml syntax is very sensitive.
+!!! tip "Security First"
+    We recommend using environment variables (such as `${FR_API_KEY}`) to keep your credentials secure and out of your source code.
 
 ```yaml
 receivers:
   otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
 
+processors:
+  batch: {}
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 75
+    spike_limit_percentage: 15
 
 exporters:
-  otlphttp:
+  otlphttp/fusionreactor:
     endpoint: "https://api.fusionreactor.io"
-    compression: none
     headers:
-      authorization: "<your api key>"
-  prometheusremotewrite:
-    endpoint: "https://api.fusionreactor.io/v1/metrics"
-    headers:
-      authorization: "<your api key>"
-
-
+      authorization: "${FR_API_KEY}"
 
 service:
   pipelines:
-    metrics:
-      receivers: [otlp]
-      exporters: [prometheusremotewrite]
     traces:
       receivers: [otlp]
-      exporters: [otlphttp]
-
-
+      processors: [memory_limiter, batch]
+      exporters: [otlphttp/fusionreactor]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlphttp/fusionreactor]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlphttp/fusionreactor]
 ```
 
+!!! info "The Memory Limiter: Your Safety Switch"
+    The `memory_limiter` processor prevents the Collector from crashing during sudden data spikes. It monitors memory usage every second and ensures the service stays within a safe 75% limit.
 
-The receivers section declares that all telemetry data will be sent to the OTel collector's receiver that is running on **otelcollector** port **4318**, using OpenTelemetry Protocol (OTLP) and HTTP format. 
 
-!!! tip
-    You can use gRPC instead of HTTP.
 
-### **Step 2**: Configure OTLPHTTP and Prometheus remote_write
+### **Step 2:** Obtain your API Key
 
-Next we configure our OTLPHTTP exporter for traces, and the Prometheus remote_write for metrics. The collector sends the metric and tracing data to the endpoints - the **FusionReactor Cloud** - at the address **api.fusionreactor.io**. 
- 
-### **Step 3**: Replace credentials with API key
- 
-Replace both **credentials** under **authorization** here with your own API key.
+1. Log in to **OpsPilot**.
+2. Navigate to **Account Settings > API Keys**.
+3. Generate a new key and save it securely.
 
-!!! tip
-    To generate a new API key, go to **FusionReactor Cloud** > **Account Settings** > **API Keys** > **Generate**. Copy this key and paste it under **credentials**.
 
-### **Step 4**: Services outlined and data shipped
 
-Finally, in the services section is where we bring everything together. 
+### **Step 3:** Deploy with Docker
+
+The most reliable way to run the Collector is using the **official contrib distribution**, which includes advanced processors for cloud and containerized environments.
+
+**Create a `docker-compose.yml`:**
 
 ```yaml
-  pipelines:
-    metrics:
-      receivers: [otlp]
-      exporters: [prometheusremotewrite]
-    traces:
-      receivers: [otlp]
-      exporters: [otlphttp]
-
-```
-The above example states that:
-
-* Metrics and traces will be received by the OTLP receiver.
-
-* Metrics are then exported via Prometheus remote_write.
-
-* Traces are exported via the OTLPHTTP exporter.
-
-All of the data is then shipped to the **FusionReactor Cloud**.
-
-
-### **Step 5**: Create OTel Docker image
-
-Use this config file to create an OTel Docker image and input the following: 
-
-
-```
-FROM otel/opentelemetry-collector
-ADD otel-config.yaml /etc/otelcol/config.yaml
-
-```
-
-ADD otel-config.yaml /etc/otelcol/config.yaml
-
-
-### **Step 6**: Create docker-compose.yml file
-
-
-Create a docker-compose.yml file with the following to start your Go App and your OTel Collector.
-
-```
 services:
-  gooteldemo:
-    image: gooteldemo
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: fusionreactor-collector
+    restart: unless-stopped
     environment:
-      - OTEL_SERVICE_NAME=gooteldemo
-      - OTEL_RESOURCE_ATTRIBUTES="application=gooteldemo"
-
-  #otel
-  otelcollector:
-    image: gootelcollector
+      - FR_API_KEY=${FR_API_KEY}  # Set this in your environment or .env file
     ports:
-      - "4318:4318"
-      - "8888:8888"
+      - "4317:4317" # gRPC Receiver
+      - "4318:4318" # HTTP Receiver
+    volumes:
+      - ./otel-config.yaml:/etc/otelcol-contrib/config.yaml
+    command: ["--config=/etc/otelcol-contrib/config.yaml"]
+
 ```
 
-### **Step 7**: Run “docker-compose up”
 
-Run “docker-compose up” in the terminal to bring up your containers, starting my Go App and Telemetry collection. 
+### **Step 4:** Launch and Verify
 
-___
+1. **Run the Collector**:
+```bash
+docker-compose up -d
+```
 
-!!! question "Need more help?"
-    Contact support in the chat bubble and let us know how we can assist.
 
+2. **Verify Data Flow**:
+Check the logs to ensure everything is running smoothly:
+```bash
+docker logs -f fusionreactor-collector
+```
+
+You should see:
+```
+Everything is ready. Begin running and processing data.
+```
+
+Once you see this message, your applications can point their OTLP exporters to `localhost:4317` (gRPC) or `localhost:4318` (HTTP).
+
+!!! warning "Common startup errors"
+    **If you see:** `cannot unmarshal config` or `yaml: unmarshal errors`
+    **Fix:** Check your YAML syntax in `otel-config.yaml`
+
+    **If you see:** `bind: address already in use`
+    **Fix:** Another process is using port 4317 or 4318. Stop it or use different ports.
+
+
+### **Step 5**: Verify the Connection
+
+Before connecting your actual applications, you can verify that your pipeline is working by sending a synthetic "test trace" using the **telemetrygen** utility.
+
+1. **Run the Test Command**:
+Open a terminal and run the following command to send 100 test traces to your local collector:
+```bash
+docker run --network host ghcr.io/open-telemetry/opentelemetry-collector-contrib/telemetrygen:latest traces --traces 100 --otlp-endpoint localhost:4317 --otlp-insecure
+
+```
+
+
+2. **Check OpsPilot**:
+* Log in to your **OpsPilot** dashboard.
+* Navigate to **Explore > Traces**.
+* You should see a service named **`telemetrygen`** appearing within 60 seconds.
+
+
+
+
+---
+
+## Next Steps
+
+Now that your Collector is running, you're ready to instrument your application:
+
+- **[Instrumentation Overview](/Monitor-your-data/OpenTelemetry/Instrumentation/Overview/)**: Choose your language and instrument your application
+- **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Create dashboards and query your telemetry
+
+---
+
+## Related Guides
+
+- **[Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/)**: Alternative telemetry collector with Grafana ecosystem integration
+- **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common collector issues
+- **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about the OpenTelemetry Collector
+
+---
 
 !!! info "Learn more"
-    [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/)
+    [OpenTelemetry Collector Documentation](https://opentelemetry.io/docs/collector/getting-started/)

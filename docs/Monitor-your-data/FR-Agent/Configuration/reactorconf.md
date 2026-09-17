@@ -8,4 +8,4 @@ This file is used to persist general FusionReactor settings across server restar
 
 
 !!! info "Learn more"
-    [How to copy FusionReactor configuration between instances](/frdocs/Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/)
+    [How to copy FusionReactor configuration between instances](/Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/)

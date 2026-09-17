@@ -3,7 +3,7 @@
 To manually activate FusionReactor, you need internet access to enter an activation code into a browser. This generates an activation key to activate your FusionReactor instance.
 
 
-This process should only be used when activating FusionReactor through other methods is not possible. Whenever possible, consider using the [troubleshooting steps for licensing connection issues](/frdocs/Admin-and-data/Licensing/Troubleshooting/) as a workaround.
+This process should only be used when activating FusionReactor through other methods is not possible. Whenever possible, consider using the [troubleshooting steps for licensing connection issues](/Admin-and-data/Licensing/Troubleshooting/) as a workaround.
 
 !!! note
     Manual activation must be done for each instance individually; a single activation key cannot be used for multiple instances.

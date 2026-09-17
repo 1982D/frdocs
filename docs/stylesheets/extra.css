@@ -23,16 +23,17 @@
 .md-typeset .grid.cards>ol>li,
 .md-typeset .grid.cards>ul>li,
 .md-typeset .grid>.card {
-    transition: border .75s,box-shadow .75s
+  border: 1px solid #8b8686; /* Darker border */
+  transition: border .75s,box-shadow .75s
 }
   
   
  /* Smaller grid cards custom colours */
  :root {
-    --card-bg-light: #edeff1;
-    --card-bg-dark:  #343942;
-    --card-border-focus-light: white;
-    --card-border-focus-dark: #343942; 
+    --card-bg-light: white;
+    --card-bg-dark:  white;
+    --card-border-focus-light: black;
+    --card-border-focus-dark: #53AFDA; 
     
   }
   
@@ -79,6 +80,8 @@
 }
   
 
-
-
-
+/* This targets all ordered lists and turns the numbers red */
+ol li::marker {
+  color: #53AFDA;
+  font-weight: bold;
+}

@@ -1,4 +1,4 @@
-#  Activity
+﻿#  Activity
 
 This activity page shows which transactions are running when the page was loaded or last
 refreshed.   There are 2 specific variations on this page:
@@ -7,7 +7,7 @@ refreshed.   There are 2 specific variations on this page:
 
 * **JDBC** > **Activity**
 
-![Screenshot](/frdocs/attachments/245550553/245550668.png)
+![Screenshot](/attachments/245550553/245550668.png)
 
 ## Running Transactions overview
 
@@ -28,7 +28,7 @@ overview. It is displayed in the following four columns:
 |Name|Description|
 |--- |--- |
 |**Max**|The amount of memory available to the JVM (this is a hard upper limit).|
-|**Alloc**|The amount of memory currently allocated by the JVM for its heap – this may grow until the max value is reached.|
+|**Alloc**|The amount of memory currently allocated by the JVM for its heap  -  this may grow until the max value is reached.|
 |**Free**|The amount of free memory from the currently-allocated heap.|
 |**Used (%)**|The amount of memory which is actually in use. This is expressed as a percentage as well as in KB.|
 
@@ -41,7 +41,7 @@ see the following below in a table:
 |--- |--- |
 |**Started**|The date and time at which the request was received.|
 |**Status / Type**|This is the status of the transaction, this will typically be Running. The type of the transaction is also displayed here, as well as any protection contributed statues.|
-|**App / Txn**|The application (App) in which the request occurred from or to - shown on the top line The transaction (Txn) shown on the lower line, is based on whichever rules you wish to use for your transaction naming - these rules can be set on the **FusionReactor Menu / Settings** page. <br> Learn more: [Transaction Naming](/Transactions/Transaction-Naming/)|
+|**App / Txn**|The application (App) in which the request occurred from or to - shown on the top line The transaction (Txn) shown on the lower line, is based on whichever rules you wish to use for your transaction naming - these rules can be set on the **FusionReactor Menu / Settings** page. <br> Learn more: [Transaction Naming](/Data-insights/Features/Transactions/Transaction-Naming/)|
 |**ID / Thread**|The request ID and the name of the thread which is servicing the request.|
 |**Description / URL / Statement**|This is the description of the transaction, used for flavors such as MongoDB and FRAPI. Depending on the flavor of the transaction, you will see either Description, URL or Statement.|
 |**Time (ms)**|The time that the transaction took to complete. If available then you will also see the amount of actual CPU time that this transaction used below it.|
@@ -103,7 +103,7 @@ On the page, to the right of the filtering options there are two options:
 
     If FusionReactor detects that the candidate request owns any ownable synchronizers, it will not proceed to a hard kill in order to preserve the integrity of the locking system. If you use the user interface to **Force Thread Death**, FusionReactor will attempt the hard kill, but any locks will not be released (You could end up with a system hang. Use this feature with caution).
 
-    If you're using Protection rules set up to Abort requests – for example the Request Runtime Protection, FusionReactor won't automatically proceed to hard kill. You'll be able to identify these requests in the request history lists, because they will have a tab called **Transit - Locks**, listing the locks that the request owned.
+    If you're using Protection rules set up to Abort requests  -  for example the Request Runtime Protection, FusionReactor won't automatically proceed to hard kill. You'll be able to identify these requests in the request history lists, because they will have a tab called **Transit - Locks**, listing the locks that the request owned.
 
 ## Managing Requests
 
@@ -119,8 +119,8 @@ may not appear for all of the transactions.
 |:fa-align-left:|**Stack Trace**|Takes you to the **Stack Trace** page, allowing you to see the current Java stack trace of the request.|
 |:fa-times:|**Kill**|Clicking this button allows you to manually kill any tracked request. You'll be asked if you are sure. Click on **OK** to kill the request.<br>FusionReactor will make two attempts to kill the request. If neither succeed, the system will ask you if you want to Force Thread Death. If you proceed, and the thread holds Ownable Synchronizers, they will not be automatically released by Java, and could lead to a hung system. You should therefore use this feature with caution.<br>If **Stop Tracking This Request** is checked, the request will be exempt from metric tracking - see "Stop Tracking" below.|
 |:fa-exclamation-triangle:|**Stop Tracking**|Clicking this button will cause FusionReactor to stop tracking this request for certain metrics (slowest requests, request runtime. request activity). Any JDBC statements currently running will be logged and visible in **Request Details**, but the JDBC Time and Activity graphs, as well as Average DB Time, will not reflect them. <br><br>Once this button has been pressed, it is grayed and disabled.  There is no way to reverse this operation.|
-| :fa-clock-o: |**Profile**|Available in FusionReactor Ultimate or Developer Edition. Clicking this button will allow you to start or stop a profile for a transaction. <br>![](/frdocs/attachments/245550553/245550617.png)<br>More information can be found on the Profiler page.|
-| :fa-bug: |**Debug**|Available in FusionReactor Ultimate or Developer Edition. Clicking this button will allow you to pause a thread, causing the icon to change to the debugger icon.<br> ![](/frdocs/attachments/245550553/245550563.png)<br>Clicking this icon will then direct you to the Debugger, and will open a detailed view of the paused thread.|
+| :fa-clock-o: |**Profile**|Available in FusionReactor Ultimate or Developer Edition. Clicking this button will allow you to start or stop a profile for a transaction. <br>![](/attachments/245550553/245550617.png)<br>More information can be found on the Profiler page.|
+| :fa-bug: |**Debug**|Available in FusionReactor Ultimate or Developer Edition. Clicking this button will allow you to pause a thread, causing the icon to change to the debugger icon.<br> ![](/attachments/245550553/245550563.png)<br>Clicking this icon will then direct you to the Debugger, and will open a detailed view of the paused thread.|
 
 ___
 

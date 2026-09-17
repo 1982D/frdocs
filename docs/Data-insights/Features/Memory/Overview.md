@@ -1,227 +1,170 @@
 
 
-FusionReactor 7 adds support to view what objects are using the most
-memory on the application server.   This shows 'live' objects on the
-heap and allows the GC paths (garbage collection paths) to the GC Roots
-which is keeping the objects live.
 
-The view heap allows the current objects to be view.   From the view
-heap UI (ie. live heap view) the user can access the GC Roots page to
-see why these objects are being kept live.
+FusionReactor 7 introduces enhanced memory analysis capabilities, allowing users to see which objects are consuming the most memory on the application server. It displays **live objects** on the heap and traces their **GC paths** (garbage collection paths) back to the **GC Roots**, showing why these objects are still retained in memory.
 
-The snapshots page allows snapshots of the heap to be take which can
-then be diff-ed to a earlier or later version.
+The **View Heap** feature provides a real-time view of current objects in the heap. From the **Live Heap View** UI, users can navigate to the **GC Roots** page to understand why specific objects remain live.
+
+The **Snapshots** page enables users to take heap snapshots, which can then be compared (diffed) against earlier or later snapshots to identify memory changes over time.
+
+
+
 
 ## View Heap
 
-FusionReactor can show you the status of the various memory spaces
-available in your Java engine.   The memory heap space is useful to show
-you the overall state of memory, but is not accurate enough to detect if
-your application is leaking or not.   Finding memory leaks is quite
-challenging, but this is where FusionReactor offers the capability to
-perform in-depth-profiling to assist you. 
+FusionReactor provides detailed visibility into the various memory spaces available in your Java engine. While the **memory heap space** gives an overview of memory usage, it’s not precise enough to reliably detect memory leaks. Identifying leaks can be challenging, but FusionReactor’s **in-depth profiling** capabilities make it much easier.
 
-If you are running FusionReactor Ultimate, Developer Edition or the free
-trial, then you will have access to the Heap Histogram which you can
-find under the Memory tab.
+If you’re using **FusionReactor Ultimate, Developer Edition, or the free trial**, you’ll have access to the **Heap Histogram**, available under the **Memory** tab.
 
-The view heap page shows a profile of the Java Heap.    This feature is
-useful for spotting issues related to large numbers of objects being
-created within a specific class, as well as potential memory leaks.   
-You can configure the refresh rate of this page to perform heap
-snapshots at as low as 1 second intervals.
+The **View Heap** page provides a detailed profile of the Java Heap. This is particularly useful for spotting issues such as large numbers of objects being created in a specific class or potential memory leaks. You can configure the **refresh rate** to capture heap snapshots as frequently as every second. By default, the view prioritizes objects that consume the most memory.
 
-It defaults to show objects based on the type of objects using the most
-memory.
+Adjusting the refresh rate (top-right of the screen) allows you to watch heap utilization fluctuate as your application runs, showing classes and their associated objects growing and shrinking in real time.
 
-If you set the Refresh Rate at the top right hand side of the screen,
-you will see the heap utilization bound to the Classes’ and associated
-objects growing and shrinking as your application(s) execute.
-
-What you’re looking for here is delta’s of the number of objects
-created/memory utilized whilst executing some particular application
-procedure.    If you know that after that procedure has executed, your
-allocated objects will be released – then the delta should highlight any
-potential memory anomalies.
+The key is to observe **deltas** in object counts and memory usage during specific application procedures. If objects are properly released after a procedure, memory usage should return to normal. Any discrepancies can help highlight potential memory anomalies.
 
 ### Basic Process
 
-To get the best results we recommend you follow the following steps for capturing delta’s and analyzing memory :
 
--   Firstly force a GC by clicking the Force GC button at the top of the
-    page
--   Take a snapshot of the heap, by clicking on the New Snapshot button
--   Then start you application procedure (one or more times)
--   Click the Refresh icon to reload the heap histogram
--   Take a snapshot of the heap, by clicking on the New Snapshot
+
+To achieve the best results when capturing deltas and analyzing memory, follow these steps:
+
+1. **Force a Garbage Collection (GC):** Click the **Force GC** button at the top of the page to clean up unused objects.
+2. **Take an initial heap snapshot:** Click the **New Snapshot** button to capture the current state of the heap.
+3. **Run your application procedure:** Execute the procedure you want to analyze, one or more times as needed.
+4. **Refresh the heap histogram:** Click the **Refresh** icon to reload and update the heap view.
+5. **Take a second heap snapshot:** Click **New Snapshot** again to capture the heap state after your procedure has run.
+
+This process allows you to compare snapshots and identify memory changes or potential leaks.
+
 
 ## Heap Histogram Page
 
-The page shows the following :
+The Heap Histogram page provides a detailed view of memory usage and object allocation:
 
--   In the top left shows information about the time the page was
-    generated, the number classes and objects scanned (and if any of
-    these have been hidden due to filters)
--   The top right has buttons to **search/find** the heap for a specific
-    class name or substring of the class name.  It has buttons to Force
-    a Garbage Collection (**Force GC**) operation as well as the ability
-    to trigger a **new snapshot**.  (See
-    [Snapshots](#heap-snapshots))
--   The lower part of the page shows the table of unique classes, the
-    number of live objects and the size these objects take up on the
-    heap.   Sorting can be performed on any of these columns.   On the
-    right of each row is a button to view the Garbage Collections roots
-    for the specific class.   When you click this button FusionReactor
-    will find out what is keeping these objects live.  (See [Garbage
-    Collection Roots](#garbage-collection-roots))
+* **Top Left:** Displays information about the time the page was generated, the number of classes and objects scanned, and whether any items have been hidden due to filters.
+* **Top Right:** Includes tools to **search/find** specific class names or substrings. You can also **Force a Garbage Collection (Force GC)** or trigger a **new snapshot**. (See [Snapshots](#heap-snapshots) for more details.)
+* **Lower Section:** Shows a table of unique classes, including the number of live objects and the memory they occupy on the heap. You can sort the table by any column. Each row also includes a button to view the **Garbage Collection (GC) Roots** for that class. Clicking this button lets FusionReactor identify what is keeping those objects live. (See [Garbage Collection Roots](#garbage-collection-roots) for more information.)
 
-![](/frdocs/attachments/245553871/245553928.png)
+
+![](/attachments/245553871/245553928.png)
+
+
 
 ### Filtering
 
-![](/frdocs/attachments/245553871/245553935.png)
+![](/attachments/245553871/245553935.png)
 
-The heap histogram pages can filter specific java packages.   By default
-FusionReactor excludes its own code (com.intergral).
+The Heap Histogram page allows you to **filter specific Java packages**. By default, FusionReactor excludes its own code (`com.integral`).
 
-You can use this filtering (via
-[Memory Settings](Settings.md)) to hide packages you
-know are good and reduce the pages to show your packages or frameworks
-code only.
+You can configure filtering via **[Memory Settings](Settings.md)** to hide packages you know are safe, reducing the table to show only your application or framework code.
 
-When package filtering is enabled the table at the top left of the page
-shows how many objects and classes were found and how many are being
-shown after the filter has been allied.
+When package filtering is applied, the table in the **top left** of the page updates to show the **total number of objects and classes found** versus the **number currently displayed** after the filter is applied.
+
+
+
+
 
 ### Find
 
-The find feature allows the user to search for a specific string or
-substring of the classname.
+The **Find** feature allows you to search for a specific string or substring within class names.
 
-E.g.Press the find button enter ArrayList and the heap histogram page
-will only show classes which contain the string ArrayList :
+For example, pressing the **Find** button and entering `ArrayList` will filter the Heap Histogram page to display only classes containing the string `ArrayList`:
 
-![](/frdocs/attachments/245553871/245553884.png)
+![](/attachments/245553871/245553884.png)
 
-Once you press Confirm to trigger the find, the UI will change to show
-something like this :
+After pressing **Confirm**, the UI updates to show the filtered results. To remove the filter and return to the full view, simply press the **Clear Find** button.
 
-To remove the Find restriction you can simple press the "Clear Find"
-button to go back to the full view.
+
+
+
+
+
+
 
 
 ## Garbage Collection Roots
 
-When viewing the heap view of the live java heap in FusionReactor its
-possible to press the **GC Roots** button (on the far right of the UI). 
-This button shows a page which shows why a specific object is being kept
-'live' and not being garbage collected.
+In the **Heap View** of the live Java heap in FusionReactor, you can press the **GC Roots** button (far right of the UI) to see why a specific object is being kept **“live”** and not garbage collected.
 
-In the example below the page is showing *char\[\]*.  The page shows
-that there are 171,778 char\[\] in the heap, when the page ran, using
-21,880,994 bytes of memory.   These char\[\] are mostly being kept live
-by java.lang.String which is responsible for 83.1% of all the char\[\]s
-on the heap.
+For example, if the page shows `char[]`, it might indicate that there are **171,778 `char[]` objects** on the heap, consuming **21,880,994 bytes** of memory. In this case, most of the `char[]` objects are retained by `java.lang.String`, which accounts for **83.1%** of all `char[]` on the heap.
 
-The screen shot below shows that there are java.util.HashMap$Entry
-classes which have a field called key, which are keeping 23.2% of the
-char\[\] live but not directly.  The HashMap Entries have a key field
-with is referencing a java.lang.String.  These String classes have a
-field called value which is actually keeping the char\[\] live.
+The screenshot below illustrates how `java.util.HashMap$Entry` objects with a `key` field can indirectly retain **23.2%** of `char[]` objects. The `key` field references a `java.lang.String`, whose `value` field is ultimately keeping the `char[]` alive.
 
-![](/frdocs/attachments/245553942/245553967.png)
-You can expand each node to navigate to the GC root path to find what is
-keeping these objects live.
+![](/attachments/245553942/245553967.png)
 
-GC Roots are one of the following :
+You can expand each node to navigate the **GC root path** and trace exactly what is keeping objects live.
 
-|Fusion Reactor label|JVMTI constant|Description.|
-|--- |--- |--- |
-|JNI Global|JVMTI_HEAP_REFERENCE_JNI_GLOBAL|JNI global reference.|
-|System Class|JVMTI_HEAP_REFERENCE_SYSTEM_CLASS|System class.|
-|Monitor|JVMTI_HEAP_REFERENCE_MONITOR|monitor.|
-|Stack Local|JVMTI_HEAP_REFERENCE_STACK_LOCAL|local variable on the stack.|
-|JNI Local|JVMTI_HEAP_REFERENCE_JNI_LOCAL|JNI local reference.|
-|Thread|JVMTI_HEAP_REFERENCE_THREAD|Thread.|
-|Other|JVMTI_HEAP_REFERENCE_OTHER|other heap root reference.|
+### GC Roots Types
 
-See
-<a href="http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#jvmtiHeapReferenceKind" class="uri external-link">http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#jvmtiHeapReferenceKind</a>
-for more detailed documentation.
+| FusionReactor Label | JVMTI Constant                    | Description                 |
+| ------------------- | --------------------------------- | --------------------------- |
+| JNI Global          | JVMTI_HEAP_REFERENCE_JNI_GLOBAL   | JNI global reference        |
+| System Class        | JVMTI_HEAP_REFERENCE_SYSTEM_CLASS | System class                |
+| Monitor             | JVMTI_HEAP_REFERENCE_MONITOR      | Monitor                     |
+| Stack Local         | JVMTI_HEAP_REFERENCE_STACK_LOCAL  | Local variable on the stack |
+| JNI Local           | JVMTI_HEAP_REFERENCE_JNI_LOCAL    | JNI local reference         |
+| Thread              | JVMTI_HEAP_REFERENCE_THREAD       | Thread                      |
+| Other               | JVMTI_HEAP_REFERENCE_OTHER        | Other heap root reference   |
 
-The key parts of this UI are the following :
+For more details, see [JVMTI Heap Reference Kind Documentation](http://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#jvmtiHeapReferenceKind).
 
-1.  The reference path to a gc root - this path shows the classes and
-    fields which are referencing the search class (like char\[\]
-    above).   As the user navigates deeper down the tree GC Roots will
-    appear describing what is keeping something alive.
-2.  The Retaining Quantity - The number of the search class (char\[\])
-    that the reference (on the left) is keeping live
-3.  The Retaining Size - The size of the search classes (char\[\]) that
-    the reference is keeping live.
 
+
+### Key UI Elements
+
+1. **Reference Path to GC Root:** Shows the chain of classes and fields referencing the selected object (e.g., `char[]`). Navigating deeper reveals the specific GC Roots keeping objects alive.
+2. **Retaining Quantity:** Number of objects the reference is keeping live.
+3. **Retaining Size:** Memory size of the objects the reference is retaining.
 
 ## Heap Snapshots
 
-The heap snapshot page is very similar to the live view but instead of
-showing live information it captures the heap information and persist
-this into a file on disk.
+## Heap Snapshots
 
-When you first come to the Heap Snapshot page it will be empty, but you
-can simply press the **New Snapshot** button to create a new snapshot. 
-Once its generated it will appear in the snapshots table, like below:
+The **Heap Snapshot** page functions similarly to the live heap view but captures the heap state **at a specific point in time** and stores it on disk.
 
-![](/frdocs/attachments/245553974/245554026.png)
+When you first open the page, it will be empty. Press **New Snapshot** to capture a snapshot. Once generated, it appears in the snapshots table:
 
-From this snapshots table, you can view the snapshot by pressing the
-![](/frdocs/attachments/245553974/245553985.png)
+![](/attachments/245553974/245554026.png)
 
-You can edit the name of the snapshot using the ![](/frdocs/attachments/245553974/245553980.png)
-button.   This name is fairly restricted as it is also the filename of
-the snapshot on the disk (normally inside the &lt;instance&gt;/heap
-directory)
+From the snapshots table, you can:
 
-You can delete the snapshot by pressing ![](/frdocs/attachments/245553974/245553995.png)
+* **View a snapshot:** Press the ![](/attachments/245553974/245553985.png) button.
+* **Rename a snapshot:** Press the ![](/attachments/245553974/245553980.png) button. The name is also the filename on disk, usually stored in `<instance>/heap`.
+* **Delete a snapshot:** Press the ![](/attachments/245553974/245553995.png) button.
 
-### View
 
-When you view a heap snapshot the UI is the same as the [Heap View
-page](#view-heap).
+### Viewing a Snapshot
 
-You can filter packages and use the find functionality to track down a
-specific classname or classnames.
+The UI for viewing a heap snapshot is the same as the **[Heap View page](#view-heap)**.
+
+* You can **filter packages** to focus on relevant code.
+* Use the **Find** functionality to locate specific class names or sets of classes.
 
 ### Diff
 
-Once you have more than 1 snapshot you can perform a diff between the
-two.
 
-Simply select the blue check box on 2 snapshots and press **Diff
-Selected** at the top of the snapshots page and the diff results will
-appear.
+Once you have **more than one snapshot**, you can compare them using the **Diff** feature.
 
-The diff page shows a 'left' and 'right' snapshot and shows the delta.  
-You can press the **Reverse Diff** button on the top right to switch the
-order of the 2 snapshots.
+1. Select the **blue checkboxes** for the two snapshots you want to compare.
+2. Press **Diff Selected** at the top of the snapshots page.
 
-The top 2 tables shows the information about the individual snapshots
-(the same as Live Heap + Heap Snapshot views).  The package filtered and
-find features also work fully on the diff page (see [Heap
-View](#view-heap))
+The **Diff page** displays a **left** and **right** snapshot, highlighting the **delta** between them. You can use the **Reverse Diff** button (top right) to swap the order of the snapshots.
 
-![](/frdocs/attachments/245553974/245554033.png)
+The top two tables provide detailed information about each individual snapshot, similar to the **Live Heap** and **Heap Snapshot** views. The **package filter** and **Find** features are fully supported on the Diff page, allowing you to focus on specific classes or packages.
 
-The lower part of the page shows the actual diff of the snapshots.
 
-There are columns for the left and right snapshots.  Both are color
-coded (blue for left, green for right).   For each snapshot the objects
-and size of the these objects are shown.
 
-The diff part of the UI is the last 2 columns.  The Objects Delta column
-shows how many more objects there are in the right, compared to the
-left.   The Size Delta column shows how much more memory the right
-snapshot is using for a specific classname compared to the left.
+![](/attachments/245553974/245554033.png)
 
-Sorting of the diff defaults to Size Delta column which means that
-whatever is the top line in the lower table is using more memory in the
-right snapshot compared to the left.
+
+
+The **lower part of the Diff page** shows the actual comparison between the snapshots.
+
+* **Left and Right Snapshots:** Columns are color-coded (**blue** for left, **green** for right) and display the number of objects and memory size for each class.
+* **Diff Columns:**
+
+  * **Objects Delta:** Shows the difference in object count between the right and left snapshots.
+  * **Size Delta:** Shows the difference in memory usage for each class between the right and left snapshots.
+
+By default, the table is **sorted by Size Delta**, so the top line represents the class that is consuming the most additional memory in the right snapshot compared to the left.
+

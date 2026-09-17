@@ -7,7 +7,7 @@ The most common two being to utilize ```CFTRY / CFCATCH``` or use the ```onError
 When you do this, the Exception will be caught and not rethrown within the Java engine. This will prevent FusionReactor from being able to track the error.
 
 !!! tip
-    Use [FRAPI](/FRAPI/FRAPI/) to set the error stack trace on your FusionReactor request without throwing the actual error.
+    Use [FRAPI](/Data-insights/Extras/FRAPI/) to set the error stack trace on your FusionReactor request without throwing the actual error.
 
 ## FRAPI code example
 

@@ -1,131 +1,137 @@
-# Go 
+# Go
 
-Setting up OpenTelemetry to ingest data into the FusionReactor Cloud is a simple procedure that will only take a few minutes. It provides additional insight into your product and the metrics it produces, so you can quickly investigate and pinpoint issues.
-
-The following step-by-step guide demonstrates how to use OpenTelemetry to send data to the FusionReactor Cloud using Docker, and a simple Go App based on the OpenTelemetry [Go Github](https://github.com/open-telemetry/opentelemetry-go/) project.
-
-## Procedure 
+This guide demonstrates how to instrument a Go application with OpenTelemetry to send traces and metrics to OpsPilot.
 
 <iframe src="https://player.vimeo.com/video/816527416?h=34c72de814" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/816527416">Instrumenting a Go app using OpenTelemetry</a> from <a href="https://vimeo.com/user109619720">FusionReactorAPM</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-### Initialize OpenTelemetry
+## Prerequisites
 
-To configure the app to send telemetry data, you need a function to initialize OpenTelemetry.
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
+* **Go**: Go 1.21 or later installed on your system.
+* **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Go application.
 
-### **Step 1**: Add the code
+!!! tip "Set up your telemetry pipeline first"
+    Before instrumenting your Go application, ensure you have completed either the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) so your telemetry data has a destination.
 
-Add the following code in the main.go file under **import** to add the required dependencies for the project. 
+## Step 1: Install dependencies
 
+Create a new Go module and add the required OpenTelemetry dependencies:
+
+```bash
+go mod init example.com/otel-demo
+go get go.opentelemetry.io/otel
+go get go.opentelemetry.io/otel/sdk
+go get go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp
+go get go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp
 ```
+
+## Step 2: Configure OpenTelemetry
+
+Create a `main.go` file and add the following imports and configuration:
+
+```go
+package main
+
 import (
 	"context"
-    	"fmt"
-    	"time"
-    	"log"
+	"fmt"
+	"log"
+	"time"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
-	"go.opentelemetry.io/otel/sdk/resource"
-	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
-	sdktrace "go.opentelemetry.io/otel/sdk/trace"
-	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
-	"go.opentelemetry.io/otel/trace"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/metric"
-	"go.opentelemetry.io/otel/metric/global"
 	"go.opentelemetry.io/otel/propagation"
-	"go.opentelemetry.io/otel/metric/instrument"
-
+	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
+	"go.opentelemetry.io/otel/sdk/metric/metricdata"
+	"go.opentelemetry.io/otel/sdk/resource"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+	"go.opentelemetry.io/otel/trace"
+	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
 )
-```
 
-### **Step 2**: Add the variable to define endpoint
-
-Add a variable to define the Otel collector endpoint. The example below uses Docker containers, so the address uses the docker container name of the Otel collector (otelcollector:4318), instead of localhost.
-
-```
 var (
-   endpoint = "otelcollector:4318"
-
-   tracer         trace.Tracer
-   serviceName    = "test-go-server-http"
-   serviceVersion = "0.1.0"
-   lsEnvironment  = "dev"
-   meter = global.MeterProvider()
-
+	endpoint       = "localhost:4318"
+	serviceName    = "test-go-server-http"
+	serviceVersion = "0.1.0"
+	environment    = "dev"
 )
 ```
-### Add two functions
 
-Add two functions to the project - one to set up metrics, the other to set up traces.
+### Initialize the Metric Provider
 
-```
+Add a function to configure metrics export:
+
+```go
 func setupMetrics(ctx context.Context) (*sdkmetric.MeterProvider, error) {
-
-    exporter, err := otlpmetrichttp.New(
-			ctx,
-			otlpmetrichttp.WithInsecure(),
-			otlpmetrichttp.WithEndpoint(endpoint),
-		)
-
-    if err != nil {
-        return nil, err
-    }
-
-    // labels/tags/resources that are common to all metrics.
-    resource :=
-		resource.NewWithAttributes(
-			semconv.SchemaURL,
-			semconv.ServiceNameKey.String(serviceName),
-			semconv.ServiceVersionKey.String(serviceVersion),
-			attribute.String("environment", lsEnvironment),
-			attribute.String("test-attribute", "test-value"),
-			)
-
-
-    mp := sdkmetric.NewMeterProvider(
-        sdkmetric.WithResource(resource),
-        sdkmetric.WithReader(
-            // collects and exports metric data every 5 seconds.
-            sdkmetric.NewPeriodicReader(exporter, sdkmetric.WithInterval(1*time.Second)),
-        ),
-    )
-
-    global.SetMeterProvider(mp)
-
-    return mp, nil
-}
-
-func setupTracing(ctx context.Context) (*sdktrace.TracerProvider, error) {
-
-	exporter, err := otlptracehttp.New(
-			ctx,
-			otlptracehttp.WithInsecure(),
-			otlptracehttp.WithEndpoint(endpoint),
-		)
-
+	exporter, err := otlpmetrichttp.New(
+		ctx,
+		otlpmetrichttp.WithInsecure(),
+		otlpmetrichttp.WithEndpoint(endpoint),
+		// OpsPilot is Prometheus-based and requires Cumulative temporality
+		otlpmetrichttp.WithTemporalitySelector(func(kind sdkmetric.InstrumentKind) metricdata.Temporality {
+			return metricdata.CumulativeTemporality
+		}),
+	)
 	if err != nil {
-        return nil, err
+		return nil, err
 	}
 
-	resource :=
-           resource.NewWithAttributes(
-               semconv.SchemaURL,
-               semconv.ServiceNameKey.String(serviceName),
-               semconv.ServiceVersionKey.String(serviceVersion),
-               attribute.String("environment", lsEnvironment),
-           )
+	// Define resource attributes common to all metrics
+	res := resource.NewWithAttributes(
+		semconv.SchemaURL,
+		semconv.ServiceNameKey.String(serviceName),
+		semconv.ServiceVersionKey.String(serviceVersion),
+		attribute.String("environment", environment),
+	)
 
+	mp := sdkmetric.NewMeterProvider(
+		sdkmetric.WithResource(res),
+		sdkmetric.WithReader(
+			// Export metrics every 5 seconds
+			sdkmetric.NewPeriodicReader(exporter, sdkmetric.WithInterval(5*time.Second)),
+		),
+	)
+
+	otel.SetMeterProvider(mp)
+	return mp, nil
+}
+```
+
+### Initialize the Trace Provider
+
+Add a function to configure trace export:
+
+```go
+func setupTracing(ctx context.Context) (*sdktrace.TracerProvider, error) {
+	exporter, err := otlptracehttp.New(
+		ctx,
+		otlptracehttp.WithInsecure(),
+		otlptracehttp.WithEndpoint(endpoint),
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	// Define resource attributes common to all traces
+	res := resource.NewWithAttributes(
+		semconv.SchemaURL,
+		semconv.ServiceNameKey.String(serviceName),
+		semconv.ServiceVersionKey.String(serviceVersion),
+		attribute.String("environment", environment),
+	)
 
 	tp := sdktrace.NewTracerProvider(
-        sdktrace.WithBatcher(exporter),
-        sdktrace.WithResource(resource),
-		)
+		sdktrace.WithBatcher(exporter),
+		sdktrace.WithResource(res),
+	)
 
 	otel.SetTracerProvider(tp)
 
+	// Set up trace context propagation
 	otel.SetTextMapPropagator(
 		propagation.NewCompositeTextMapPropagator(
 			propagation.TraceContext{},
@@ -133,138 +139,120 @@ func setupTracing(ctx context.Context) (*sdktrace.TracerProvider, error) {
 		),
 	)
 
-	    return tp, nil
+	return tp, nil
+}
 ```
 
+!!! warning "Insecure configuration"
+    The examples above use `WithInsecure()` for simplicity. In production, configure TLS and use secure authentication with your API key.
 
-### **Step 1**: Create new exporter
+## Step 3: Create your application
 
-Create a new exporter to send trace or metric data to the collector previously defined as otelcollector on port 4318.
+Add the main function that initializes OpenTelemetry and creates sample telemetry:
 
-!!! note
-    The above procedure uses no security. It is recommended to use something like Mutual TLS. 
-    
-
-### **Step 2**: Create a provider
-
-Create a provider to give more information about what is happening for a given operation, such as a specific metric or trace span.
-
-### **Step 3**: Set propagator for tracing
-
-Set a propagator for tracing. Propagation is the mechanism by which a trace can be disseminated and communicated from one service to another across transport boundaries. 
-
-### **Step 4**: Initialize the metric & trace exporters
-
-Under the main function, add the following to initialize the metric and trace exporters. The attributes here are just example key-value descriptors that you can manually set for your trace: 
-
-```
+```go
 func main() {
+	log.Printf("Starting OpenTelemetry demo...")
 
-log.Printf("Waiting for connection...")
+	ctx := context.Background()
 
-    ctx := context.Background()
-
-	//metrics
-	{
+	// Initialize metrics
 	mp, err := setupMetrics(ctx)
-
-        if err != nil {
-            panic(err)
-        }
-        defer mp.Shutdown(ctx)
+	if err != nil {
+		panic(err)
 	}
-//traces
-	{
-        tp, err := setupTracing(ctx)
-        if err != nil {
-            panic(err)
-        }
-        defer tp.Shutdown(ctx)
-    }
+	defer mp.Shutdown(ctx)
 
-
-
-	tracer = otel.Tracer(serviceName, trace.WithInstrumentationVersion(serviceVersion))
-	tracer := otel.Tracer("test-tracer")
-
-
-	// Attributes represent additional key-value descriptors that can be bound
-	// to a metric observer or recorder.
-	commonTraceAttrs := []attribute.KeyValue{
-		attribute.String("attrAtrace", "test1.1"),
-		attribute.String("attrBtrace", "test2"),
-		attribute.String("attrCtrace", "test3"),
+	// Initialize tracing
+	tp, err := setupTracing(ctx)
+	if err != nil {
+		panic(err)
 	}
+	defer tp.Shutdown(ctx)
 
+	// Create a tracer
+	tracer := otel.Tracer(serviceName)
 
-	//trace starts
-    ctx, span := tracer.Start(
-		ctx,
-		"CollectorExporter-Example",
-		trace.WithAttributes(commonTraceAttrs...),
+	// Create a meter and counter
+	meter := otel.Meter(serviceName)
+	counter, err := meter.Int64Counter(
+		"demo.counter",
+		metric.WithDescription("Counts iterations of the demo loop"),
 	)
+	if err != nil {
+		panic(err)
+	}
 
+	// Define custom trace attributes
+	commonAttrs := []attribute.KeyValue{
+		attribute.String("demo.type", "example"),
+		attribute.String("demo.version", "1.0"),
+	}
+
+	// Start a trace span
+	ctx, span := tracer.Start(
+		ctx,
+		"demo-operation",
+		trace.WithAttributes(commonAttrs...),
+	)
 	defer span.End()
 
-	//example counter metric
-	counter, _ := global.MeterProvider().
-		Meter(
-			serviceName,
-			metric.WithInstrumentationVersion("0.0.1"),
-			).
-		Int64Counter(
-			"add_counter",
-			instrument.WithDescription("how many times addCounter function has been called."),
-		)
+	// Simulate work with nested spans
+	for i := 1; i <= 30; i++ {
+		_, childSpan := tracer.Start(ctx, fmt.Sprintf("iteration-%d", i))
+		log.Printf("Processing iteration %d / 30\n", i)
 
+		// Increment the counter
+		counter.Add(ctx, 1, metric.WithAttributes(
+			attribute.String("iteration", fmt.Sprintf("%d", i)),
+		))
 
-	for i := 1; i < 30; i++ {
-		_, iSpan := tracer.Start(ctx, fmt.Sprintf("Sample-%d", i))
-		log.Printf("Doing really hard work (%d / 30)\n", i+1)
-
-		counter.Add(
-			ctx,
-			1,
-			attribute.String("type", "add"),
-		)
-
-		<-time.After(time.Second)
-		iSpan.End()
+		time.Sleep(time.Second)
+		childSpan.End()
 	}
 
-	log.Printf("Done!")
-```
-The main function calls the setup functions, then creates a trace that runs for 30 seconds, along with a counter metric that increments each second.
-
-### **Step 5**: Create Docker containers
-
-In your Go project’s directory, create the Dockerfile with the following code. This creates the Go Docker image, sets the traces and metrics endpoint for OTEL to point to our collector docker container, and tells this image to start our Go file:
-
-```
-FROM golang
-
-WORKDIR /app
-
-COPY go.mod go.sum ./
-RUN go mod download && go mod verify
-
-COPY *.go ./
-RUN go build -o /gooteldemo
-
-
-ENV OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otelcollector:4318/v1/traces
-ENV OTEL_EXPORTER_OTLP_METRICS_ENDPOINT=http://otelcollector:4318/v1/metrics
-ENV OTEL_SERVICE_NAME=gooteldemo
-ENV OTEL_RESOURCE_ATTRIBUTES="application=gooteldemo"
-
-CMD ["/gooteldemo"]
+	log.Printf("Demo complete!")
+}
 ```
 
-Scraped metrics and traces will now be available in both **Explore** and the **Integrations** dashboards within the **FusionReactor Cloud**.
+!!! warning "Cannot connect to collector?"
+    **If you see:** `connection refused` or `dial tcp: connect: connection refused`
+    **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
 
-___
+## Step 4: Run the application
+
+Run your instrumented application:
+
+```bash
+go run .
+```
+
+## Step 5: Verify in OpsPilot
+
+1. **View in OpsPilot**:
+   - Navigate to **Explore > Traces** to see your Go application traces
+   - Navigate to **Explore > Metrics** and search for `demo_counter` to see the counter metric
+   - Your service should appear as `test-go-server-http`
+
+## Next steps
+
+* Instrument HTTP handlers using `go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp`
+* Add database instrumentation with `go.opentelemetry.io/contrib/instrumentation/database/sql/otelsql`
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Go application metrics
+
+---
+
+## Related Guides
+
+- **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
+- **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
+- **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
+
+---
+
+!!! info "Learn more"
+    [OpenTelemetry Go Documentation](https://opentelemetry.io/docs/languages/go/)
 
 !!! question "Need more help?"
-    Contact support in the chat bubble and let us know how we can assist. 
-
-
+    Contact support in the chat bubble and let us know how we can assist.

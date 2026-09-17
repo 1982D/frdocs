@@ -1,28 +1,19 @@
 # Instance Manager Log
 
-The Instance Manager log outputs a lot of useful information regarding
-the operations Instance Manager can perform. Information will be
-outputted for server scanning, installations, configuring existing
-servers, upgrading and any other Instance Manager function such as
-starting/stopping.
+The **Instance Manager Log** provides detailed information about the operations it performs. This includes server scanning, installations, configuration of existing servers, upgrades, and other Instance Manager functions such as starting or stopping servers.
 
-### Status Log - (instance-manager.log)
+### Status Log (`instance-manager.log`)
 
-The Instance Manager log is presented in the following format:
+The **Instance Manager Log** entries follow the format below:
 
-|Field Name|Number|Description|
-|--- |--- |--- |
-|Date|1|The date at which this log entry was written.|
-|Time|2|The time at which this log entry was written.|
-|Log Level|3|Log Level basically means the nature of the log, for example INFO means general information, where as ERROR means an error is being logged. SEVERE means something really bad has happened, this will be typically followed by the a generated exception.|
-|Operation|4|Contains a message of an event that occurred such as start of Instance Manager procedures (install, scan, etc). As well as specific information that is useful when debugging your server if Instance Manager was to fail at an operation.|
+| Field Name | Number | Description                                                                                                                                                                                     |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date       | 1      | The date when this log entry was recorded.                                                                                                                                                      |
+| Time       | 2      | The time when this log entry was recorded.                                                                                                                                                      |
+| Log Level  | 3      | Indicates the nature of the log entry. For example: **INFO** for general information, **ERROR** for an error, and **SEVERE** for critical issues, usually accompanied by a generated exception. |
+| Operation  | 4      | Describes events or actions performed by the Instance Manager, such as starting procedures (install, scan, etc.), and provides specific details useful for debugging if an operation fails.     |
+
+### Additional information
 
 
-### Additional Information:
-
-If you are having trouble with Instance Manager, and the logs are not
-giving you enough information, It may be a good idea to look at the logs
-for your application server. It may the case where your application
-server is not working or improperly configured, hence Instance Manager
-will fail, and it will be unable to provide helpful information in its
-log.
+If you encounter issues with Instance Manager and its logs do not provide enough detail, it can be helpful to check the logs of your application server. In some cases, the application server may be malfunctioning or improperly configured, which can cause Instance Manager operations to fail and limit the information available in its logs.

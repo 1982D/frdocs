@@ -2,7 +2,7 @@
 
 The **Classes** page shows a graph of the memory samples currently stored in memory by FusionReactor.
 
-![](/frdocs/attachments/245551850/245551855.png)
+![](/attachments/245551850/245551855.png)
 ## Activity Graph
 
 Several time spans are available,

@@ -1,7 +1,7 @@
 # Java/Lucee & databases
 
 
-![!Screenshot](/frdocs/Best-Practices/Installation/Images/LuceeJava.png)
+![!Screenshot](/Best-Practices/Installation/Images/LuceeJava.png)
 
 ## Step 1: Install FRAM (FusionReactor Administration Manager)
 
@@ -30,7 +30,7 @@ Use the auto discovery tool to scan your server and automatically locate your Ja
 
 
 !!! tip 
-    This is a manual process so if you have over 100 servers,  we recommend manual activation or [scripting](/frdocs/Best-Practices/Installation/) to install FR.
+    This is a manual process so if you have over 100 servers,  we recommend manual activation or [scripting](/Best-Practices/Installation/scripted1/) to install FR.
 <br>
 
 ## Step 3: Install the Observability Agent using FRAM
@@ -43,6 +43,6 @@ To monitor the machine running Lucee or Java itself and any databases eg Redis, 
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/928407325?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to install the Observability Agent using FRAM"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 !!! info "Learn more" 
-    [Observability Agent](/frdocs/Monitor-your-data/Observability-agent/overview/)
+    [Observability Agent](/Monitor-your-data/Observability-agent/overview/)
 
 

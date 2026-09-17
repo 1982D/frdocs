@@ -24,32 +24,32 @@ These logs will provide value in the archive viewer and for log analysis locally
 
 Metric logs are considered as logs created by the agent to track metrics over time, including:
 
-- classes.log
-- fr_thread.log
-- gc-*.log
-- memory-*.log
-- memorysummary.log
-- thread-state.log
-- heartbeat.log
-- resource.log
+- `classes.log`
+- `fr_thread.log`
+- `gc-*.log`
+- `memory-*.log`
+- `memorysummary.log`
+- `thread-state.log`
+- `heartbeat.log`
+- `resource.log`
 
-Transaction logs are logs of any tracked transaction in FusionReactor. By default, only a request log is created, but [JDBC logging](/Settings/JDBC/#logging-metrics) and [Txn logging](/Plugins/FusionReactor-Transaction-Logger-Plugin/) can be enabled. Log files include:
+Transaction logs are logs of any tracked transaction in FusionReactor. By default, only a request log is created, but [JDBC logging](/Data-insights/Features/Settings/JDBC/#logging-metrics) and [Txn logging](/Data-insights/Extras/Plugins/FusionReactor-Transaction-Logger-Plugin/) can be enabled. Log files include:
 
-- request.log
-- jdbc.log
-- transaction.log
+- `request.log`
+- `jdbc.log`
+- `transaction.log`
 
 Support logs are used by the Fusion Support team to diagnose issues. If you have an issue within an instance you may be asked to enable this setting. Logs include:
 
-- fr-probi.log
-- identity.log
-- osgi.log
-- odl.log
-- reactor.log
-- HTTP.log
-- cloud-state.log
-- datapack-transport.log
-- ir-audit*.log
+- `fr-probi.log`
+- `identity.log`
+- `osgi.log`
+- `odl.log`
+- `reactor.log`
+- `HTTP.log`
+- `cloud-state.log`
+- `datapack-transport.log`
+- `ir-audit*.log`
 
 | Configuration          | Description                                                                | Default |
 |------------------------|----------------------------------------------------------------------------|---------|
@@ -62,11 +62,11 @@ Support logs are used by the Fusion Support team to diagnose issues. If you have
 Log scraping allows the FusionReactor agent to scrape content from any log file hosted on the server FusionReactor is installed on.
 
 !!! note
-    Sending logs via the FusionReactor agent is a simple way to send additional logs with limited configuration. It is not recommended for sending large quantities of data as it can slow down the application.
+    Sending logs via the FusionReactor agent is simple but not suited for large volumes, as it may slow the application.
 
 
- !!! note 
-     When scraping additional logs ensure that multiple FusionReactor instances are not scraping the same files. For example, if you have 3 instances on one machine scraping system files or stdout / stderr. While this won't cause errors, it will result in duplicate data.
+!!! note 
+    Avoid having multiple FusionReactor instances scrape the same files to prevent duplicate log data.
 
 You can specify a comma separated list of regex file paths including wildcards using the character: ```*```.
 
@@ -108,7 +108,7 @@ Testing your scrape pattern displays a list of matching log files that will now 
 
 ## Log exclusion
 
-Log exclusions can exclude any logs sending to the FusionReactor cloud, either for security or to reduce data volume.
+Log exclusions can exclude any logs sending to OpsPilot, either for security or to reduce data volume.
 
 Similar to the scrape pattern you can add a regex pattern match for logs that will be blacklisted from sending, with the option of using the wildcard character: ```*```
 

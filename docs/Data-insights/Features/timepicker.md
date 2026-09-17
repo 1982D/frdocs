@@ -1,6 +1,6 @@
 # Time picker
 
-The time picker allows users to select the time period they are interested in within certain areas of FusionReactor Cloud. The time picker can be accessed from any screen where it's supported by either: 
+The time picker allows users to select the time period they are interested in within certain areas of OpsPilot. The time picker can be accessed from any screen where it's supported by either: 
 
 * Clicking its icon in the top navigation bar displays the [context menu](timepicker.md#context-menu).
 
@@ -14,7 +14,7 @@ The context menu allows refreshing of data for the current time frame, access to
 
 ### Refresh interval 
 
-The refresh interval controls how often FusionReactor Cloud should poll for new data.
+The refresh interval controls how often OpsPilot should poll for new data.
 
 ## Configuration options
 ![!Screenshot](../../Data-insights/Features/timepicker.png)

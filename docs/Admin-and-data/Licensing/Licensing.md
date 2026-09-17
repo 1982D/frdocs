@@ -1,10 +1,6 @@
 # Licensing
 
-FusionReactor is available in 4 editions with or without Cloud features:
-
-* STD - Standard Edition
-
-* ENT - Enterprise Edition
+FusionReactor is available in 2 editions with or without Cloud features:
 
 * ULT - Ultimate Edition
 
@@ -46,4 +42,4 @@ On the **About** page, you can perform various license operations, including:
 
 
 !!! info "Learn more"
-    [FusionReactor Proxy Settings](#)
+    [FusionReactor Proxy Settings](/Data-insights/Features/Settings/Main-Menu/#proxy-settings)

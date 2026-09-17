@@ -60,7 +60,7 @@ INFO Fusionreactor: ------------------------------------------------------------
 ```
 Revision in the about page:
 
-![Upgrade Complete](/frdocs/Monitor-your-data/FR-Agent/Images/Manual-install-complete-version-info.jpg)
+![Upgrade Complete](/Monitor-your-data/FR-Agent/Images/Manual-install-complete-version-info.jpg)
 
 ___
 

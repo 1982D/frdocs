@@ -38,7 +38,7 @@ these graphs are as follows:
 
 Below is an example of it's appearance:
 
-![](/frdocs/attachments/245554718/245554753.png)
+![](/attachments/245554718/245554753.png)
 
 ## Overview
 
@@ -50,7 +50,7 @@ This table gives a short summary of the system information.
 * **OS** - The operating system, version and architecture
 * **Country** - The Local and Time zone running on the server
 
-![](/frdocs/attachments/245554718/245554763.png)
+![](/attachments/245554718/245554763.png)
 
 ### Java
 
@@ -66,14 +66,14 @@ This table gives details of the Java version being used by the system.
 * **Java Class Version** - The version of the Java classes used on
     this version of Java
 
-![](/frdocs/attachments/245554718/245554728.png)
+![](/attachments/245554718/245554728.png)
 
 ### Users
 
 This table shows the currently logged in users on the system, and the
 time they logged in at, as well as the location they logged in from.
 
-![](/frdocs/attachments/245554718/245554723.png)
+![](/attachments/245554718/245554723.png)
 
 ### Drives
 
@@ -88,7 +88,7 @@ IO graphs.
 * **Size** - This is the current used, and total size of the disk in
     MB
 
-![](/frdocs/attachments/245554718/245554738.png)
+![](/attachments/245554718/245554738.png)
 
 ### Swap Info
 
@@ -109,7 +109,7 @@ swapped into real memory.
 **A higher Page In, than Page Out, could indicate that you do not have
 sufficient system memory.**
 
-![](/frdocs/attachments/245554718/245554733.png)
+![](/attachments/245554718/245554733.png)
 
 ### Network Summary
 
@@ -123,7 +123,7 @@ configuration.
 * **Primary DNS** - The Primary DNS server for the system
 * **Secondary DNS** - The Secondary DNS for the system
 
-![](/frdocs/attachments/245554718/245554748.png)
+![](/attachments/245554718/245554748.png)
 
 ### Processor Summary
 
@@ -133,4 +133,4 @@ This table displays the summary of the system processors.
 * **Cache Size** - The size of the cache on the processor
 * **Mhz** - The reported speed of the processor in Mhz
 
-![](/frdocs/attachments/245554718/245554743.png)
+![](/attachments/245554718/245554743.png)

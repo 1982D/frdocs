@@ -6,7 +6,7 @@ graph.
 
 Below is a sample image of the **WebRequest (Time)** graph.
 
-![](/frdocs/attachments/245549784/245549805.png)
+![](/attachments/245549784/245549805.png)
 
 !!! note
     The **Time Graph** is the same as [Transaction->Time Graph](../Transactions/Time-Graph.md) but filtered to only show transactions of WebRequest type.

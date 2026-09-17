@@ -10,7 +10,7 @@ Be aware that FusionReactor has a default **Slow Request Threshold** set to 8 se
 
 The example image below lists any transactions that have gone over the slowest threshold. It also lists any running transactions that haven't increased passed the threshold and are still running.
 
-![](/frdocs/attachments/245549896/245549980.png)
+![](/attachments/245549896/245549980.png)
 
 !!!note
     Slow Requests is the same as [Transaction->Slow Transactions](../Transactions/Slow-Transactions.md) but filtered to only show transactions of WebRequest type.

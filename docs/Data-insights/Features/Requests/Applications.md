@@ -8,7 +8,7 @@ Please note that the **Applications** view is only available with an
 This page shows the statistics collected by **FusionReactor** based on the
 application.
 
-![](/frdocs/attachments/245550048/245550053.png)
+![](/attachments/245550048/245550053.png)
 
 ## Page controls
 

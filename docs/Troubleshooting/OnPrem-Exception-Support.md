@@ -11,7 +11,7 @@ In certain scenarios, such as when using specific frameworks, libraries, or code
 
 
 !!! info "Learn more"
-    [Manual configuration examples](/Installation/Manual/Manual-Configuration-Examples/)
+    [Manual configuration examples](/Monitor-your-data/FR-Agent/Installation/Configuration-examples/)
 
 !!! question "Need more help?"
     Contact support in the chat bubble and let us know how we can assist.

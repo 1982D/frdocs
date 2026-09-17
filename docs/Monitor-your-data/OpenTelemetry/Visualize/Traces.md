@@ -1,17 +1,19 @@
 # Traces 
 
-Traces depict individual execution flows within your application or service, commencing and concluding at specified points in your code. They meticulously record pertinent details, including timings, events, attributes, sub-routine executions, and custom data. This data is organized in a hierarchical tree structure that mirrors the execution flow of the underlying code logic.
+Traces represent individual execution flows within your application, capturing what happens from start to finish. They record important details including timings, events, attributes, sub-routine executions, and custom data. This data is organized in a hierarchical tree structure that mirrors your code's execution flow.
 
-While a trace typically signifies the isolated invocation of specific business logic, such as a request, its primary role is to function as a container for spans. These spans are intricately linked together under a unified identifier known as the trace ID. Each span encapsulates an individual step within the business logic.
+A trace typically represents a single request or operation, and serves as a container for spans. These spans are linked together under a unique trace ID, with each span representing an individual step in your business logic.
 
-To visualize your OTel traces, simply navigate to FusionReactor Cloud and  access the many features available such as the **Show Traces** dashboards, which gives you loads to get started with without needing any additional configuration. Alternatively, you can view your traces in **Explore** by accessing the dropdown located to the left of the screen and selecting **Traces**.
+To visualize your OTel traces, simply navigate to OpsPilot and access the **Show Traces** dashboards, which provide comprehensive tracing features without requiring additional configuration. Alternatively, you can view your traces in **Explore** by selecting **Traces** from the datasource dropdown.
 
 ## Python example
 
 !!! info
-    The following example relies on a user having first [instrumented a Python application](/frdocs/Monitor-your-data/OpenTelemetry/Instrumentation/Python/) to ship data to FR CLoud. 
+    The following example relies on a user having first [instrumented a Python application](/Monitor-your-data/OpenTelemetry/Instrumentation/Python/) to ship data to OpsPilot. 
 
-In the FR Cloud **Explore** window, ensure the `Traces` datasource is selected. Using the `Search` query type, select `Resource Service Name = fib_by_iteration`. Click the blue spinner at the top left to execute the query. Several `fib-outer` spans should be returned. Click one to open the span split view, which should show the inner spans for that execution. Inner spans on the right can be clicked to open them, revealing more information - including the attribute we set in code: `iteration`.
+In the OpsPilot **Explore** window, ensure the `Traces` datasource is selected. Using the `Search` query type, select `Resource Service Name = fib_by_iteration`. Click the **Run Query** button at the top left to execute the query.
+
+Several `fib-outer` spans will appear. Click on one to open the span split view, which displays the inner spans for that execution. Click any inner span on the right to view more information, including the `iteration` attribute set in the code.
 
 
-![!Screenshot](/frdocs/Monitor-your-data/OpenTelemetry/images/pythontraces.png)*Traces supplied by Python*
+![!Screenshot](/Monitor-your-data/OpenTelemetry/images/pythontraces.png)*Traces supplied by Python*

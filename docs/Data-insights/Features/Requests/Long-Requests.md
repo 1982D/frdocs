@@ -15,7 +15,7 @@ to complete on this instance.
 The example image below lists the web requests by the longest time taken
 to complete.
 
-![](/frdocs/attachments/245549812/245549889.png)
+![](/attachments/245549812/245549889.png)
 
 !!! note
     The **Longest Requests: WebRequest** is the same as [Transaction->Long Transactions](../Transactions/Longest-Transactions.md) but filtered    

@@ -5,7 +5,7 @@ currently stored in memory by FusionReactor.
 
 Below is a sample image of the **Heap Memory Graph**.
 
-![](/frdocs/attachments/245551586/245551608.png)
+![](/attachments/245551586/245551608.png)
 
 Due to its visual nature, the memory heap graph can very quickly
 give you a good idea how the system is performing. Not only that but,

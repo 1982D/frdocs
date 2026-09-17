@@ -8,8 +8,8 @@ From this dashboard, you can:
 
 *  set thresholds for instances to enter a warning or error state based on the resource usage. 
 
-> 📖 **Learn more:**
-> [Enterprise Dashboard features](/Enterprise-Dashboard/Enterprise-Dashboard/).
+!!! info "Learn more"
+    [Enterprise Dashboard features](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard/).
 
 
 Below are three common configurations you may want to setup when you using FusionReactor.
@@ -21,14 +21,43 @@ We recommend using the **Ephemeral Data Service** in FusionReactor to automatica
 
 For a working example of configuring automatic registration to the Enterprise Dashboard in Docker: 
 
-> 📖 **Learn more:**
-> [Ephemeral Docker example](https://github.com/intergral/fusionreactor-docker/tree/master/ephemeral).
+!!! info "Learn more"
+    [Ephemeral Docker example](https://github.com/intergral/fusionreactor-docker/tree/master/ephemeral).
 
-{!Common/ED_FRAPI_Registration_Warning!}
+!!! note
+    In FusionReactor 8.0.x and below automatic registration of FusionReactor used the FusionReactor API to automatically
+     register instances.
+     To do this you would set the following system properties:
+
+     * -Dfrregisterwith
+     * -Dfrshutdownaction
+     * -Dfrregisterhostname
+     * -Dfrregistergroup
+
+     This connection method has been deprecated and should no longer supported.
+
+     We recommend you remove these arguments and move to the Ephemeral Data Service in FusionReactor 8.1.x and
+      above.
+
 
 To configure the **Ephemeral Data Service** you are required to configure the system properties below:
 
-{!Common/ED_Sys_Props!}
+The following properties should be added to the instance hosting the Enterprise Dashboard
+
+Property | Default Value | Values Accepted | Version Added | Description
+--- | --- | --- | --- | ---
+fr.ed.ds.enable | false | true/false | 8.1.0 | If provided, specifies the server port binding.
+fr.ed.ds.listen | 0.0.0.0:2106 | hostname:port | 8.1.0 | Specifies the listening IP address and port on the server
+fr.ed.ds.polltimeout | 1000 | Integer (ms) | 8.1.0 | Specifies the time EDS will wait after attempting to poll data from the client before marking the client as offline.
+fr.ed.ds.maxdatasize | 20 | Integer (MB) | 8.2.2 | The maximum size of a page or other data transfer that will be accepted over the tunnel.
+
+The following properties should be added to the instance connecting to the Enterprise Dashboard
+
+Property | Default Value | Values Accepted | Version Added | Description
+--- | --- | --- | --- | ---
+fr.ed.ds.target | Not defined | hostname:port | 8.1.0 | If specified, causes the instance to attempt to auto-register with the EDS system at the specified address
+fr.ed.ds.groups | Not defined | Comma-separated list | 8.1.0 | If provided, the instance will auto-register with the ED DS, specifying it is a part of the given groups.
+
 
 !!! note
     Be aware that if you are using the Ephemeral Data Service, but have already configured your FusionReactor instances manually or through the FRAPI registration, you will need to remove these entries under the Manage Servers page for registration to take place.
@@ -98,56 +127,56 @@ Within the **Enterprise Dashboard** instances will change colour depending on th
 
 If any instance within a group changes to a Warning or Error state, the group itself will change to this state.
 
-![ED Memory Setting](../images/configuration/ED_Statuses.jpg)
+![ED Memory Setting](/Troubleshooting/images/ED_Statuses.jpg)
 
-You can configure when an instance will enter either the Warning or Error state in the [Enterprise Dashboard Settings](../Enterprise-Dashboard/Settings.md).  Changing these settings allows you to monitor the health of your infrastructure and know if you are experiencing any issues quickly.
+You can configure when an instance will enter either the Warning or Error state in the [Enterprise Dashboard Settings](/Data-insights/Features/Enterprise-Dashboard/Settings/).  Changing these settings allows you to monitor the health of your infrastructure and know if you are experiencing any issues quickly.
 
 In **Memory** you can configure the percentage of Heap memory used required to be a warning or error state.
 
-![ED Memory Setting](../images/configuration/ED_Mem_Status.jpg)
+![ED Memory Setting](/Troubleshooting/images/ED_Mem_Status.jpg)
 
 In **Average Request Time** you can configure a warning or error for when the average request time in the last 60 seconds ia above
  a millisecond value.
 
-![ED Memory Setting](../images/configuration/ED_Req_Status.jpg)
+![ED Memory Setting](/Troubleshooting/images/ED_Req_Status.jpg)
 
 In **JDBC** you can configure a warning or error for when the average JDBC request time in the last 60 seconds ia above
  a millisecond value.
 
- ![ED Memory Setting](../images/configuration/ED_JDBC_Status.jpg)
+ ![ED Memory Setting](/Troubleshooting/images/ED_JDBC_Status.jpg)
 
  In **Slow Requests** you can configure a warning or error when the number of Slow requests in the last 60 seconds is above a
   defined value.
 
-![ED Memory Setting](../images/configuration/ED_Slow_Status.jpg)
+![ED Memory Setting](/Troubleshooting/images/ED_Slow_Status.jpg)
 
 ## Offline instance alerts
 
-When instances are added to the **Enterprise Dashboard** either by [manually](../Enterprise-Dashboard/Enterprise-Dashboard.md#manage-servers) adding the server, or through the **Instance Manager** by [manually adding instances](../Enterprise-Dashboard/Enterprise-Dashboard.md#manually-adding-instances), you will receive alerts in the form of emails if an instance becomes unavailable.
+When instances are added to the **Enterprise Dashboard** either by [manually](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard/#manage-servers) adding the server, or through the **Instance Manager** by [manually adding instances](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard/#manually-adding-instances), you will receive alerts in the form of emails if an instance becomes unavailable.
 
 !!! note
     In order to receive these email alerts you must have the email settings for the instance correctly configured. 
     
 !!! info "Learn more"
-    [Email configuration guide](/Configuration/Email-Configuration/).
+    [Email configuration guide](/Troubleshooting/Configuration/Email-Configuration/).
 
 In order to detect if a server becomes unavailable, the **Enterprise Dashboard** uses a heartbeat mechanism. This means that by default it will attempt to contact the monitored FusionReactor instance, after three failed attempts we assume that the instance is no longer available.
 
-It is possible to configure both the heartbeat settings and alert settings in the [Enterprise Dashboard Settings](../Enterprise-Dashboard/Enterprise-Dashboard.md) page.
+It is possible to configure both the heartbeat settings and alert settings in the [Enterprise Dashboard Settings](/Data-insights/Features/Enterprise-Dashboard/Settings/) page.
 
-![Screenshot](../images/configuration/serverstart.png)
+![Screenshot](/Troubleshooting/images/serverstart.png)
 
 Under **Server Shutdown/Startup Alerts** you can disable these alerts entirely, or specify whether to receive emails on shutdown only.
 
-![ED Alert Setting](../images/configuration/ED_Alert_Setting.jpg)
+![ED Alert Setting](/Troubleshooting/images/ED_Alert_Setting.jpg)
 
 Under **Heartbeat Settings** you can configure the heartbeat interval, timeout and failure threshold.
 
-![Screenshot](../images/configuration/heartbeat.png)
+![Screenshot](/Troubleshooting/images/heartbeat.png)
 
 While in most cases these settings should provide optimal alerts, it may be that at times your application server stalls and can stop serving requests for a limited time. For example, if a large Garbage Collection is occurring. When this happens it is possible to receive false alarms that your application is unavailable.
 
-![ED Heartbeat Setting](../images/configuration/ED_Heartbeat_Setting.jpg)
+![ED Heartbeat Setting](/Troubleshooting/images/ED_Heartbeat_Setting.jpg)
 
 !!! tip
     Increase the heartbeat interval or failure threshold to prevent these false alarms.

@@ -16,7 +16,7 @@ graph, this works both ways. In addition you are able to switch to the
 Below is a sample image of the **JDBC Activity Graph** with the tool-tip
 showing.
 
-![](/frdocs/attachments/245550747/245550763.png)
+![](/attachments/245550747/245550763.png)
 
 ## JDBCRequest Activity graph
 

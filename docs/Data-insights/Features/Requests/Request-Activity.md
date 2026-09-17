@@ -3,7 +3,7 @@
 The **Request Activity** section of Requests gives you the ability to view
 and administer running requests on your server.
 
-![](/frdocs/attachments/245549501/245549627.png)
+![](/attachments/245549501/245549627.png)
 
 !!!note
     The Request Activity is the same as [Transaction->Activity](../Transactions/Activity.md) but filtered to only show transactions of WebRequest type.
@@ -22,7 +22,7 @@ web request activity currently stored by FusionReactor. 
 
 Below is a sample image of the JDBC Activity Graph.
 
-![](/frdocs/attachments/245549756/245549777.png)
+![](/attachments/245549756/245549777.png)
 
 !!!note
     The **Request Activity Graph** is the same as [Transaction->Activity Graph](../Transactions/Activity-Graph.md) but filtered to only show transactions of WebRequest type.

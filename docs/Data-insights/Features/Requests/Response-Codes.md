@@ -4,7 +4,7 @@
 
 Below is an image of the **Response Codes** page overview.
 
-![](/frdocs/attachments/245550029/245550041.png)
+![](/attachments/245550029/245550041.png)
 
 ## Activity Execution Time graph
 

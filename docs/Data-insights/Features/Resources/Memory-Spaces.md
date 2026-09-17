@@ -6,7 +6,7 @@ in memory by FusionReactor, for each of the memory spaces in your JVM.
 Below is a sample image of the **Memory Space Graph**, currently set to
 **PS Survivor Space**.
 
-![](/frdocs/attachments/245551675/245551720.png)
+![](/attachments/245551675/245551720.png)
 
 The available memory spaces can differ depending of the JVM being
 monitored. FusionReactor will create a graph and log for each memory

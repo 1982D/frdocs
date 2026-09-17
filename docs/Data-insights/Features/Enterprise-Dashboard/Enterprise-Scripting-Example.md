@@ -43,7 +43,7 @@ the link in order to get a copy,
 <a href="http://www.fusion-reactor.com/download/" class="external-link">Download FusionReactor</a>.
 
 !!! info "Learn more"
-    [Installers](../Installation/Installer/Install.md)
+    [Installers](/Monitor-your-data/FR-Agent/Installation/Automatic/)
 
 ### **Step 2**: Access FRAM via the browser & install FusionReactor instance
 
@@ -77,7 +77,7 @@ If the process has been successful, the following is displayed:
 ![](/attachments/245549054/245549086.png)
 
 !!! info "Learn more"
-    [Install a FusionReactor Instance via FRAM](../Installation/Installer/Install.md)</a>.
+    [Install a FusionReactor Instance via FRAM](/Monitor-your-data/FR-Agent/Installation/Automatic/)</a>.
 
 ### **Step 3**: Script preparation
 

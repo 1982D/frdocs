@@ -15,7 +15,7 @@ following information:
 * **CPU**: The total current system CPU usage (in the column header).
     The current CPU usage for this process.
 
-![](/frdocs/attachments/245554779/245554789.png)
+![](/attachments/245554779/245554789.png)
 
 Additionally, on the top right corner you are able to see the following;
 
@@ -45,7 +45,7 @@ This table shows the following:
 * **Group:** The User Group that this process is owned by.
 * **User:** The actual User that owns this process.
 
-![](/frdocs/attachments/245554779/245554784.png)
+![](/attachments/245554779/245554784.png)
 ### Started
 
 This table shows the following:
@@ -53,7 +53,7 @@ This table shows the following:
 * **Start Time**: The time the process started.
 * **Running for**: The amount of time the process has been running.
 
-![](/frdocs/attachments/245554779/245554804.png)
+![](/attachments/245554779/245554804.png)
 
 ### Memory
 
@@ -66,7 +66,7 @@ This table shows the following:
 * **Share**: The size of the shared memory in bytes.
 * **Size**: The size of the total process virtual memory in bytes.
 
-![](/frdocs/attachments/245554779/245554819.png)
+![](/attachments/245554779/245554819.png)
 ### Parent Process
 
 This table shows the following:
@@ -75,7 +75,7 @@ This table shows the following:
 * **Parent Name:** The name of the parent process.
 * **Parent Exe:** The directory of the parent process.
 
-![](/frdocs/attachments/245554779/245554814.png)
+![](/attachments/245554779/245554814.png)
 
 ### Process State
 
@@ -87,14 +87,14 @@ This table shows the following:
 * **State:** The state of the process, running/stopped/waiting.
 * **Number of Threads:** The number of threads under that process.
 
-![](/frdocs/attachments/245554779/245554829.png)
+![](/attachments/245554779/245554829.png)
 
 ### Arguments
 
 This section shows the entire argument list that is appended with the
 process. it is shown in a text box, as a continuous string.
 
-![](/frdocs/attachments/245554779/245554824.png)
+![](/attachments/245554779/245554824.png)
 
 ### Modules
 
@@ -103,7 +103,7 @@ provided as a list, with each module being separated with a new line.
 The text box being used to represent the Modules has a max-height, so it
 may become scrollable if there are a large amount of modules.
 
-![](/frdocs/attachments/245554779/245554839.png)
+![](/attachments/245554779/245554839.png)
 
 ### Environment
 
@@ -121,4 +121,4 @@ The table has the following format:
 * **Value **- The actual value that the environment variable key
     represents.
 
-![](/frdocs/attachments/245554779/245554834.png)
+![](/attachments/245554779/245554834.png)

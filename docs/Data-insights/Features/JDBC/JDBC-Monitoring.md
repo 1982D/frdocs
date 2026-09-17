@@ -2,72 +2,85 @@
 
 ## Overview
 
-FusionReactor JDBC Monitoring allows developers and administrators to
-monitor and control the interaction between Java and a database.
-FusionReactor allows fine-grained metrics and reporting of database
-activity:
+FusionReactor JDBC Monitoring helps developers and administrators monitor and control database interactions in Java applications. It provides fine-grained metrics and reporting on database activity, including:
 
--   **Logging of statements which ran against a database**  
-    This feature is useful to help detect deadlocks, view exactly what
-    Statements look like without resorting to manual log output, and to
-    see precisely how your Prepared Statements were bound before being run
-    against the database.
--   **Row limiting**  
-    The integrated row limiter can automatically halt database read
-    activity after a user-specifiable number of rows is reached. This
-    can stop run-away queries before they become a memory and resource
-    problem.
--   **Notification and reminders**  
-    The driver can optionally notify you when a certain number of rows
-    has been read, and periodically thereafter. Using this feature, you
-    are able to keep a clear overview about the volume of data being
-    processed by Java.
+**Statement Logging**
 
-FusionReactor automatically monitors existing JDBC requests and is able
-to communicate metric data to FusionReactor for easy perusal.
+- Records all statements executed against the database.
+
+- Useful for:
+
+    - Detecting deadlocks
+    - Viewing statements without manual logging
+    - Inspecting how Prepared Statements are bound before execution
+
+**Row Limiting**
+
+- Automatically halts read activity after a user-defined number of rows.
+
+- Prevents runaway queries from consuming memory and resources.
+
+**Notifications & Reminders**
+
+- Sends alerts when a specified number of rows has been read.
+
+- Can notify periodically as more rows are processed.
+
+- Helps maintain visibility into data processing volume.
+
+## Automatic monitoring
+
+FusionReactor automatically monitors existing JDBC requests and communicates metric data directly into FusionReactor for easy analysis.
 
 
 ## Options
 
+FusionReactor JDBC monitoring options let you control how metrics are tracked for each data source. These options can be set using:
 
-The JDBC monitoring options allow you to control many aspects of how
-FusionReactor tracks metrics from a data source including how to:
+- JDBC URL parameters, or
 
-* Name a data source in FusionReactor
-* Exclude a JDBC data source from FusionReactor
+- JDBC properties of a data source.
 
-The options can be configured using JDBC URL parameters or the JDBC properties of a data source.
+You can use them to:
+
+- Assign a custom name to a data source in FusionReactor.
+
+- Exclude a JDBC data source from monitoring.
+
+- Configure limits, notifications, and logging behavior.
+
 
 ### \_\_fusionreactor\_name
 
 Value*: string*  
 Default*: empty*
 
-If specified, the data source will report SQL metrics to FusionReactor
-with the given name.  These names will be reported in the JDBC logfile
-(or as an empty value if not set).  The name will also be reflected in
-the JDBC tab of the Request Details page, allowing the user to
-differentiate queries which ran against more than one datasource.  This
-is useful when multiple databases are being used to aggregate results,
-or when different drivers are being tested.
+
+Assigns a custom name to the data source for reporting in FusionReactor.
+
+- Appears in the JDBC log file (empty if not set).
+
+- Shown in the JDBC tab of the Request Details page.
+
+- Useful for distinguishing queries when using multiple data sources or testing different drivers.
 
 ### \_\_fusionreactor\_exclude
 
 Value*: boolean*  
 Default*: false*
 
-If true, the data source will NOT report SQL metrics to FusionReactor.
+If `true`, the data source will NOT report SQL metrics to FusionReactor.
 
 ### \_\_fusionreactor\_rowLimit
 
 Value*:  integer*  
 Default*:  0 (disabled).*
 
-This option instructs the FusionReactor to limit returned rows to the
-given value.
+Limits the number of rows returned for a query.
 
-After the application has retrieved this number of rows from the result
-set, FusionReactor will discard any remaining rows.
+- After the specified number of rows is retrieved, FusionReactor discards the rest.
+
+- Helps prevent runaway queries from consuming resources.
 
 ### \_\_fusionreactor\_notifyAfter
 
@@ -83,155 +96,152 @@ Value*: integer*
 Default*: 0 (disabled).*
 
 This option instructs the FusionReactor to periodically output a query
-reminder every 'n' rows.  If **notifyAfter** is specified, FusionReactor
+reminder every 'n' rows.  If `notifyAfter` is specified, FusionReactor
 will only begin reminding after the notification threshold has been
 reached.  
 
-E.g. notifyAfter=1000, remindAfter=100, actual rowcount 1350.  
-Notification occurs at row 1000, reminders at 1100, 1200 and 1300.
+!!! example
+    notifyAfter=1000, remindAfter=100, actual rowcount 1350. <br> 
+    Notification occurs at row 1000, reminders at 1100, 1200 and 1300.
 
 ### \_\_fusionreactor\_inhibitReformat
 
 Value*: Boolean*  
 Default*: false.*
 
-When tracking queries, the FusionReactor will reformat them for logging
-and presentation by attempting to make them fit on a single line. 
+Controls how queries are logged and displayed:
 
-This allows logs to be viewed more easily, but may hinder developers who
-are used to seeing queries formatted a certain way (as they are written
-in a web page, for example).  Setting this option to 'true' stops
-FusionReactor reformatting statement text, and allows multi-line
-presentation in the FusionReactor interface and log.
+- By default, FusionReactor reformats queries into single-line form for readability.
+
+- If `true`, queries are not reformatted, allowing multi-line formatting (useful if you want to preserve original formatting).
 
 ### \_\_fusionreactor\_logToFusionReactor
 
 Value*: Boolean*  
 Default*: true.*
 
-If set to true (the default) and the FusionReactor detects a running
-FusionReactor instance, it will log the execution of a query to
-FusionReactors 'jdbc-X.log' (where 'X' is the current rolling log
-number). 
+If enabled (default) and FusionReactor is running:
 
-If this option is enabled and FusionReactor was *not* detected, it has
-no effect.
+- Query executions are logged to jdbc-X.log (where X is the rolling log number).
+
+- If FusionReactor is not running, this option has no effect.
 
 ### \_\_fusionreactor\_interpretObjects
 
 Value*: Boolean*  
 Default*: true.*
 
-If set to true (the default), when a **PreparedStatement** attempts to
-bind an **Object** type to a positional parameter using one of the
-**setObject**(...) methods, FusionReactor will attempt to interpret the
-data (for logging and reporting purposes only) by calling the
-**toString()** method on the object.  This value will then be used in
-the log and FusionReactor administrator, as if the application had
-called a **setString**(...) method.  If the object does not override the
-default **toString()** method, the default behavior is to return the
-hash code of the object. 
+Controls how `PreparedStatement.setObject(...)` parameters are logged:
 
-If this parameter is false, the wrapper FusionReactor will use the
-format
+- If `true` (default): FusionReactor calls `toString()` on objects for logging/reporting.
+
+    - If the object doesn’t override `toString()`, the default hash code is used.
+
+- If `false`: Parameters are logged as:
 
     {OBJECT java.class.name xyz}
 
-where *xyz* is the .toString() representation.  This makes it clear that
-the parameter is of type Object, but is perhaps less easy to read in the
-log and the Administrator.
+where `xyz` is the `.toString()` output.
+
+- Makes object type explicit, but less readable.
 
 ### \_\_fusionreactor\_autoCommit
 
 Value*: Boolean  
 *Default*: true*
 
-If specified, the FusionReactor will turn off autocommit for all
-statements from this data source, regardless of the current status of
-autocommit, or the existence of any transactions.  This option must be
-used with extreme caution as it alters the default behaviour of the JDBC
-system, and is provided as a workaround to J2EE servers which require it
-to be disabled.  We do not recommend using this option to defeat
-autocommit.  After enabling this option, you must verify the atomicity
-and transactional integrity of your application's JDBC statements.
+If enabled, FusionReactor disables autocommit for all statements from this data source, regardless of current settings.
 
- 
+⚠️ Use with caution:
 
-How to specify the JDBC monitoring options
-------------------------------------------
+- Alters default JDBC behavior.
 
-------------------------------------------------------------------------
+- Provided as a workaround for certain J2EE servers that require autocommit to be disabled.
 
-### Adding data source properties
+- Not recommended for general use-must be tested carefully to ensure transactional integrity.
 
-If you application server supports adding properties to the datasource,
-you can configure FusionReactor's JDBC monitoring options by adding a
-datasource property with the name of the option and the value as
-required. This is the preferred way of configuring options.
+## Specifying JDBC Monitoring Options0
 
-### Altering the JDBC URL
+FusionReactor JDBC monitoring options can be configured in two ways:
 
-If you application server does not support adding properties to the
-datasource, you can configure FusionReactor's JDBC monitoring options by
-altering the JDBC URL. 
+### 1. Adding Data Source Properties (Preferred)
 
-Here's an example of a SQL Server JDBC URL, using the Microsoft SQL
-driver, to which a couple of FusionReactor options have been added.
+If your application server supports adding properties to the data source, configure FusionReactor options by:
 
-    jdbc:sqlserver://int0007:1433;databaseName=frtest;__fusionreactor_notifyAfter=1000;__fusionreactor_remindAfter=200;__fusionreactor_name=DataWarehouse
+* Adding a **data source property**
+* Using the option name as the property key, and
+* Setting the desired value
 
-You can see that in this example, the notifyAfter, remindAfter and name
-options have all been specified.  The databaseName option pertains to
-the JDBC driver.
+This is the **recommended approach**.
+
+### 2. Modifying the JDBC URL
+
+If your application server does not support custom data source properties, you can add options directly to the JDBC URL.
+
+!!! example "Example (SQL Server with Microsoft driver):"
+
+    ```
+    jdbc:sqlserver://int0007:1433;databaseName=frtest;
+    __fusionreactor_notifyAfter=1000;
+    __fusionreactor_remindAfter=200;
+    __fusionreactor_name=DataWarehouse
+    ```
+
+In this example:
+
+* `notifyAfter`, `remindAfter`, and `name` are FusionReactor options.
+* `databaseName` is a standard JDBC driver property.
+
+!!! note
+    Use data source properties when possible - it’s cleaner and preferred over modifying the JDBC URL.
 
 
-If you can add properties to the data source, it is the preferred over
-changing the JDBC URL.
 
+## Excluding a Data Source from Monitoring
 
-Different JDBC drivers use different delimiter characters between
-arguments to the driver (common delimiters are ; & , : ). You must
-specify the FusionReactor options using the correct delimiter for the
-JDBC driver that you are configuring.
+In some situations, you may not want FusionReactor to monitor a specific JDBC data source. You can disable monitoring by using the `__fusionreactor_exclude` option.
 
-Excluding a data source from monitoring
----------------------------------------
+### Method 1: Data Source Property (Preferred)
 
-------------------------------------------------------------------------
+Add the following property to your data source configuration:
 
-In some cases you may not want FusionReactor to monitor a JDBC data
-source. To exclude a JDBC data source from being monitored, add
-the\_\_fusionreactor\_exclude property to the datasource properties with
-the value true.
+```
+__fusionreactor_exclude=true
+```
 
-If the application server does not support adding properties to the data
-source, below is an example of how to exclude a data source from
-monitoring by altering the JDBC URL (using the Microsoft SQL driver).
+### Method 2: JDBC URL
 
+If your application server does not support adding custom properties, append the option directly to the JDBC URL.
+
+!!! example "Example (SQL Server, Microsoft driver):"
+
+    ```
     jdbc:sqlserver://int0007:1433;databaseName=frtest;__fusionreactor_exclude=true
+    ```
 
-Sample JDBC URLs
-----------------
+When set to `true`, FusionReactor will not collect or report SQL metrics for that data source.
 
-------------------------------------------------------------------------
 
-Here are a few examples of URLs, wrapped with the FusionReactor Driver
-Wrapper.  This section is not an exhaustive reference on the syntax of
-each URL - you should check the documentation for each individual
-driver.  In general we recommend downloading and using vendor-specific
-drivers if possible.  
 
-### Oracle (Thin)
 
-Using the Oracle Thin driver, with the name option (note that expanded
-syntax is used so that FusionReactor options can be added):
+## Sample JDBC URLs
+
+Below are sample JDBC URLs wrapped with the FusionReactor Driver Wrapper. These examples show how FusionReactor options can be embedded.
+
+This is not a complete reference for JDBC URL syntax. Always check the documentation for your specific driver. In general, we recommend using vendor-provided drivers whenever possible.
+
+### Oracle (Thin Driver)
+
+Example with the `__fusionreactor_name` and `__fusionreactor_rowlimit` options (expanded syntax allows FusionReactor options to be added):
+
 
     jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.56)(PORT=1521))(CONNECT_DATA=(SID=orcl)(__fusionreactor_name=orclthin)(__fusionreactor_rowlimit=12345)))
 
+    
+
 ### Oracle (Macromedia)
 
-Using the Macromedia driver, with the **notifyAfter** FusionReactor
-Driver Wrapper option:
+Using the `__fusionreactor_notifyAfter` option:
 
     jdbc:macromedia:oracle://int0234:1521;SID=testdb;__fusionreactor_notifyAfter=10000
 
@@ -243,72 +253,67 @@ Using the MySQL commercial driver:
 
 ### MySQL 5 Connector/J (MySQL)
 
-Here's an example using the MySQL Connector/J driver, downloadable from
+Using the MySQL Connector/J driver, downloadable from
 mysql.com.
 
     jdbc:mysql://int00d6.intergral.com:3306/TestApp?__fusionreactor_name=SQLServerDataSource
 
 ### MySQL (Macromedia)
 
-Using the MySQL GJT driver, with the **inhibitReformat** FusionReactor
-Driver Wrapper option:
+Example with the `__fusionreactor_inhibitReformat` option:
 
     jdbc:mysql://int0003:3306/webshopdb?defaultFetchSize=400;__fusionreactor_inhibitReformat=true
 
 ### Microsoft JDBC Driver 4.0 for SQL Server (Microsoft)
 
-Here's a URL using the Microsoft SQL Server 2005 JDBC Driver
+Connection string with the `__fusionreactor_name` option:
 
     jdbc:sqlserver://int00d0:1433;databaseName=AdventureWorks;__fusionreactor_name=testdb
 
-In this example, the username and password must be specified separately
-during the connection process. Here's an example where the username and
-password is specified in the URL:
+When username and password must be specified directly in the URL:
 
     jdbc:sqlserver://int00d0:1433;databaseName=AdventureWorks;user=scott;password=tiger;__fusionreactor_name=testdb
 
 ### Microsoft SQL Server (Macromedia)
 
-Using the Macromedia driver, with the **remindAfter** (we've named this
-data source too):
+Example using the `__fusionreactor_remindAfter` option and a custom name:
 
     jdbc:macromedia:sqlserver://int0007:1433;DatabaseName=frtest;__fusionreactor_remindAfter=500;__fusionreactor_name=SQLServerDataSource
 
 ### DerbyEmbedded (Apache Derby)
 
-The Apache Derby embedded database is an in-process (no separate server)
-database.  When this database driver is loaded, the database is started
-in the JVM process itself, a procedure which may only occur one time,
-until the database is subsequently stopped.  You should
-therefore **only **used this database with a wrapped datasource; you
-should not mix wrapped and unwrapped access to this datasource.  If
-you *do* mix these datasources, FusionReactor will attempt to share the
-connection with the wrapped and unwrapped datasource - which works in
-most cases - though this is an **unsupported configuration**.
+The Derby embedded database runs in-process within the JVM. Because the database starts and stops inside the JVM, you should only use it with a wrapped data source. Mixing wrapped and unwrapped access is not supported (although it may appear to work in some cases).
 
-This URL explicitly specifies the driver, together with its jar, and
-the **autocommit** option - also explained at the link above.
+This example specifies the driver explicitly, along with its JAR, and uses the `__fusionreactor_autocommit` option:
+
 
     jdbc:derby:C:/ColdFusion10/cfusion/db/bookclub/;create=false;MaxPooledStatements=300;__fusionreactor_name=bookclubdb;__fusionreactor_autocommit=false
 
 
 ## Interpreting JDBC log data
 
-When outputting data to the [JDBC log file](../Logs/Files/JDBC-Log.md) (which can
-be found in FusionReactor's instance log directory), the FusionReactor
-JDBC Driver Wrapper outputs a number of fields which can be used to
-debug JDBC transactions and derive statistics about how the system is
-using database resources.
+When FusionReactor outputs data to the  [JDBC log file](../Logs/Files/JDBC-Log.md)
+ (located in the FusionReactor instance log directory), the Driver Wrapper writes a series of fields that can be used to:
 
-The JDBC log file is space-delimited, with text fields (which may
-contain spaces) enclosed with double-quotes.  We have had no trouble
-importing this data into Microsoft Excel and OpenOffice Calc, as well as
-Microsoft SQL Server using Data Transformation Packages.
+- Debug JDBC transactions
 
-The following list describes the meaning of each field.  The list
-describes the fields in left-to-right order.  For field sources listed
-as 'FusionReactor', this field may be empty **if** the request in which
-the query ran has no associated FusionReactor tracked request.
+- Analyze system behavior
+
+- Generate database resource usage statistics
+
+The JDBC log file is space-delimited, with text fields enclosed in double quotes if they contain spaces.
+
+This format can be easily imported into:
+
+- Microsoft Excel
+
+- OpenOffice Calc
+
+- Microsoft SQL Server (via Data Transformation Packages)
+
+### Field Order
+
+The log fields are written left-to-right. Fields marked as “FusionReactor” may be empty if the query was not associated with a tracked request.
 
 ### Calendar date
 

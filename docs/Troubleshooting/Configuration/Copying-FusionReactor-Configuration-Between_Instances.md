@@ -4,8 +4,8 @@ The configuration of FusionReactor is per instance, meaning if you have five ins
 
  The configuration is all stored in a single file named reactor.conf, this file can be located at {FusionReactor Directory}/instance/{Instance Name}/conf/reactor.conf.
 
-> 💡 **Tip:**
-> It is safe to copy this file between instances, making it possible to configure one instance as desired, then copy this configuration to other instances of FusionReactor.
+!!! tip
+    It is safe to copy this file between instances, making it possible to configure one instance as desired, then copy this configuration to other instances of FusionReactor.
 
 !!! note
     Stop the application server before changing the configuration, otherwise there is a chance the old
@@ -33,6 +33,3 @@ The configuration of FusionReactor is per instance, meaning if you have five ins
     Ensure that the read/write permissions of the reactor.conf file are correct, otherwise it may not be possible for the user running the application server to read or write to the configuration file on startup.
 
 
-## Need more help?
-
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;"> Contact support in the chat bubble and let us know how we can assist. </div> 

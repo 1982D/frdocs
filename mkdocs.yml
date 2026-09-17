@@ -1,92 +1,115 @@
 site_name: FusionReactor Documentation
-site_url: https://intergral.github.io/frdocs/
+site_url: https://docs.fusionreactor.io/
 repo_name: frdocs
 repo_url: https://github.com/intergral/frdocs
-repo_url: https://github.com/intergral/frdocs
-edit_uri: edit/master/docs/docs
+edit_uri: edit/main/docs/
 
 
 theme:
   name: material
-  favicon: images/FRAtom_White.svg
+  favicon: images/FRAtom_Blue.svg
   logo: images/FRAtom_White.svg
   features:
     - navigation.sections
-    #- toc.integrate
+    - navigation.footer
+    # - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
+    - content.action.edit  # This enables the edit button on each page
   language: en
   font:  
-    text: 'Roboto'
+    text: 'Inter'
     code: 'monospace'
   palette:
-    # Palette toggle for light mode
+    # Light mode
     - scheme: default
       primary: custom
       accent: custom
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
 
-
-    # Palette toggle for dark mode
+    # Dark mode
     - scheme: slate
       primary: custom
       accent: custom
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mod
+        icon: material/weather-sunny
+        name: Switch to light mode
+     
 
 nav:
   - Home: index.md
-  - GETTING STARTED: 
+  - GETTING STARTED:
+     - Create your account: Getting-started/Trial.md
+     - Install FusionReactor: Getting-started/install-fr.md
      - Introduction to FusionReactor: Getting-started/intro-to-fr.md
-     - Install FusionReactor:  Getting-started/install-fr.md
-     - Tutorials & walkthroughs: 
+  - LATEST UPDATES:
+     - What's new: Latest-updates/WhatsNew.md
+     - Releases:
+        - FR Agent: Latest-updates/release-notes.md
+        - Downloads: Latest-updates/Downloads.md
+  - TUTORIALS & WALKTHROUGHS:
+     - Overview: Getting-started/Tutorials/Overview.md
+     - Performance analysis:
+        - Post-crash troubleshooting: Getting-started/Tutorials/crash-troubleshoot-onprem.md
+        - Getting-started/Tutorials/resolve-slow-queries.md
+        - Getting-started/Troubleshooting/best-ways-to-monitor.md
+        - Getting-started/Troubleshooting/ignore-scheduled-tasks.md
+        - Getting-started/Troubleshooting/identify-slow-requests.md
+        - Getting-started/Tutorials/UEM.md
+        - Getting-started/Tutorials/memory-leaks.md
+     - Application observability:
         - Get to know the UI: Getting-started/Tutorials/know-the-ui.md
         - Create a dashboard: Getting-started/Tutorials/create-dashboard.md
-        - Troubleshooting:
-           - todo.md
-  - HOW TO CONTRIBUTE:
-           - Contribute/how-to-contribute.md
-           - Style Guide:
-              - Overview: Contribute/style-guide/overview.md
-              - Images: Contribute/style-guide/images.md
-              - Language & grammar: 
-                  - Abbreviations: Contribute/style-guide/Language-and-grammar/Abbreviations.md
-                  - Capitalization: Contribute/style-guide/Language-and-grammar/Capitalization.md
-                  - Contractions: Contribute/style-guide/Language-and-grammar/Contractions.md
-                  - Formatting: Contribute/style-guide/Language-and-grammar/Formatting.md
-  - MONITOR YOUR DATA:
-     - Best Practices:      
-           - Overview: Best-Practices/Installation/installation-overview.md
-           - Local server:
-              - ColdFusion & databases: Best-Practices/Installation/CF-guide.md
-              - Java/Lucee & databases: Best-Practices/Installation/Lucee-Java-guide.md
-              - Java/Lucee, databases & other languages: Best-Practices/Installation/Java-Lucee-OTel.md
-           - Scripted: 
-              - Java/CFML & databases: Best-Practices/Installation/scripted1.md
-              - Java/CFML, databases & other languages: Best-Practices/Installation/scripted2.md
-              - Databases & other languages: Best-Practices/Installation/scripted3.md
-           - Docker:
-              - Java/CFML & databases: Best-Practices/Installation/FR-ObsAgent.md
-              - Java/CFML, databases & other languages: Best-Practices/Installation/FR-ObsAgent-OTel.md
-              - Databases & other languages: Best-Practices/Installation/ObsAgent-OTel.md
+        - Getting-started/Tutorials/RCA-in-Services.md
+        - Getting-started/Troubleshooting/alerts-slow-requests.md
+     - Infrastructure observability:
+        - Getting-started/Tutorials/scalability.md
+        - Getting-started/Tutorials/Common-issues/set-email-reports.md
+        - Getting-started/Tutorials/capacity-planning.md
+     - Common support issues:
+        - Getting-started/Tutorials/Common-issues/managing-license-keys.md
+        - Getting-started/Tutorials/Common-issues/increase-SQL-query.md
+        - Getting-started/Tutorials/Common-issues/set-email-reports.md
+        - Getting-started/Tutorials/Common-issues/onprem-login.md
+        - Getting-started/Tutorials/Common-issues/CF2025-and-FR-2025-Startup-issue.md
+        - Getting-started/Tutorials/Common-issues/FR-wmic.exe-error.md
+        - Getting-started/Tutorials/Common-issues/TLS-deprecation-guide.md
+     - OpenTelemetry:
+        - OTel shipping with FusionReactor: Getting-started/Tutorials/otel-shipping.md
+        - Migrating from a dual OTel + FR agent setup: Getting-started/Tutorials/otel-migration.md
+  - INSTALLATION GUIDES:
+     - Best Practices:
+        - Overview: Best-Practices/Installation/installation-overview.md
+        - Local server:
+           - ColdFusion & databases: Best-Practices/Installation/CF-guide.md
+           - Java/Lucee & databases: Best-Practices/Installation/Lucee-Java-guide.md
+           - Java/Lucee, databases & other languages: Best-Practices/Installation/Java-Lucee-OTel.md
+        - Scripted:
+           - Java/CFML & databases: Best-Practices/Installation/scripted1.md
+           - Java/CFML, databases & other languages: Best-Practices/Installation/scripted2.md
+           - Databases & other languages: Best-Practices/Installation/scripted3.md
+        - Docker:
+           - Java/CFML & databases: Best-Practices/Installation/FR-ObsAgent.md
+           - Java/CFML, databases & other languages: Best-Practices/Installation/FR-ObsAgent-OTel.md
+           - Databases & other languages: Best-Practices/Installation/ObsAgent-OTel.md
      - FusionReactor Agent:
         - Overview: Monitor-your-data/FR-Agent/agent-overview.md
-        - Install: 
-           - Automatic: Monitor-your-data/FR-Agent/Installation/Automatic.md
-           - FRAM: Monitor-your-data/FR-Agent/Installation/FRAM.md  
-           - Manual: 
+        - Download links: Monitor-your-data/FR-Agent/Installation/Download-Links.md
+        - MD5s: Monitor-your-data/FR-Agent/Installation/md5.md
+        - Install:
+           - Automatic vs manual installation: Monitor-your-data/FR-Agent/Installation/manual-or-automatic.md
+           - Automatic:
+               - Install: Monitor-your-data/FR-Agent/Installation/Automatic.md
+               - Using FRAM to deploy & manage instances: Monitor-your-data/FR-Agent/Installation/FRAM.md
+           - Manual:
                 - Install: Monitor-your-data/FR-Agent/Installation/Manual.md
                 - Configuration examples: Monitor-your-data/FR-Agent/Installation/Configuration-examples.md
-                - More:
-                    - Download links: Monitor-your-data/FR-Agent/Installation/Download-Links.md
-                    - MD5s: Monitor-your-data/FR-Agent/Installation/md5.md
-           - Docker: Monitor-your-data/FR-Agent/Installation/Docker.md         
+           - Docker: Monitor-your-data/FR-Agent/Installation/Docker.md
            - CommandBox: Monitor-your-data/FR-Agent/Installation/CommandBox.md
         - Upgrade:
            - Automatic: Monitor-your-data/FR-Agent/Upgrade/Auto-upgrade.md
@@ -96,318 +119,437 @@ nav:
         - Uninstall:
            - FRAM: Monitor-your-data/FR-Agent/Uninstall/FRAMdeactivate.md
            - Manual: Monitor-your-data/FR-Agent/Uninstall/MANdeactivate.md
-        - Configuration: 
+        - Configuration:
            - System Properties: Monitor-your-data/FR-Agent/Configuration/FusionReactor-System-Properties.md
            - Managing reactor.conf: Monitor-your-data/FR-Agent/Configuration/reactorconf.md
-        - More:
-           - Compatibility & requirements: Monitor-your-data/FR-Agent/More/requirements.md
-           - Configuration: Monitor-your-data/FR-Agent/More/FusionReactor-Agent-Shipper.md
-           - Distributed tracing: 
-               - Distributed-Tracing/attributes.md
-               - Distributed-Tracing/propagators.md
-               - Distributed-Tracing/sampling.md
-               - Distributed-Tracing/exporting.md
-               - Distributed-Tracing/span-lifecycle.md
-               - Distributed-Tracing/linkage-in-grafana.md
-        - FAQs & troubleshooting: 
-               - How to copy FusionReactor configuration between instances: Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/
-               - Troubleshooting/How-CVEs-are-addressed-in-the-FusionReactor-Agent.md
-               - Troubleshooting/APP-Transaction-Naming-How-To.md
-               - Troubleshooting/Cloned-FusionReactor-Instances.md #agent
-               - Troubleshooting/Debugger-will-not-start-without-Glibc.md #agent
-               - Troubleshooting/Known-Issues/JVM-crash-JDK-11.md #agent
-               - Troubleshooting/Known-Issues/System-Metrics-unavailable-in-Locked-down-ColdFusion.md #agent
-               - Troubleshooting/Requests-from-Adobe-PMT-tracked-in-FusionReactor.md #agent
-               - Troubleshooting/Adding-FR-Error-Stack-Trace-On-CFCatch-CFOnError.md #agent
-     - Observability Agent:
-        - Overview: Monitor-your-data/Observability-agent/overview.md
-        - Install:
-           - FRAM: Monitor-your-data/Observability-agent/Installation/FRAM.md
-           - Local install using code snippets: Monitor-your-data/Observability-agent/Installation/Snippets.md
-           - Docker: Monitor-your-data/Observability-agent/Installation/Docker.md
-        - Configuration: Monitor-your-data/Observability-agent/Configuration.md
-        - Ingesting data into FR: Monitor-your-data/Observability-agent/Ingest.md
-     - OpenTelemetry:
-       - Getting started: Monitor-your-data/OpenTelemetry/getting-started.md
-       - Instrumentation guides:
-         - Overview: Monitor-your-data/OpenTelemetry/Instrumentation/Overview.md
-         - C++: Monitor-your-data/OpenTelemetry/Instrumentation/Cpp.md
-      #  - .NET: Cloud/OpenTelemetry/NET.md
-         - Go: Monitor-your-data/OpenTelemetry/Instrumentation/Go.md
-         - Node.js: Monitor-your-data/OpenTelemetry/Instrumentation/node.md
-         - PHP: Monitor-your-data/OpenTelemetry/Instrumentation/PHP.md
-         - Python: Monitor-your-data/OpenTelemetry/Instrumentation/Python.md
-       - Shipping data to FR:
-         - Overview: Monitor-your-data/OpenTelemetry/Shipping/overview.md
-         - OpenTelemetry Collector: Monitor-your-data/OpenTelemetry/Shipping/Collector.md
-         - Observability Agent: Monitor-your-data/OpenTelemetry/Shipping/Observability-agent.md
-         - Grafana Alloy: Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent.md
-     #Cloud/OpenTelemetry/OTel-shipping.md
-       - Visualize your data:
-         - Metrics: Monitor-your-data/OpenTelemetry/Visualize/Metrics.md
-         - Traces: Monitor-your-data/OpenTelemetry/Visualize/Traces.md
-         - Logs: Monitor-your-data/OpenTelemetry/Visualize/Logs.md
-         - Distributed tracing: Monitor-your-data/OpenTelemetry/Visualize/Distributed-tracing.md
-     - Kubernetes monitoring:
-        - Overview: Monitor-your-data/Kubernetes-monitoring/overview.md
-        - Shipping K8s data to FR: Monitor-your-data/Kubernetes-monitoring/Shipping.md
-     - Log monitoring:
-        - Overview: Monitor-your-data/Log-monitoring/overview.md
-        - Log shipper: Monitor-your-data/Log-monitoring/log-shipper.md
-        - FR Agent shipper: Monitor-your-data/Log-monitoring/agent-shipper.md
-        - Alerting: Monitor-your-data/Log-monitoring/alerting.md
-        - Labels & fields: Monitor-your-data/Log-monitoring/labels-and-fields.md
-  - DATA INSIGHTS: 
-       # - Data-insights/Features/account.md
-        - Alerting: Data-insights/Features/alerting.md
-        - Anomaly Detection:
-            - Overview: Data-insights/Features/Anomaly-Detection/ADoverview.md
-            - User guide: Data-insights/Features/Anomaly-Detection/ADuserguide.md
-        - Applications: Data-insights/Features/applications.md
-        - CPU Sampler:
-          - Data-insights/Features/CPU-Sampler/CPU-Sampler.md
-          - Settings: Data-insights/Features/CPU-Sampler/CPU-Sampler-Settings.md
-        - Crash Protection:
-            - Overview: Data-insights/Features/Crash-protection/Crash-Protection.md
-            - Events: Data-insights/Features/Crash-protection/Events.md
-            - Settings: Data-insights/Features/Crash-protection/Settings.md
-        - Dashboards: Data-insights/Features/dashboards.md
-        - Debugger:
-           - Data-insights/Features/Debugger/Overview.md
-           - Data-insights/Features/Debugger/Breakpoints.md
-           - Data-insights/Features/Debugger/Debug-Email-Alert.md
-           - Data-insights/Features/Debugger//Event-Snapshot.md
-           - Data-insights/Features/Debugger/Security.md
-           - Data-insights/Features/Debugger/Settings.md
-           - Data-insights/Features/Debugger/Sources.md
-        - Deep: 
-            - todo.md
-        - Enterprise Dashboard:
-            - Overview: Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard.md
-            - Settings: Data-insights/Features/Enterprise-Dashboard/Settings.md
-            - Enterprise scripting:
-                - Overview: Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting.md
-                - Scripting example: Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting-Example.md
-                - Monitored server scripts: Data-insights/Features/Enterprise-Dashboard/Using-Monitored-Server-Scripts.md
-        - Explore: Data-insights/Features/explore.md
-        - Historic data: Data-insights/Features/timepicker.md
-        - Incidents: 
-          - Overview: Data-insights/Features/Incidents/incidents.md
-          - Settings: Data-insights/Features/Incidents/Settings.md
-        - JDBC:
-          - Data-insights/Features/JDBC/Databases.md
-          - Data-insights/Features/JDBC/JDBC-Activity-Graph.md
-          - Data-insights/Features/JDBC/JDBC-Activity.md
-          - Data-insights/Features/JDBC/JDBC-By-Mem.md
-          - Data-insights/Features/JDBC/JDBC-Error-History.md
-          - Data-insights/Features/JDBC/JDBC-Event-Snapshot-History.md
-          - Data-insights/Features/JDBC/JDBC-History.md
-          - Data-insights/Features/JDBC/JDBC-Monitoring.md
-          - Data-insights/Features/JDBC/JDBC-Time-Graph.md
-          - Data-insights/Features/JDBC/Long-JDBC.md
-          - Data-insights/Features/JDBC/Settings.md
-          - Data-insights/Features/JDBC/Slow-JDBC.md
-        - Logs:
-                - Overview: Data-insights/Features/Logs/Logs.md
-                - Data-insights/Features/Logs/Importing-and-Graphing-Data-in-Excel.md
-                - Log Archives:
-                  - Overview: Data-insights/Features/Logs/Log-Archives.md
-                  - Data-insights/Features/Logs/Log-Archive-Viewer.md
-                - Data-insights/Features/Logs/Settings.md
-                - Cloud:
-                     - Data-insights/Features/Logs/Cloud-Settings.md
-                     - Data-insights/Features/Logs/Cloud-Log-Obfuscation-Rules.md
-                     - Data-insights/Features/Logs/Cloud-Log-MultiLine-Blocks.md
-                - Files:
-                   - Data-insights/Features/Logs/Memory-Logs.md
-                   - Data-insights/Features/Logs/Files/Class-Loading-Log.md
-                   - Data-insights/Features/Logs/Files/Cloud-State-Log.md
-                   - Data-insights/Features/Logs/Files/CPU-Thread-Log.md
-                   - Data-insights/Features/Logs/Files/Crash-Protection-Log.md
-                   - Data-insights/Features/Logs/Files/Device-Log.md
-                   - Data-insights/Features/Logs/Files/Garbage-Collection-Logs.md
-                   - Data-insights/Features/Logs/Files/Instance-Manager-Log.md
-                   - Data-insights/Features/Logs/Files/JDBC-Log.md
-                   - Data-insights/Features/Logs/Files/Notification-Log.md
-                   - Data-insights/Features/Logs/Files/Reactor-Log.md
-                   - Data-insights/Features/Logs/Files/Request-Log.md
-                   - Data-insights/Features/Logs/Files/Resource-Log.md
-                   - Data-insights/Features/Logs/Files/Stdout.log-and-Stderr.log.md
-                   - Data-insights/Features/Logs/Files/Thread-State-Log.md
-        - Memory:
-            -  Data-insights/Features/Memory/Overview.md
-            -  Data-insights/Features/Memory/Settings.md
-        - Metrics:
-            - Overview: Data-insights/Features/Metrics/Metrics-Page.md
-            - Archive Metrics: Data-insights/Features/Metrics/Archive-Metrics.md
-            - AWS:
-               - CloudWatch Metrics: Data-insights/Features/Metrics/AWS-CloudWatch-Metrics.md 
-               - Configuration: Data-insights/Features/Metrics/AWS-CloudMetrics-Configuration.md
-            - ColdFusion: 
-               - Metrics: Data-insights/Features/Metrics/ColdFusion-Metrics.md
-               - System Metrics: Data-insights/Features/Metrics/ColdFusion-System-Metrics.md
-            - Custom Metrics: Data-insights/Features/Metrics/Custom-Metrics.md
-            - JMX-MBeans: Data-insights/Features/Metrics/JMX-MBeans.md
-            - Kafka: Data-insights/Features/Metrics/Kafka-Metrics.md
-           #- Metrics/Kafka-Node-Metrics.md
-            - Web Metrics: Data-insights/Features/Metrics/Web-Metrics.md
-        - OpsPilot:
-            - OpsPilot Assistant:
-              - Overview: Data-insights/Features/OpsPilot/AIoverview.md
-            - OpsPilot Integrations:
-              - Overview: Data-insights/Features/OpsPilot/OpsPilot-Hub/integrations-overview.md
-            - OpsPilot Hub: 
-              - Overview: Data-insights/Features/OpsPilot/OpsPilot-Hub/overview.md 
-              - Assistant:
-                - User guide: Data-insights/Features/OpsPilot/OpsPilot-user-guide.md
-              - Services: Data-insights/Features/OpsPilot/OpsPilot-Hub/Services.md
-              - Knowledge: Data-insights/Features/OpsPilot/OpsPilot-Hub/Knowledge.md
-              - Integrations:
-                - Jira: Data-insights/Features/OpsPilot/OpsPilot-Hub/Jira.md
-                - Microsoft Teams: Data-insights/Features/OpsPilot/OpsPilot-Hub/Teams.md
-                - Slack: Data-insights/Features/OpsPilot/OpsPilot-Hub/Slack.md
-        - Profiler:
-            - Data-insights/Features/Profiler/Profiler.md
-            - Settings: Data-insights/Features/Profiler/Profiler-Settings.md
-        - Requests:
-            - Data-insights/Features/Requests/Applications.md
-            - Data-insights/Features/Requests/Compression.md
-            - Data-insights/Features/Requests/Content-Filters.md
-            - Data-insights/Features/Requests/Long-Requests.md
-            - Data-insights/Features/Requests/Req-By-Mem.md
-            - Data-insights/Features/Requests/Request-Activity.md
-            - Data-insights/Features/Requests/Request-Details.md
-            - Data-insights/Features/Requests/Request-Error-History.md
-            - Data-insights/Features/Requests/Request-Event-Snapshot-History.md
-            - Data-insights/Features/Requests/Request-History.md
-            - Data-insights/Features/Requests/Request-Time-Graph.md
-            - Data-insights/Features/Requests/Response-Codes.md
-            - Data-insights/Features/Requests/Settings.md
-            - Data-insights/Features/Requests/Slow-Requests.md
-        - Resources: 
-            - Data-insights/Features/Resources/Buffer-Pool.md
-            - Data-insights/Features/Resources/Classes.md
-            - Data-insights/Features/Resources/Class-Loading.md
-            - Data-insights/Features/Resources/CPU-Graph.md
-            - Data-insights/Features/Resources/Garbage-Collection.md
-            - Data-insights/Features/Resources/Heap-Non-Heap-Memory.md
-            - Data-insights/Features/Resources/JIT-Time.md
-            - Data-insights/Features/Resources/Memory-Heap.md
-            - Data-insights/Features/Resources/Memory-Spaces.md
-            - Data-insights/Features/Resources/Settings.md
-            - Data-insights/Features/Resources/Thread-Activity.md
-            - Data-insights/Features/Resources/Threads.md
-            - Data-insights/Features/Resources/Thread-State.md
-            - Data-insights/Features/Resources/Thread-Visualizer.md
-        - Servers: Data-insights/Features/servers.md
-        - Settings: 
-            - Data-insights/Features/Settings/CPU-Sampler.md
-            - Data-insights/Features/Settings/Debugger.md
-            - Enterprise Dashboard: Data-insights/Features/Settings/Enterprise-Dashboard.md
-            - Data-insights/Features/Settings/Filter-Restrictions.md
-            - Data-insights/Features/Settings/JDBC.md
-            - Data-insights/Features/Settings/Logging.md
-            - Data-insights/Features/Settings/Logging-Cloud.md
-            - Data-insights/Features/Settings/Main-Menu.md
-            - Data-insights/Features/Settings/Memory.md
-            - Data-insights/Features/Settings/Profiler.md
-            - Data-insights/Features/Settings/Protection.md
-            - Requests: Data-insights/Features/Settings/Requests.md
-            - Data-insights/Features/Settings/Resources.md
-            - Data-insights/Features/Settings/System-Resources.md
-            - Data-insights/Features/Settings/UEM-Sessions.md
-        - System Resources:
-            -  Data-insights/Features/System-Resources/CPU.md
-            -  Data-insights/Features/System-Resources/Disk.md
-            -  Data-insights/Features/System-Resources/Network-Usage.md
-            -  Data-insights/Features/System-Resources/Process-Details.md
-            -  Data-insights/Features/System-Resources/Processes.md
-            -  Data-insights/Features/System-Resources/Server-Info.md
-            -  Data-insights/Features/System-Resources/Settings.md
-            -  Data-insights/Features/System-Resources/System-Memory.md
-            -  Data-insights/Features/System-Resources/System-Metrics.md
-        - Transactions:
-            - Data-insights/Features/Transactions/Activity.md
-            - Data-insights/Features/Transactions/Activity-Graph.md
-            - Data-insights/Features/Transactions/Error-History.md
-            - Data-insights/Features/Transactions/Event-Snapshot-History.md
-            - Data-insights/Features/Transactions/External-Sources.md
-            - Data-insights/Features/Transactions/Longest-Transactions.md
-            - Data-insights/Features/Transactions/Middleware-Sources.md
-            - Data-insights/Features/Transactions/MongoDB-Transactions.md
-            - Data-insights/Features/Transactions/Slow-Transactions.md
-            - Data-insights/Features/Transactions/Stack-Tracing.md
-            - Data-insights/Features/Transactions/SubFlavors.md
-            - Data-insights/Features/Transactions/Time-Graph.md
-            - Transaction History: Data-insights/Features/Transactions/History.md
-            - Data-insights/Features/Transactions/Transaction-Naming.md
-            - Data-insights/Features/Transactions/Transaction-Settings.md
-            - Data-insights/Features/Transactions/Transactions.md
-            - Data-insights/Features/Transactions/Trans.-By-Mem.md
-            - Data-insights/Features/Transactions/Transit.md
-        - UEM Sessions:
-            - Overview: Data-insights/Features/UEM/Sessions.md
-            - Data-insights/Features/UEM/Settings.md
-            - Data-insights/Features/UEM/User-Experience-Monitoring.md
+           - Data labels: Monitor-your-data/FR-Agent/Configuration/data-labels.md
+           - OTel Shipping: Monitor-your-data/FR-Agent/Configuration/OTel-shipping-config.md
+        - Compatibility & requirements: Monitor-your-data/FR-Agent/More/requirements.md
+        - Log collection: Monitor-your-data/FR-Agent/More/FusionReactor-Agent-Shipper.md
         - FAQs & troubleshooting:
-            - Cloud: 
-              - Troubleshooting/logging-regex-pattern-hints.md
-              - Troubleshooting cloud connections: Cloud/trouble.md
-              - Troubleshooting/Cloud-historical-data.md
-              - Troubleshooting/Optimize-data.md
-              - Troubleshooting/Cloud-span-name.md
-              - Troubleshooting/Cloud-find-slow-pages.md
-              - Troubleshooting/Cloud-offline.md
-              - Troubleshooting/cloud-storing-logs.md
-            - On-Premise:  
-              - Troubleshooting/Known-Issues/Web-Sockets-In-WildFly.md #onprem
-              - Troubleshooting/Resetting-Instance-Password.md #onprem
-              - Troubleshooting/Server-is-suffering-from-Clock-Drift.md #onprem
-              - Troubleshooting/OnPrem-Exception-Support.md
-              - Troubleshooting/Configuration/Application-Naming-Configuration.md
-              - Troubleshooting/Configuration/Automatic-FusionReactor-Login.md
-              - Troubleshooting/Configuration/Copying-FusionReactor-Configuration-Between_Instances.md
-              - Troubleshooting/Configuration/Email-Configuration.md
-              - Troubleshooting/Configuration/Enabling-and-Disabling-FusionReactor-functions.md
-              - Troubleshooting/Configuration/Enterprise-Dashboard-Configuration.md
-              - Troubleshooting/Configuration/Transaction-Naming-Configuration.md
-              - Troubleshooting/Configuration/Using-FusionReactor-via-external-web-server.md
-              - Troubleshooting/OP-historical-data.md
-              - Troubleshooting/OP-deadlocks.md
-              - Troubleshooting/OP-offline-server.md
-              - Troubleshooting/storing-fr-logs.md
-              - Troubleshooting/OP-setting-up-reports.md 
-  - LATEST UPDATES: 
-     - What's new: Latest-updates/WhatsNew.md
-     - Releases: 
-        - Overview: Latest-updates/Releases.md
-        - FR Agent: Latest-updates/release-notes.md
-        - OpsPilot: Latest-updates/OpsPilot-releases.md
+           - How to copy FusionReactor configuration between instances: Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/
+           - Troubleshooting/How-CVEs-are-addressed-in-the-FusionReactor-Agent.md
+           - Troubleshooting/APP-Transaction-Naming-How-To.md
+           - Troubleshooting/Cloned-FusionReactor-Instances.md
+           - Troubleshooting/Debugger-will-not-start-without-Glibc.md
+           - Troubleshooting/Known-Issues/JVM-crash-JDK-11.md
+           - Troubleshooting/Known-Issues/System-Metrics-unavailable-in-Locked-down-ColdFusion.md
+           - Troubleshooting/Requests-from-Adobe-PMT-tracked-in-FusionReactor.md
+           - Troubleshooting/Adding-FR-Error-Stack-Trace-On-CFCatch-CFOnError.md
+           - Monitor-your-data/FR-Agent/Agent/Cloud-Status.md
+     - OpenTelemetry: Monitor-your-data/OpenTelemetry/overview.md
+     - Kubernetes monitoring: Monitor-your-data/Kubernetes-monitoring/overview.md
+     - Log monitoring: Monitor-your-data/Log-monitoring/overview.md
+     - Deep: Monitor-your-data/Deep/overview.md
+     - MCP Interfaces: Monitor-your-data/MCP/mcp-overview.md
+  - FEATURES:
+     - CPU Sampler:
+        - Data-insights/Features/CPU-Sampler/CPU-Sampler.md
+        - Settings: Data-insights/Features/CPU-Sampler/CPU-Sampler-Settings.md
+     - Crash Protection:
+        - Overview: Data-insights/Features/Crash-protection/Crash-Protection.md
+        - Events: Data-insights/Features/Crash-protection/Events.md
+        - Settings: Data-insights/Features/Crash-protection/Settings.md
+     - Debugger:
+        - Data-insights/Features/Debugger/Overview.md
+        - Data-insights/Features/Debugger/Breakpoints.md
+        - Data-insights/Features/Debugger/Debug-Email-Alert.md
+        - Data-insights/Features/Debugger/Event-Snapshot.md
+        - Data-insights/Features/Debugger/Security.md
+        - Data-insights/Features/Debugger/Settings.md
+        - Data-insights/Features/Debugger/Sources.md
+     - Enterprise Dashboard:
+        - Overview: Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard.md
+        - Settings: Data-insights/Features/Enterprise-Dashboard/Settings.md
+        - Enterprise scripting:
+           - Overview: Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting.md
+           - Scripting example: Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting-Example.md
+           - Monitored server scripts: Data-insights/Features/Enterprise-Dashboard/Using-Monitored-Server-Scripts.md
+     - Extras:
+        - FRAPI: Data-insights/Extras/FRAPI.md
+        - Distributed tracing:
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/attributes.md
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/propagators.md
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/sampling.md
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/exporting.md
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/span-lifecycle.md
+           - Monitor-your-data/FR-Agent/More/Distributed-Tracing/linkage-in-grafana.md
+        - Plugins:
+           - Data-insights/Extras/Plugins/Overview.md
+           - Data-insights/Extras/Plugins/FusionReactor-AMF-Dissector-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-ColdFusion-Line-Performance-Profiler.md
+           - Data-insights/Extras/Plugins/FusionReactor-ColdFusion-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Deadlock-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Heartbeat-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-HitCount-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-JRun-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Json-Data-Tracker-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Log-Rotator-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Log-Tracker-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Lucee-and-Railo-Line-Performance-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Notification-Generator-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Production-Debugger-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-System-Monitor-Plugin.md
+           - Data-insights/Extras/Plugins/FusionReactor-Transaction-Logger-Plugin.md
+     - Historic data: Data-insights/Features/timepicker.md
+     - JDBC:
+        - Data-insights/Features/JDBC/Databases.md
+        - Data-insights/Features/JDBC/JDBC-Activity-Graph.md
+        - Data-insights/Features/JDBC/JDBC-Activity.md
+        - Data-insights/Features/JDBC/JDBC-By-Mem.md
+        - Data-insights/Features/JDBC/JDBC-Error-History.md
+        - Data-insights/Features/JDBC/JDBC-Event-Snapshot-History.md
+        - Data-insights/Features/JDBC/JDBC-History.md
+        - Data-insights/Features/JDBC/JDBC-Monitoring.md
+        - Data-insights/Features/JDBC/JDBC-Time-Graph.md
+        - Data-insights/Features/JDBC/Long-JDBC.md
+        - Data-insights/Features/JDBC/Settings.md
+        - Data-insights/Features/JDBC/Slow-JDBC.md
+     - Logs:
+        - Overview: Data-insights/Features/Logs/Logs.md
+        - Data-insights/Features/Logs/Importing-and-Graphing-Data-in-Excel.md
+        - Log Archives:
+           - Overview: Data-insights/Features/Logs/Log-Archives.md
+           - Data-insights/Features/Logs/Log-Archive-Viewer.md
+        - Data-insights/Features/Logs/Settings.md
+        - Files:
+           - Data-insights/Features/Logs/Memory-Logs.md
+           - Data-insights/Features/Logs/Files/Class-Loading-Log.md
+           - Data-insights/Features/Logs/Files/Cloud-State-Log.md
+           - Data-insights/Features/Logs/Files/CPU-Thread-Log.md
+           - Data-insights/Features/Logs/Files/Crash-Protection-Log.md
+           - Data-insights/Features/Logs/Files/Device-Log.md
+           - Data-insights/Features/Logs/Files/Garbage-Collection-Logs.md
+           - Data-insights/Features/Logs/Files/Instance-Manager-Log.md
+           - Data-insights/Features/Logs/Files/JDBC-Log.md
+           - Data-insights/Features/Logs/Files/Notification-Log.md
+           - Data-insights/Features/Logs/Files/Reactor-Log.md
+           - Data-insights/Features/Logs/Files/Request-Log.md
+           - Data-insights/Features/Logs/Files/Resource-Log.md
+           - Data-insights/Features/Logs/Files/Stdout.log-and-Stderr.log.md
+           - Data-insights/Features/Logs/Files/Thread-State-Log.md
+     - Memory:
+        - Data-insights/Features/Memory/Overview.md
+        - Data-insights/Features/Memory/Settings.md
+     - Metrics:
+        - Overview: Data-insights/Features/Metrics/Metrics-Page.md
+        - Archive Metrics: Data-insights/Features/Metrics/Archive-Metrics.md
+        - AWS:
+           - CloudWatch Metrics: Data-insights/Features/Metrics/AWS-CloudWatch-Metrics.md
+           - Configuration: Data-insights/Features/Metrics/AWS-CloudMetrics-Configuration.md
+        - ColdFusion:
+           - Metrics: Data-insights/Features/Metrics/ColdFusion-Metrics.md
+           - System Metrics: Data-insights/Features/Metrics/ColdFusion-System-Metrics.md
+        - Custom Metrics: Data-insights/Features/Metrics/Custom-Metrics.md
+        - JMX-MBeans: Data-insights/Features/Metrics/JMX-MBeans.md
+        - Kafka: Data-insights/Features/Metrics/Kafka-Metrics.md
+        - Web Metrics: Data-insights/Features/Metrics/Web-Metrics.md
+     - Profiler:
+        - Data-insights/Features/Profiler/Profiler.md
+        - Settings: Data-insights/Features/Profiler/Profiler-Settings.md
+     - Pyroscope: Data-insights/Features/Pyroscope/pyroscope.md
+     - Requests:
+        - Data-insights/Features/Requests/Applications.md
+        - Data-insights/Features/Requests/Compression.md
+        - Data-insights/Features/Requests/Content-Filters.md
+        - Data-insights/Features/Requests/Long-Requests.md
+        - Data-insights/Features/Requests/Req-By-Mem.md
+        - Data-insights/Features/Requests/Request-Activity.md
+        - Data-insights/Features/Requests/Request-Details.md
+        - Data-insights/Features/Requests/Request-Error-History.md
+        - Data-insights/Features/Requests/Request-Event-Snapshot-History.md
+        - Data-insights/Features/Requests/Request-History.md
+        - Data-insights/Features/Requests/Request-Time-Graph.md
+        - Data-insights/Features/Requests/Response-Codes.md
+        - Data-insights/Features/Requests/Settings.md
+        - Data-insights/Features/Requests/Slow-Requests.md
+     - Resources:
+        - Data-insights/Features/Resources/Buffer-Pool.md
+        - Data-insights/Features/Resources/Classes.md
+        - Data-insights/Features/Resources/Class-Loading.md
+        - Data-insights/Features/Resources/CPU-Graph.md
+        - Data-insights/Features/Resources/Garbage-Collection.md
+        - Data-insights/Features/Resources/Heap-Non-Heap-Memory.md
+        - Data-insights/Features/Resources/JIT-Time.md
+        - Data-insights/Features/Resources/Memory-Heap.md
+        - Data-insights/Features/Resources/Memory-Spaces.md
+        - Data-insights/Features/Resources/Settings.md
+        - Data-insights/Features/Resources/Thread-Activity.md
+        - Data-insights/Features/Resources/Threads.md
+        - Data-insights/Features/Resources/Thread-State.md
+        - Data-insights/Features/Resources/Thread-Visualizer.md
+     - Settings:
+        - Data-insights/Features/Settings/CPU-Sampler.md
+        - Data-insights/Features/Settings/Debugger.md
+        - Enterprise Dashboard: Data-insights/Features/Enterprise-Dashboard/Settings/
+        - Data-insights/Features/Settings/Filter-Restrictions.md
+        - Data-insights/Features/Settings/JDBC.md
+        - Data-insights/Features/Settings/Logging.md
+        - Data-insights/Features/Settings/Main-Menu.md
+        - Data-insights/Features/Settings/Memory.md
+        - Data-insights/Features/Settings/Profiler.md
+        - Data-insights/Features/Settings/Protection.md
+        - Requests: Data-insights/Features/Settings/Requests.md
+        - Data-insights/Features/Settings/Resources.md
+        - Data-insights/Features/Settings/System-Resources.md
+        - Data-insights/Features/Settings/UEM-Sessions.md
+     - System Resources:
+        - Data-insights/Features/System-Resources/CPU.md
+        - Data-insights/Features/System-Resources/Disk.md
+        - Data-insights/Features/System-Resources/Network-Usage.md
+        - Data-insights/Features/System-Resources/Process-Details.md
+        - Data-insights/Features/System-Resources/Processes.md
+        - Data-insights/Features/System-Resources/Server-Info.md
+        - Data-insights/Features/System-Resources/Settings.md
+        - Data-insights/Features/System-Resources/System-Memory.md
+        - Data-insights/Features/System-Resources/System-Metrics.md
+     - Transactions:
+        - Data-insights/Features/Transactions/Activity.md
+        - Data-insights/Features/Transactions/Activity-Graph.md
+        - Data-insights/Features/Transactions/Error-History.md
+        - Data-insights/Features/Transactions/Event-Snapshot-History.md
+        - Data-insights/Features/Transactions/External-Sources.md
+        - Data-insights/Features/Transactions/Longest-Transactions.md
+        - Data-insights/Features/Transactions/Middleware-Sources.md
+        - Data-insights/Features/Transactions/MongoDB-Transactions.md
+        - Data-insights/Features/Transactions/Slow-Transactions.md
+        - Data-insights/Features/Transactions/Stack-Tracing.md
+        - Data-insights/Features/Transactions/SubFlavors.md
+        - Data-insights/Features/Transactions/Time-Graph.md
+        - Transaction History: Data-insights/Features/Transactions/History.md
+        - Data-insights/Features/Transactions/Transaction-Naming.md
+        - Data-insights/Features/Transactions/Transaction-Settings.md
+        - Data-insights/Features/Transactions/Transactions.md
+        - Data-insights/Features/Transactions/Trans.-By-Mem.md
+        - Data-insights/Features/Transactions/Transit.md
+     - UEM Sessions:
+        - Overview: Data-insights/Features/UEM/User-Experience-Monitoring.md
+        - Sessions: Data-insights/Features/UEM/Sessions.md
+        - Data-insights/Features/UEM/Settings.md
+     - FAQs & troubleshooting:
+        - Troubleshooting/Known-Issues/Web-Sockets-In-WildFly.md
+        - Troubleshooting/Resetting-Instance-Password.md
+        - Troubleshooting/Server-is-suffering-from-Clock-Drift.md
+        - Troubleshooting/OnPrem-Exception-Support.md
+        - Troubleshooting/Configuration/Application-Naming-Configuration.md
+        - Troubleshooting/Configuration/Automatic-FusionReactor-Login.md
+        - Troubleshooting/Configuration/Copying-FusionReactor-Configuration-Between_Instances.md
+        - Troubleshooting/Configuration/Email-Configuration.md
+        - Troubleshooting/Configuration/Enabling-and-Disabling-FusionReactor-functions.md
+        - Troubleshooting/Configuration/Enterprise-Dashboard-Configuration.md
+        - Troubleshooting/Configuration/Transaction-Naming-Configuration.md
+        - Troubleshooting/Configuration/Using-FusionReactor-via-external-web-server.md
+        - Troubleshooting/OP-historical-data.md
+        - Troubleshooting/OP-deadlocks.md
+        - Troubleshooting/OP-offline-server.md
+        - Troubleshooting/storing-fr-logs.md
+        - Troubleshooting/OP-setting-up-reports.md
+     - OpsPilot UI:
+        - New UI FAQ: Getting-started/Tutorials/new-ui-faq.md
+        - Overview: Data-insights/Features/overview.md
+        - Servers: Data-insights/Features/Explore-servers.md
+        - Applications: Data-insights/Features/applications.md
+        - Database: Data-insights/Features/database.md
+        - Dashboards: Data-insights/Features/dashboards.md
+        - Explore: Data-insights/Features/explore.md
+        - Metrics Drilldown: Data-insights/Features/explore-metrics.md
+        - Logs Drilldown: Data-insights/Features/explore-logs.md
+        - Traces Drilldown: Data-insights/Features/explore-traces.md
+        - Alerts:
+           - Overview: Data-insights/Features/Alerting/Alerts-overview.md
+           - Examples:
+              - Overview: Data-insights/Features/alerting-examples.md
+              - FR Agent metrics: Data-insights/Features/FR-Agent-Metrics.md
+           - Anomaly Detection:
+              - Overview: Data-insights/Features/Anomaly-Detection/ADoverview.md
+              - User guide: Data-insights/Features/Anomaly-Detection/ADuserguide.md
+           - Rules: Data-insights/Features/Alerting/Alert-Rules/Configure-rules.md
+           - Contact Points:
+              - Overview: Data-insights/Features/Alerting/Contact-points.md
+              - Notification Templates: Data-insights/Features/Alerting/Templates.md
+           - Notification Policy:
+              - Overview: Data-insights/Features/Alerting/Notifications.md
+              - Time intervals: Data-insights/Features/Alerting/Mute-timings.md
+           - Silences: Data-insights/Features/Alerting/Silences.md
+           - Firing Alerts: Data-insights/Features/Alerting/Active-alerts.md
+           - Troubleshooting: Data-insights/Features/Alerting/Troubleshooting.md
+           - FAQ: Data-insights/Features/Alerting/FAQ.md
+        - Incidents:
+           - Overview: Data-insights/Features/Incidents/incidents.md
+           - Settings: Data-insights/Features/Incidents/Settings.md
+        - Knowledge: Data-insights/Features/OpsPilot/OpsPilot-Hub/Knowledge.md
+        - OpsPilot Assistant:
+           - Overview: Data-insights/Features/OpsPilot/AIoverview.md
+           - User guide: Data-insights/Features/OpsPilot/OpsPilot-user-guide.md
   - ADMIN & DATA:
-     - Account & user management: 
-        - Cloud: Admin-and-data/Account/Cloud/users.md
-        - On-Premise: Admin-and-data/Account/On-Premise/OPusers.md
      - Billing:
-        - Cloud: Admin-and-data/Billing/Cloud/overview.md
-        - On-Premise:
-             - Overview: Admin-and-data/Billing/On-Premise/billing.md
-             - Licenses: Admin-and-data/Billing/On-Premise/licenses.md
-     - Data limits: Admin-and-data/Limits.md
-     - Licensing:
+        - Overview: Admin-and-data/Billing/On-Premise/billing.md
+        - Licenses: Admin-and-data/Billing/On-Premise/licenses.md
+     - Invoices: Admin-and-data/invoices.md
+     - Licenses:
         - Overview: Admin-and-data/Licensing/Licensing.md
         - Manual activation: Admin-and-data/Licensing/Manual-Activation.md
         - Static endpoints: Admin-and-data/Licensing/Static-Licensing-Endpoints.md
         - Troubleshooting: Admin-and-data/Licensing/Troubleshooting.md
+        - EULA: Admin-and-data/EULA.md
+     - Users: Admin-and-data/Account/On-Premise/OPusers.md
      - Security: Admin-and-data/security.md
      - Terms of Service: Admin-and-data/tos.md
-     - Third Party Licenses: 
-        - Cloud: Admin-and-data/Third-Party-Licenses/licenses.md
-        - On-Premise: Admin-and-data/Third-Party-Licenses/Third_Party_License_Agreements.md
+     - Third Party Licenses: Admin-and-data/Third-Party-Licenses/Third_Party_License_Agreements.md
+     - HOW TO CONTRIBUTE:
+           - Contribute/how-to-contribute.md
+           - Style Guide:
+              - Overview: Contribute/style-guide/overview.md
+              - Images: Contribute/style-guide/images.md
+              - Language & grammar:
+                  - Abbreviations: Contribute/style-guide/Language-and-grammar/Abbreviations.md
+                  - Capitalization: Contribute/style-guide/Language-and-grammar/Capitalization.md
+                  - Contractions: Contribute/style-guide/Language-and-grammar/Contractions.md
+                  - Formatting: Contribute/style-guide/Language-and-grammar/Formatting.md
 
 plugins:
-  - glightbox
-  - search
-
+   - glightbox
+   - search
+   - redirects:
+      redirect_maps:
+         'Getting-started/Tutorials/Common-issues/find-license-key.md': 'Getting-started/Tutorials/Common-issues/managing-license-keys.md'
+         'Getting-started/Tutorials/Common-issues/move-license-key.md': 'Getting-started/Tutorials/Common-issues/managing-license-keys.md'
+         'Getting-started/Tutorials/Common-issues/check-license-seat.md': 'Getting-started/Tutorials/Common-issues/managing-license-keys.md'
+         'test.md': 'Admin-and-data/Licensing/Licensing.md'
+         'fr/help/Licensing.md': 'Admin-and-data/Licensing/Licensing.md'
+         'fr/help/Using+a+License+stored+in+the+Instance+Configuration+File.md': 'Admin-and-data/Licensing/Licensing.md'
+         'fr/help/Regular+Expressions+and+Restrictions.md': 'Data-insights/Features/Settings/Filter-Restrictions.md'
+         'fr/help/FusionReactor+Cloud+Status.md': 'Monitor-your-data/FR-Agent/Agent/Cloud-Status.md'
+         'fr/help/Home.md': 'index.md'
+         'fr/help/Search+and+Replace.md': 'Data-insights/Features/Requests/Content-Filters.md'
+         'fr/help/Using+Monitored+Server+Scripts.md': 'Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting.md'
+         'fr/help/Users.md': 'Admin-and-data/Account/On-Premise/OPusers.md'
+         'fr/help/Unsupported+Configurations.md': 'index.md'
+         'fr/help/Corrupt+Configurations.md': 'index.md'
+         'fr/help/Locked.md': 'index.md'
+         'fr/help/Naming+Applications+and+DataCollectors.md': 'Troubleshooting/Configuration/Transaction-Naming-Configuration.md'
+         'fr/help/FusionReactor+4.0.x+Installation+Guide.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'fr/help/Installing+FusionReactor+in+Locked+Down+Environments.md': 'Admin-and-data/Licensing/Troubleshooting.md'
+         'fr/help/Protection+Settings.md': 'Data-insights/Features/Crash-protection/Settings.md'
+         'fr/help/Custom+Metrics.md': 'Data-insights/Features/Metrics/Custom-Metrics.md'
+         'fr/help/Troubleshooting+Installation+Issues.md': 'index.md'
+         'fr/help/Instance+Manager.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'fr/help/Manual+Installation.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'fr/help/ISAPI+and+FusionReactor.md': 'index.md'
+         'fr/help/Installing+FusionReactor+in+Secured+Environments.md': 'index.md'
+         'fr/help/Enable+and+Configure+the+FusionReactor+ColdFusion+Plugin.md': 'Data-insights/Extras/Plugins/FusionReactor-ColdFusion-Plugin.md'
+         'fr/help/Standard+Daily+Report.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'fr/help/Enterprise+Daily+Report.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'fr/help/Weekly+Report.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'fr/help/Monthly+Report.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'fr/help/Using+a+License+provided+by+a+System+Property.md': 'Monitor-your-data/FR-Agent/Configuration/FusionReactor-System-Properties.md'
+         'fr/help/Using+a+License+stored+in+the+Instance+Configuration+File.md': 'Admin-and-data/Licensing/Licensing.md'
+         'fr/help/Known+Issues.md': 'Data-insights/Features/Debugger/Overview.md'
+         'fr/help/Debugging+Performance+Impact.md': 'Data-insights/Features/Debugger/Overview.md'
+         'fr/help/Compression+Settings.md': 'Data-insights/Features/Requests/Compression.md'
+         'fr/help/Request+History.md': 'Data-insights/Features/Requests/Request-History.md'
+         'fr/help/JDBC+History.md': 'Data-insights/Features/JDBC/JDBC-History.md'
+         'fr/help/Licensing.md': 'Admin-and-data/Licensing/Licensing.md'
+         'fr/help/Ephemeral+Data+Service.md': 'Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard.md'
+         'space/Settings.md' : 'Data-insights/Features/Settings/Main-Menu.md'
+         'space/FusionReactor+Report+Plugin.Monitored.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'website/Home.md': 'index.md'
+         'website/FusionReactor+Installation+Guide.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'website/FusionReactor+Automated+Installer.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'website/Manual+Installation+-+Application+Server+Examples.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'website/JBoss+AS7.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'website/Tomcat+6+or+7+in+JBoss+EWS.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'website/Quick+Start+to+Troubleshooting+Server+Problems+with+FusionReactor.md': 'index.md'
+         'website/Protection+and+Monitoring+with+FusionReactor.md': 'index.md'
+         'website/JDBC+Monitoring.md': 'Data-insights/Features/JDBC/JDBC-Monitoring.md'
+         'website/User+Experience+Monitoring+(UEM).md': 'Data-insights/Features/UEM/User-Experience-Monitoring.md'
+         'website/FusionReactor+Report+Plugin.md': 'Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin.md'
+         'website/Using+FusionReactor+Enterprise+Scripting.md': 'Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting.md'
+         'website/FusionReactor+Java+Agent+(Manual+Install).md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'website/FusionReactor+Production+Debugger+Installation.md': 'Data-insights/Features/Debugger/Overview.md'
+         'website/Running+the+Setup+on+Windows.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'website/Migrating+FusionReactor+License+Key+to+another+server.md': 'index.md'
+         'website/Archive+Distributions.md': 'index.md'
+         'website/Debug.md': 'Data-insights/Features/Debugger/Overview.md'
+         'website/AWS+Elastic+Beanstalk.md': 'index.md'
+         'website/OpenShift+Online.md': 'index.md'
+         'website/Migrating+FusionReactor+to+a+new+server.md': 'index.md'
+         'website/Migrating+FusionReactor+License+Key+to+another+server.md': 'index.md'
+         'website/License+Types.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/Applying+a+License+Key.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/License+Activation.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/License+Deactivation.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/Licensing.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/Using+a+License+provided+by+a+System+Property.md': 'Monitor-your-data/FR-Agent/Configuration/FusionReactor-System-Properties.md'
+         'website/Using+a+License+stored+in+the+Instance+Configuration+File.md': 'Admin-and-data/Licensing/Licensing.md'
+         'website/Move+from+Manual+to+Automatic+installation.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'website/Log+Files+Available+in+FusionReactor.md': 'Data-insights/Features/Logs/Logs.md'
+         'website/Completing+the+FRAM+install+-+bringing+instances+online.md': 'index.md'
+         'website/License+Activation+(Manual).md': 'Admin-and-data/Licensing/Manual-Activation.md'
+         'website/FusionReactor+API+(FRAPI).md': 'Data-insights/Extras/FRAPI.md'
+         'website/FusionReactor+ColdFusion+Plugin.md': 'Data-insights/Extras/Plugins/FusionReactor-ColdFusion-Plugin.md'
+         'website/Installing+FusionReactor+in+Secured+Environments.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         "website/FusionReactor+User's+Guide.md": 'Getting-started/Trial.md'
+         'website/Protection+and+Monitoring+with+FusionReactor.md': 'Data-insights/Features/Crash-protection/Crash-Protection.md'
+         'space/Instance+Manager.md': 'Monitor-your-data/FR-Agent/Installation/FRAM.md'
+         'Cloud/trouble.md': 'Troubleshooting/trouble.md'
+         'Cloud/integrations/observability-agent.md': 'Monitor-your-data/Observability-agent/overview.md'
+         'Getting-started/GSFRJA.md': 'Monitor-your-data/FR-Agent/Installation/FRAM.md'
+         'Cloud/Downloads/Downloads.md': 'Latest-updates/Downloads.md'
+         'Cloud/OpenTelemetry/Instrumenting-OTel.md': 'Monitor-your-data/OpenTelemetry/getting-started.md'
+         'FeatureIntros/infrastructure-intro.md' : 'Monitor-your-data/Observability-agent/overview.md'
+         'Getting-started/Releases/#distributed-tracing.md': 'Monitor-your-data/OpenTelemetry/Visualize/Distributed-tracing.md'
+         'Getting-started/DVCloud/#alerting.md': 'Data-insights/Features/alerting.md'
+         'Getting-started/GSOnpremsetup.md': 'Getting-started/Trial.md'
+         'Profiler/Profiler.md': 'Data-insights/Features/Profiler/Profiler.md'
+         'JDBC/Databases.md': 'Data-insights/Features/JDBC/Databases.md'
+         'Metrics/Metrics-Page.md': 'Data-insights/Features/Metrics/Metrics-Page.md'
+         'Cloud/quick-start.md': 'Getting-started/Trial.md'
+         'Cloud/OpenTelemetry/Instrumenting-OTel.md': 'Monitor-your-data/OpenTelemetry/getting-started.md'
+         'Getting-started/GSIntegrate.md': 'Monitor-your-data/Observability-agent/overview.md'
+         'Cloud/guides/alerting.md': 'Data-insights/Features/alerting.md'
+         'Cloud/guides/explore.md': 'Data-insights/Features/explore.md'
+         'Cloud/guides/dashboards.md': 'Data-insights/Features/dashboards.md'
+         'Cloud/guides/create-dashboard.md': 'Getting-started/Tutorials/create-dashboard.md'
+         'Cloud/guides/OpsPilot/OpsPilot-user-guide.md': 'Data-insights/Features/OpsPilot/OpsPilot-user-guide.md'
+         'Cloud/legal/licenses.md': 'Admin-and-data/Third-Party-Licenses/licenses.md'
+         'licensing.md': 'Admin-and-data/Licensing/Licensing.md'
+         'Cloud/billing/overview.md': 'Admin-and-data/Billing/Cloud/overview.md'
+         'Cloud/guides/OpsPilot/OpsPilot-Hub/Jira.md': 'Data-insights/Features/OpsPilot/OpsPilot-Hub/Jira.md'
+         'Cloud/guides/OpsPilot/OpsPilot-Hub/Knowledge.md': 'Data-insights/Features/OpsPilot/OpsPilot-Hub/Knowledge.md'
+         'Cloud/guides/OpsPilot/OpsPilot-Hub/Slack.md': 'Data-insights/Features/OpsPilot/OpsPilot-Hub/Slack.md'
+         'Cloud/guides/OpsPilot/OpsPilot-Hub/Teams.md': 'Data-insights/Features/OpsPilot/OpsPilot-Hub/Teams.md'
+         'FeatureIntros/dashboards-intro.md': 'Data-insights/Features/dashboards.md'
+         'Metrics/Archive-Metrics.md': 'Data-insights/Features/Metrics/Archive-Metrics.md'
+         'FRAPI/FRAPI.md': 'Data-insights/Extras/FRAPI.md'
+         'Cloud/OpenTelemetry/distributed-tracing.md': 'Monitor-your-data/OpenTelemetry/Visualize/Distributed-tracing.md'
+         'Configuration/Copying-FusionReactor-Configuration-Between_Instances.md': 'Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances.md'
+         'Installation/Manual/Manual-Installation.md': 'Monitor-your-data/FR-Agent/Installation/Manual.md'
+         'Cloud/guides/log-alerting.md': 'Monitor-your-data/Log-monitoring/alerting.md'
+         'Cloud/guides/data-labels.md': 'Monitor-your-data/FR-Agent/Configuration/data-labels.md'
+         'Cloud/integrations/Metric-Integrations.md': 'Monitor-your-data/Observability-agent/overview.md'
+         'Cloud/logs/log-overview.md': 'Monitor-your-data/Log-monitoring/overview.md'
+         'Debugger/Security.md': 'Data-insights/Features/Debugger/Security.md'
+         'Getting-started/Releases.md': 'Latest-updates/Releases.md'
+         'Getting-started/WhatsNew.md': 'Latest-updates/WhatsNew.md'
+         'Installation/Download-Links.md': 'Monitor-your-data/FR-Agent/Installation/Download-Links.md'
+         'Installation/Installer/Upgrade.md': 'Monitor-your-data/FR-Agent/Installation/Automatic.md'
+         'Installation/upgrade-commandbox.md': 'Monitor-your-data/FR-Agent/Upgrade/upgrade-commandbox.md'
+         'Installation/upgrade-docker.md': 'Monitor-your-data/FR-Agent/Upgrade/upgrade-docker.md'
+         'Installation/Manual/Upgrade.md': 'Monitor-your-data/FR-Agent/Upgrade/Manual-upgrade.md'
+         'JDBC/Long-JDBC.md': 'Data-insights/Features/JDBC/Long-JDBC.md'
+         'Profiler/Pyroscope.md': 'Data-insights/Features/Pyroscope/pyroscope.md'
+         'UEM-and-Sessions/User-Experience-Monitoring.md': 'Data-insights/Features/UEM/User-Experience-Monitoring.md'
+         'deep.md': 'Monitor-your-data/Deep/overview.md'
+         'release-notes.md': 'Latest-updates/release-notes.md'
+         'requirements.md': 'Monitor-your-data/FR-Agent/More/requirements.md'
+         'Getting-started/DVCloud.md' : 'index.md'
+         'Getting-started/GSCloudsetup.md' : 'Getting-started/Trial.md'
+         'LogBeta/LogQL-Logfmt.md' : 'Data-insights/Features/Logs/Logs.md'
+         'OP-billing/licenses.md' : 'Admin-and-data/Billing/On-Premise/licenses.md'
+         
+           
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -422,9 +564,12 @@ markdown_extensions:
   - footnotes
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.mark
   - attr_list
   - md_in_html
+
 
 extra_css:
   - stylesheets/extra.css
@@ -448,5 +593,8 @@ extra:
 
 extra_javascript:
   - javascripts/feedback.js
+  - 'https://code.jquery.com/jquery-3.4.1.min.js'
+  - 'script/custom.js'
+  - 'script/intercom.js'
 
-copyright: '<a href="https://intergral.com" target="_blank">Copyright © 2024 Intergral GmbH. All rights reserved.</a>'
+copyright: '<a href="https://intergral.com" target="_blank">Copyright © 2026 Intergral GmbH. All rights reserved.</a>'

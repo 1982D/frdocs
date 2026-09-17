@@ -5,7 +5,7 @@ In most cases the default **application** and **transaction** names will suffice
 The application and transaction name can both be set by FRAPI for use in ColdFusion and Lucee, which will be prioritized over any other names. Auto application/transaction naming is enabled by default in FusionReactor and will prioritize FRAPI application/transaction names.
 
 !!! info "Learn more"
-    [Application](https://docs.fusionreactor.io/Configuration/Application-Naming-Configuration/) & [Transaction](https://docs.fusionreactor.io/Configuration/Transaction-Naming-Configuration/) naming 
+    [Application](/Troubleshooting/Configuration/Application-Naming-Configuration/) & [Transaction naming](/Troubleshooting/Configuration/Transaction-Naming-Configuration/)
 
 
 ## Application
@@ -36,9 +36,9 @@ FRAPI.setTransactionName("Transaction Name");
 
 Any change to the application or transaction name is reflected in FusionReactor as shown below:
 
-![!Screenshot](../../images/apptxn1.png)
+![!Screenshot](/Troubleshooting/images/apptxn1.png)
 
-![!Screenshot](../../images/apptxn2.png)
+![!Screenshot](/Troubleshooting/images/apptxn2.png)
 
 In this example the application name was set to “Application Query”, and transaction name was set to “Transaction Query”.
 

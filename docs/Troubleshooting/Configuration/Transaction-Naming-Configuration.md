@@ -17,8 +17,7 @@ The order for which automatic transaction naming searches is:
 1. Filter name
 1. Default transaction name
 
-If you are running a custom routing mechanism, or unsupported framework the information provided by FusionReactor may not be sufficient, in which case you will need to modify the transaction Naming Settings under the [FusionReactor Menu Settings
-](../Settings/Main-Menu.md).
+If you are running a custom routing mechanism, or unsupported framework the information provided by FusionReactor may not be sufficient, in which case you will need to modify the transaction Naming Settings under the [FusionReactor Menu Settings](/Data-insights/Features/Settings/Main-Menu/).
 
 ## Setting the transaction name
 

@@ -5,7 +5,7 @@
 
 Images play a crucial role in our documentation. They visually guide users through FusionReactor's features, illustrate complex concepts, and enhance the overall user experience. This guide outlines best practices for creating and maintaining images in FusionReactor's documentation.
 
-For instructions on embedding images in our Material for MkDocs site, refer to the [MkDocs documentation](quidfunk.github.io/mkdocs-material/reference/images/). 
+
 
 ### Image Types
 

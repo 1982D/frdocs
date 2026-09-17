@@ -96,7 +96,7 @@ If, for example, your application is accessible via myDomain.com/myApp, the appl
 
 ### **The default application name**
 
-It is possible in the [FusionReactor Menu Settings](../Settings/Main-Menu.md) to disable automatic transaction
+It is possible in the [FusionReactor Menu Settings](/Data-insights/Features/Settings/Main-Menu/) to disable automatic transaction
  naming and use the default value for every transaction.
 
 This will result in the application name for every transaction being set to this value.

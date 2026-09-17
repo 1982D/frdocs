@@ -1,9 +1,12 @@
 # Custom Metrics
 
-On this page you can see custom metrics.  These metrics are usually
-submitted by using a [FRAPI](../FRAPI/FRAPI.md) method.
 
-![](/frdocs/attachments/245549420/245549427.png)
+On this page, you can view **Custom Metrics**. These metrics are typically submitted using the [FRAPI](/Data-insights/Extras/FRAPI/) method.
+
+
+
+
+![](/attachments/245549420/245549427.png)
 
 ```java
 FRAPI.getInstance().postMetric("metricName", 12.5);
@@ -15,26 +18,25 @@ metrics.
 !!! info "Learn more"
     [FRAPI JavaDoc](https://fusion-reactor.com/frapi/8_0_0/)
 
-If you post a non-numeric metric to FRAPI, this will result in a column
-chart in place of the line graph.
+!!! info
+    If a non-numeric metric is submitted to FRAPI, it will be displayed as a **column chart** instead of a line graph.
 
-## Changing graph
 
-To change the graph using the selector on the top right of the page.
-This selector will list all the currently available graphs.
+
+## Changing Graph
+
+You can change the displayed graph using the selector in the top-right corner of the page. The selector lists all currently available graphs.
 
 !!! tip
-    If the graph is not listed, try refreshing the page. The selector will only update on a page refresh.
+    If a graph is not listed, try refreshing the page. The selector updates only on page refresh.
 
 ## Aggregates
 
-As a part of the metrics engine **aggregates** can be collected on the
-metrics. There are default aggregates that run every five seconds, one minute
-and one hour. These aggregates are can be enabled or disabled depending
-on the FRAPI method called.
+The metrics engine can generate **aggregates** for collected metrics. By default, aggregates are calculated every **five seconds**, **one minute**, and **one hour**. Depending on the FRAPI method used, these aggregates can be enabled or disabled.
 
-There will be buttons on the bottom right of the graph that display the
-aggregates that are available for that graph.
+Buttons in the bottom-right corner of each graph allow you to toggle the available aggregates for that graph.
+
+
 
 ```java
 FRAPI frapi = FRAPI.getInstance();
@@ -45,11 +47,7 @@ for(int i=0; i<10; i++)
 }
 ```
 
-Values that are put into the metrics engine using the FRAPI calls will
-not result in a automated sampler. This means that the graph will
-only render the points attached by the user, resulting in a **Live** graph
-that will end at the last point that was added. The graph will update as
-soon as the next point is added.
+Values submitted to the metrics engine through FRAPI calls do not trigger an automated sampler. As a result, the graph only displays the data points provided by the user, creating a Live graph that ends at the most recent point submitted. The graph will update immediately when the next point is added.
 
 ___
 

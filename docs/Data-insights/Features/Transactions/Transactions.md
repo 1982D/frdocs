@@ -48,7 +48,7 @@ start of an operation which FusionReactor monitors.
 this includes Root Transactions and all their child / sub transactions.
 
 
-![](/frdocs/attachments/245550549/288882712.jpg)
+![](/attachments/245550549/288882712.jpg)
 
 ___
 

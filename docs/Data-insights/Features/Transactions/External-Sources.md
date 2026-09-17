@@ -2,7 +2,7 @@
 
 The **External Sources** page shows an overview of the statistics gathered by **FusionReactor**, related to external connections. Currently tracking CFHTTP, HTTPClient calls.
 
-![](/frdocs/attachments/245550955/245550965.png)
+![](/attachments/245550955/245550965.png)
 
 
 ## Page controls

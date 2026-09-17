@@ -1,6 +1,6 @@
 # Class Loading Log
 
-The class loading log (classes.log) contains information about the java classes being
+The **Class Loading Log** (classes.log) contains information about the java classes being
 loaded, unloaded and the total classes in the Java VM.
 
 The log file is formatted as follows:
@@ -13,6 +13,6 @@ The log file is formatted as follows:
 |Version|4|Version number of this log entry.|
 |Server Startup Time (ms)|5|Startup time of the application server in milliseconds (ms) since epoch.|
 |Total Classes|6|The number of total classes in the Java VM|
-|Classes Loaded|7]|The number of classes loaded since the last log entry|
+|Classes Loaded|7|The number of classes loaded since the last log entry|
 |Classes Unloaded|8|The number of classes unloaded since the last log entry|
  

@@ -4,7 +4,7 @@
 
 An instance of FusionReactor can be uninstalled by clicking the **Delete** button within the Instance Manager.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/FRAM-unstall-button.jpg)
+![](/Monitor-your-data/FR-Agent/Images/FRAM-unstall-button.jpg)
 
 !!! note
     To remove FusionReactor the application server must be restarted.
@@ -14,7 +14,7 @@ An instance of FusionReactor can be uninstalled by clicking the **Delete** butto
 
 Clicking the **Remove** button will trigger the removal process.
 
-![](/frdocs/Monitor-your-data/FR-Agent/Images/FRAM-uninstall-confirm.jpg)
+![](/Monitor-your-data/FR-Agent/Images/FRAM-uninstall-confirm.jpg){ width="350" height="250" }
 
 In the **Configure Instance** modal, you can specify whether to restart the application server.
 

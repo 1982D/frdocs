@@ -1,4 +1,4 @@
-# CPU Sampler
+﻿# Overview
 
 <iframe src="https://player.vimeo.com/video/847319190?h=732325e769" width="640" height="363" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
@@ -19,7 +19,7 @@ retrieves and collects all live system thread data and their respective
 metadata. This includes: thread IDs, thread names, thread groups, thread
 states and critical CPU timing.
 
-![](/frdocs/attachments/245552580/245552617.png)
+![](/attachments/245552580/245552617.png)
 
 ### Overview
 
@@ -57,7 +57,7 @@ every page refresh.
 The Deltas feature in the CPU Sampler is an incredibly useful feature.
 Once delta values are tracked, they can provide the user with the
 current CPU usage since the button was clicked till the current time. A
-reset button will appear once Deltas is pressed – clicking this button
+reset button will appear once Deltas is pressed  -  clicking this button
 will allow you to set a new time (baseline) from where the thread CPU
 time is calculated.
 
@@ -76,7 +76,7 @@ their server using preexisting FusionReactor tools, such as:
 Threads that are blocked will become highlighted on the page like the
 image below.
 
-![](/frdocs/attachments/245552580/245552592.png)
+![](/attachments/245552580/245552592.png)
 
 ##  CPU Snapshots
 
@@ -87,7 +87,7 @@ FusionReactor.
 Snapshots can be taken at any moment during the execution of a sample,
 this is achieved by the 'Take Snapshot' button.
 
-![](/frdocs/attachments/245552624/245552690.png)
+![](/attachments/245552624/245552690.png)
 
 It is important to note: unlike the Heap View, these snapshots are
 volatile and are not stored on disk. This means restarting FusionReactor
@@ -99,7 +99,7 @@ By selecting to view a certain snapshot, you are redirected to a very
 familiar page. This page is essentially identical to the CPU Sampling
 page at the moment the snapshot was taken.
 
-![](/frdocs/attachments/245552624/245552697.png)
+![](/attachments/245552624/245552697.png)
 
 ### Diff View
 
@@ -107,7 +107,7 @@ To view compare two unique samples, select only two check-boxes on the
 CPU Snapshots page and click the 'Diff Selected' button. This will then
 generate the page shown below.
 
-![](/frdocs/attachments/245552624/245552704.png)
+![](/attachments/245552624/245552704.png)
 
 This is another helpful tool, as it can describe the changes in thread
 execution over a period of time. This page will render the inner-join
@@ -143,17 +143,17 @@ both names under Thread Name.
 On certain machines, the CPU Sampler might return an error page like
 this:
 
-![](/frdocs/attachments/245552711/245552718.png)
+![](/attachments/245552711/245552718.png)
 
 There are several cases where an error page will be returned:
 
--   Unsupported Java Version – this is when FusionReactor is installed
+-   Unsupported Java Version  -  this is when FusionReactor is installed
     on a system with an unsupported Java Runtime Environment (anything
     below Java 6).
--   Unsupported Java Management Extension – this is thrown when the JVM
+-   Unsupported Java Management Extension  -  this is thrown when the JVM
     vendor does not support thread CPU timing. To fix this, run
     FusionReactor in a supported JVM.
--   Disabled Thread CPU Time – the sampler uses a Java Management
+-   Disabled Thread CPU Time  -  the sampler uses a Java Management
     Extension to capture a thread's special meta information. This error
     page is rendered when the thread CPU timing within this extension is
     disabled. This can be resolved by following these steps:
@@ -169,6 +169,6 @@ Machine implementations could be affected by setting this parameter to
 true. This does not apply to the aforementioned Hotspot JVM.
 
 !!! info "Learn more"
-   [CPU Sampler Settings](/frdocs/Data-insights/Features/CPU-Sampler/CPU-Sampler-Settings/)
+   [CPU Sampler Settings](/Data-insights/Features/CPU-Sampler/CPU-Sampler-Settings/)
 
 

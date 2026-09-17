@@ -1,16 +1,17 @@
 ## Log Settings
 
-This page is used to alter the log engine settings, log rotation
-settings, log archive settings, and log archive monitor settings. The
-page is broken up into sections, each containing a table explaining the
-options that can be chosen in drop down boxes or input into text fields.
+
+This page allows you to configure the **log engine**, **log rotation**, **log archive**, and **log archive monitor** settings. It is organized into sections, each with a table explaining the available options, which can be selected from dropdowns or entered into text fields.
+
+
 
 ## Log Engine Settings
 
-The location of the FusionReactor logs will depend on the mode of
-logging you are using and how you have configured your Log Directory.
-Below is a table covering the two types of log rotations that exist in
-FusionReactor.
+
+
+This page allows you to configure the **log engine**, **log rotation**, **log archive**, and **log archive monitor** settings. It is organized into sections, each with a table explaining the available options, which can be selected from dropdowns or entered into text fields.
+
+
 
 | Configuration | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default                              |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|

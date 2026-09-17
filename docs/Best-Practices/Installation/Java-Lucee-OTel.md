@@ -1,7 +1,7 @@
 # Java/Lucee, databases & other languages
 
 
-![!Screenshot](/frdocs/Best-Practices/Installation/Images/JLOTel.png)
+![!Screenshot](/Best-Practices/Installation/Images/JLOTel.png)
 
 ## Step 1: Install FRAM (FusionReactor Administration Manager)
 
@@ -30,7 +30,7 @@ Use the auto discovery tool to scan your server and automatically locate your Ja
 
 
 !!! tip 
-    This is a manual process so if you have over 100 servers,  we recommend manual  activation or [scripting](/Cloud/Best-Practices/scripted1/) to install FR. to install FR.
+    This is a manual process so if you have over 100 servers,  we recommend manual  activation or [scripting](/Best-Practices/Installation/scripted1/) to install FR. to install FR.
 <br>
 
 ## Step 3: Install the Observability Agent using FRAM
@@ -49,7 +49,7 @@ To monitor the machine running Lucee or Java itself and any databases eg Redis, 
 
 
 !!! info "Learn more"
-    [Observability Agent](/frdocs/Cloud/integrations/Metric-Integrations/)
+    [Observability Agent](/Monitor-your-data/Observability-agent/overview/)
 
 ## Step 4: Instrument OpenTelemetry
 

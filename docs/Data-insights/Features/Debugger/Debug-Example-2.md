@@ -23,7 +23,7 @@ FANTASTIC - PAGE WORKED FINE - YOU SAVED PRODUCTION
 After running the example file show above - we generated the following
 HTTP 500 Error.
 
-![](/attachments/245553374/245553470.png)
+![](/245553374/245553470.png)
 
 In the [Requests->Request History](../Requests/Request-History.md) page, we see
 the following error has been captured:

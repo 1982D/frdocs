@@ -1,36 +1,33 @@
-# Installing FusionReactor
+# Automatic installation
 
-You can download the full installer from the [FusionReactor download](https://www.fusion-reactor.com/download) page on the website or via the URLs directly.
+FusionReactor can be installed using either a full installer (recommended) or preconfigured archives. The full installer includes a Java Runtime Environment (JRE) and provides options for customizing the installation path, runtime user, password, and port. Preconfigured archives require an existing JRE on your server and use default settings.
 
-| File | URL |
-|--- |--- |
-| FusionReactor Full Installer for Windows | [Windows](https://download.fusionreactor.io/FR/Latest/FusionReactor_windows-x64.exe)  |
-| FusionReactor Full Installer for Linux | [Linux](https://download.fusionreactor.io/FR/Latest/FusionReactor_linux-x64.sh) |
-| FusionReactor Full Installer for MacOS | [MacOS](https://download.fusionreactor.io/FR/Latest/FusionReactor_macos.dmg) |
+## Download options
 
-The full installer or preconfigured installation of FusionReactor both include the
-FRAM (FusionReactor Administration Manager) and should only take a few minutes to set up.
+* Full Installer (Recommended): [Download](/Latest-updates/Downloads/) directly from the FusionReactor download page or use the direct links below:
+    * [Windows](https://download.fusionreactor.io/FR/Latest/FusionReactor_windows-x64.exe)
+    * [Linux](https://download.fusionreactor.io/FR/Latest/FusionReactor_linux-x64.sh)
+    * [MacOS](https://download.fusionreactor.io/FR/Latest/FusionReactor_macos.dmg)
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-Installer-download.jpg)
+* Preconfigured Archives: Available as a Windows zip file and a Tarball for MacOS and Linux. These assume default configurations and require your own JRE.
 
-The full installer includes a JRE (Java Runtime Environment) and allows you to customize your setup location, runtime user, password and port.
+![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-Installer-download.jpg){  width="350" height="250" } 
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Pre-Configured-Installers.jpg)
+![!Screenshot](/Monitor-your-data/FR-Agent/Images/Pre-Configured-Installers.jpg){  width="350" height="250" } 
+    
 
-The preconfigured installation assumes the default configuration of the FusionReactor and requires you to have your own JRE configured on the server. You will be prompted to set a password as soon as the installer runs.
 
-There is a preconfigured Windows zip file or Tarball preconfigured to run on both MacOS and Linux operating systems.
 
-## Video
+Both the full installer and preconfigured installations include the FusionReactor Administration Manager (FRAM), and the setup typically takes only a few minutes.
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/930599280?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Quick and Easy Installation of FusionReactor Administration Manager (FRAM) on Windows"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+
 
 ## Using the full installer
 There is a separate installer for each support platform.
 
 !!! note
-    As of FusionReactor version 8.1.0 there are no 32 bit installers available.
-    To install FusionReactor on 32 bit systems you must [manually install FusionReactor](../Manual/Manual-Installation.md).
+    As of FusionReactor version 8.1.0, 32-bit installers are no longer available. For 32-bit systems, please refer to the [manual installation guide](/Monitor-your-data/FR-Agent/Installation/Manual/).
 
 | Platform | Installer name | To run |
 | --- | --- | --- |
@@ -38,82 +35,69 @@ There is a separate installer for each support platform.
 | Linux | FusionReactor_linux-x64.sh | Run FusionReactor_linux-x64.sh as root |
 | MacOS | FusionReactor_macos.dmg | Run FusionReactor_macos.dmg as root |
 
-On each platform the installer must be run as an elevated used such as Administrator / Super user. If an attempt is made to run the install without an elevated user the installer will exit and a warning will appear.
+The installer must be executed with elevated privileges (Administrator/root). Insufficient permissions will cause the installer to exit with a warning. Only one instance of FusionReactor can be installed on a single server.
 
-### Installing using the full installer
+
+
+## Installation steps
 Running the installer for the first time, you will have the option to configure your installed FRAM (FusionReactor Administration Manager) service. You can only have one copy of FusionReactor installed on a single server.
 
-When running the installer, you will first see a welcome screen.
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-welcome.jpg)
+1.  **Welcome:** The installer starts with a welcome screen. Click **Next**.
 
-**Step 1**: Clicking the **Next** button will proceed with the installation and open the license agreement screen.
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-welcome.jpg){ width="350" height="250" } 
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-license-agreement.jpg)
+2.  **License Agreement:** Review the agreement, select "**I accept the agreement**", and click **Next**. Clicking **Cancel** will exit the installer.
 
-**Step 2**: Carefully review the license agreement before continuing, then choose the **I accept the agreement** option (if you accept the terms and conditions) and click **Next** to proceed. Press **Cancel** if you do not accept the license agreement. This will exit the installer.
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-license-agreement.jpg){ width="350" height="250" }
 
-**Step 3**: If you have accepted the license agreement, clicking **Next**  displays the **Select Destination Directory** screen.
+3.  **Destination Directory:** Choose the installation directory. Default paths are:
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-directory.jpg)
+    | Platform  | Default Path                             |
+    | :-------- | :--------------------------------------- |
+    | **Windows** | `C:\FusionReactor\Instance\myInstance`   |
+    | **Linux** | `/opt/fusionreactor/instance/myInstance` |
+    | **MacOS** | `/Applications/FusionReactor/instance/myInstance` |
 
-On this screen you select the directory in which FusionReactor should be installed. By default FusionReactor will be installed into:
+    Click **Next** to continue.
 
-| Platform | Path|
-|--- |--- |
-| **Windows** | ```C:\\FusionReactor\Instance\myInstance``` |
-| **Linux** | ```/opt/fusionreactor/instance/myInstance``` |
-| **MacOS** | ```/Applications/FusionReactor/instance/myInstance``` |
-
-**Step 4**:Click **Next** to proceed to the **FusionReactor Configuration** screen.
-
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-port.jpg)
-
-The default HTTP port for FusionReactor Administrator is 8087. The installer will check if the selected port is available by attempting to open a connection to it and change the default port if it is in use. However, if you have another application using this port which is currently not running the installer will not be able to warn you.
-
-**Step 5**: Clicking **Next** opens the **FusionReactor Configuration** screen.
-
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-password.jpg)
-
-Specify the password to be used by the Administrator user on FusionReactor. To validate the password you have to enter it one more time in the confirmation field. The installer will check that the password is at least five characters long and that the two values you have entered are identical.
-
-On Linux and MacOS installations, clicking next will open a further FusionReactor **Configuration** screen.
-
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-unix-runtime-user.jpg)
-
-On this screen you configure the user and group the FusionReactor daemon will run under. Typically you will choose the same user and group as used by the application servers on this computer into which you want to install instances of FusionReactor.
-
-**Step 6**: Clicking next opens the **Confirm Settings** screen.
-
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-confirmation.jpg)
-
-On the **Confirm Settings** screen shown  you can choose if the installer should create a desktop shortcut to FusionReactor Administrator (Windows only) and if the FRAM service should be started after all files have been installed.
-
-!!! tip
-    If you do not want the installer to create a desktop shortcut unselect the option **Create Desktop Shortcut to FusionReactor Administration Manager**. 
-!!! tip
-    If you do not wish to start the FRAM service at this moment, or wish to manually start the FRAM service unselect the option **Start FusionReactor Service**.
-
-**Step 7**: Click **Next** to begin installing FusionReactor, **Back** to review the installation configuration or **Cancel** to exit the installer.
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-directory.jpg){ width="350" height="250" }
 
 
+4.  **FusionReactor Configuration (Port):** The default HTTP port for the FusionReactor Administrator is 8087. The installer checks for availability. Click **Next**.
 
-**Step 8**: After the installation has finished you are presented with the **Installation completed** screen. 
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-port.jpg){ width="350" height="250" }
 
-Click **Start configuring instances** or navigate to {hostname}:{FRAM port} to access the instance manager on the FRAM service.
+5.  **FusionReactor Configuration (Password):** Set the password for the Administrator user and confirm it. The password must be at least five characters and match the confirmation.
 
-![!Screenshot](/frdocs/Monitor-your-data/FR-Agent/Images/Full-installer-complete.jpg)
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-password.jpg){ width="350" height="250" }
 
+6.  **(Linux/MacOS Only) FusionReactor Configuration (Runtime User):** Specify the user and group for the FusionReactor daemon. It's recommended to use the same user and group as your application servers. Click **Next**.
+
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-unix-runtime-user.jpg){ width="350" height="250" }
+
+7.  **Confirm Settings:** Review your configuration. On Windows, you can choose to create a desktop shortcut and start the FRAM service after installation.
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-confirmation.jpg){ width="350" height="250" }
+
+    !!! tip
+        Deselect **Create Desktop Shortcut to FusionReactor Administration Manager** to skip shortcut creation.
+
+    !!! tip
+        Deselect **Start FusionReactor Service** if you prefer to start FRAM manually later.
+
+    Click **Next** to begin the installation, **Back** to modify settings, or **Cancel** to exit.
+
+8.  **Installation Completed:** Once finished, the **Installation completed** screen appears. Click **Start configuring instances** or navigate to `http://{hostname}:{FRAM port}` to access the Instance Manager.
+
+    ![!Screenshot](/Monitor-your-data/FR-Agent/Images/Full-installer-complete.jpg){ width="350" height="250" }
 
 !!! warning
-    Installing the FRAM service of FusionReactor is only part of the install process. The FRAM will installation will give you
-     access to the Instance Manager and [Enterprise Dashboard](#), which you must then use to install FusionReactor onto your 
-      Application
-      Servers.
-    To continue the installation see [Configuring a FusionReactor instance in FRAM](#)
+    Installing the FRAM service is only the first step. You must use the Instance Manager (accessible via the provided link or URL) to install FusionReactor onto your application servers. Refer to [Configuring a FusionReactor instance in FRAM](/Monitor-your-data/FR-Agent/Installation/FRAM/) for the next steps.
 
 
-___
+### Video guide
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/930599280?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Quick and Easy Installation of FusionReactor Administration Manager (FRAM) on Windows"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 !!! question "Need more help?"
     Contact support in the chat bubble and let us know how we can assist.

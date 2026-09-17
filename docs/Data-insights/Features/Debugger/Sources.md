@@ -21,14 +21,14 @@ through the code.
 Initially, with no sources configured, you should click the link in the
 sources section to be taken to the **Add Source** window.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245553061.png)
+![](/Data-insights/Features/Debugger/images/245553061.png)
 
 However, if you already have sources directories configured, you can add
 a new source directory by selecting **Configure Sources** to open the
 configuration window and then selecting **Add Source** on the bottom
 right.
 
-![](/frdocs/Data-insights/Features/Debugger/images/245553055.png)
+![](/Data-insights/Features/Debugger/images/245553055.png)
 
 In either case, you can now select the root directory where your source
 code resides.

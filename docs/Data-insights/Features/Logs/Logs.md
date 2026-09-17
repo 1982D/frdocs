@@ -1,85 +1,63 @@
 
 
-FusionReactor provides many helpful graphs and metrics to help you see
-how your system is performing.   These graphs are available in real-time
-and will also show you a short history of what happened (depending on
-the amount of data which has been generated), but what happens when your
-server begins to crash?   Lots of this data is stored in-memory so it
-can be used to generate reports and lists for the FusionReactor
-Administrator.  If you are having problems which cause (or necessitate)
-restarts of the server process, this in-memory data is lost - however
-all of this data will have been captured to one of FusionReactor's
-extensive log files. 
 
-This data can in almost all cases be used in a post-mortem session to
-pinpoint the location of problems within a system. In addition to
-immediate post-mortem work, the logs can also be used to analyze usage
-patterns, trends and to derive longer-term aggregate data. 
+FusionReactor provides real-time graphs and metrics to help you monitor system performance. These graphs also show short-term history based on the available data. But what happens if your server crashes?
 
-As of FusionReactor 4.0, there are two styles of logging which is
-supported by FusionReactor. You can change current logging method on the
-[Log Settings](/frdocs/Data-insights/Features/Logs/Settings/) page.
+Since much of this data is stored in memory for reporting within the FusionReactor Administrator, it is lost during a restart. However, all of it is also written to FusionReactor’s extensive log files.
+
+These logs can almost always be used in **post-mortem analysis** to identify the source of system issues. Beyond troubleshooting, they are also valuable for analyzing usage patterns, spotting trends, and deriving long-term aggregate data.
+
+Starting with **FusionReactor 4.0**, two styles of logging are supported. You can switch between them on the [Log Settings](/Data-insights/Features/Logs/Settings/) page.
 
 
 
-## Centralized Archive and Rotation
 
-If you install FusionReactor from scratch then this is the logging
-mechanism you will be using by default. The idea behind Centralized
-Archive and Rotation is that you end up with a set of log folders named
-with a timestamp (within the existing Log Directory specified on the
-[Log Settings](/frdocs/Data-insights/Features/Logs/Settings/) page that each contain
-a complete set of log files for a specified period of time. You can
-choose whether a new folder be created every 'n' minutes, or you can
-specify a time at which the logs are daily rotated. Additionally you can
-specify how much log data you want to save, either by amount of disk
-space used, or period of time covered (or you can save all the logs if
-you have a big enough hard drive). The main advantage to this logging
-method over the older Traditional method is that is is a lot easier to
-batch up a complete set of log files covering a distinct period of time
-which is very useful when trying to compare values between log files or
-when importing them into something like FusionAnalytics.
 
-All of these log settings are available on the
-[Log Settings](/frdocs/Data-insights/Features/Logs/Settings/) page.
+
+## Centralized Archive & Rotation
+
+When installing FusionReactor from scratch, **Centralized Archive and Rotation** is the default logging mechanism.
+
+This method organizes logs into **timestamped folders** within the Log Directory specified on the [Log Settings](/Data-insights/Features/Logs/Settings/) page. Each folder contains a complete set of log files for a specific period.
+
+You can configure:
+
+* **Rotation frequency:** create a new folder every *n* minutes, or rotate logs at a specific daily time
+* **Retention:** limit how much log data is saved by disk usage, time period, or keep all logs if storage allows
+
+The key advantage over the older Traditional method is that it’s easier to batch a complete set of logs for a defined period-useful for comparing logs over time.
+
+All settings are configurable on the [Log Settings](/Data-insights/Features/Logs/Settings/) page.
+
+
+
+
 
 ## Traditional Per-Log Rotation
 
-If you upgrade an older version of FusionReactor then this will be the
-default logging mechanism you will be using. It is the logging mechanism
-used by all versions of FusionReactor prior to 4.0. The idea behind this
-logging mechanism is that, for each log file in the system, you can
-specify how big that file is allowed to become and how many log files
-you want to keep. If you specify a log size of 10MB and say that you
-want a history of 5 log files then you will have a maximum of 50MB of
-logs available to you at any time. With Traditional Per-Log Rotation,
-all the log files are stored in the Log Directory specified on the
-[Log Settings](/frdocs/Data-insights/Features/Logs/Settings/) page. For each type of
-log (e.g. request.log) you will end up with a set of numbered log files
-(e.g. request-0.log, request-1.log ... request-4.log). Once request-0.log
-is full, all the log files are renamed and a new request-0.log is
-started (so request-0.log would always contain the latest log messages).
-The oldest log file (in this example, request-4.log) is deleted and
-immediately replaced with the file previously named request-3.log.
+If you upgrade from an older version of FusionReactor, **Traditional Per-Log Rotation** will be your default logging mechanism. This was the standard logging method in all versions prior to 4.0.
 
-The settings for the File Size and File Count of your log files can be
-found in the associated settings page (e.g.
-[Requests Settings](../Requests/Settings.md) for the
-request.log). We recommend however that you switch to the new
-Centralized Archive and Rotation logging method as it will give you more
-control over your logs.
+With this method, you can configure each log file’s **maximum size** and the **number of files** to retain. For example, setting a 10MB log size with a history of 5 files allows a maximum of 50MB of logs at any time.
+
+All log files are stored in the Log Directory specified on the [Log Settings](/Data-insights/Features/Logs/Settings/) page. Each log type (e.g., `request.log`) will have numbered files (`request-0.log`, `request-1.log`, … `request-4.log`). When `request-0.log` fills up, all files are renamed, a new `request-0.log` is created, and the oldest file (`request-4.log`) is deleted. This ensures that `request-0.log` always contains the latest log entries.
+
+Settings for **file size** and **file count** are available on the corresponding settings pages (e.g., [Requests Settings](../Requests/Settings.md) for `request.log`).
+
+We recommend switching to **Centralized Archive and Rotation** for greater control and easier log management.
+
 
 ## Log Page
 
-The Log View page in FusionReactor provides insight into the current
-logs FusionReactor is writing to. It can be found under the
-FusionReactor tab on the top menu level.
 
-![](/frdocs/attachments/245548584/245548591.png)
+The **Log View** page in FusionReactor provides insight into the logs currently being written. You can access it from the **FusionReactor** tab in the top-level menu.
+
+
+
+![](/attachments/245548584/245548591.png)
 
 ### Options
 
-![](/frdocs/attachments/245548584/245548596.png)
+![](/attachments/245548584/245548596.png)
 
 -   From the page buttons, you have the options to select other log
     files that might be in the current directory.
@@ -104,15 +82,12 @@ FusionReactor tab on the top menu level.
 
 ## Logs Files
 
-These are logs that relate to captured server data, for example
-requests, query results, cpu/memory information etc. It is important to
-note that the names to these logs will differ on FusionReactor's User
-Interface, this discrepancy is referred to in the table below under the
-UI Name column.
 
-Clicking on the log names will take you to a page dedicated to that log,
-explaining each column in that log along with useful additional
-information.
+
+These logs capture server data such as requests, query results, CPU/memory usage, and more. Note that the log names in the FusionReactor **User Interface** may differ; this is indicated in the table below under the **UI Name** column.
+
+Clicking a log name opens a dedicated page for that log, explaining each column and providing additional useful information.
+
 
 |File Name|UI Name|Log Type|
 |--- |--- |--- |
@@ -218,11 +193,13 @@ hostmanager or per-app log files, for example.
     catalina.out contains both the catalina log messages in addition to the
     standard out/error.
 
-### Standard Out and Standard Error Capturing
+### Standard Out & Standard Error Capturing
 
-FusionReactor will capture the standard out (stdout) and standard error
-(stderr) of the Java process which are written from Java methods / byte
-code. This will not include print messages which are written by native
-libraries. FusionReactor captures the stdout and stderr from the start
-of the process. While FusionReactor is starting up it will store up to
-500 lines for each log to write into the FR log directory.
+
+
+FusionReactor captures the **standard output (stdout)** and **standard error (stderr)** of the Java process generated by Java methods or bytecode. It does **not** include messages written by native libraries.
+
+Stdout and stderr are captured from the **start of the Java process**. During FusionReactor startup, up to **500 lines** of each log are temporarily stored before being written to the FusionReactor log directory.
+
+
+

@@ -8,42 +8,42 @@ Debugging allows you to gain additional insight to troubleshoot and errors occur
 
 Access the runtime variables for all scopes within the tracked thread
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/scope.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/scope.png)
 
 ### The Debugger
 The Production Debugger provides the ideal solution for developers to gain insight into how code executes at production runtime. With the Debugger, you have the ability to pause and step through code.
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/thread.png)
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/thread2.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/thread.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/thread2.png)
 
 !!! info "Learn more"
-    [Debugger](/frdocs/Data-insights/Features/Debugger/images/Overview/)
+    [Debugger](/Data-insights/Features/Debugger/Overview/)
 
 ### Event Snapshots
 
 Event Snapshots are generated for specific events that may occur whilst FusionReactor (FR) monitors your application.  Event Snapshots are intended to provide deep level insight whenever a problem, such as an exception or thread latency occurs.
 
 !!! info "Learn more"
-    [Event Snapshot](/Debugger/Event-Snapshot/)
+    [Event Snapshot](/Data-insights/Features/Debugger/Event-Snapshot/)
 
 
 ### Watches 
 
 The ability to analyze and run functions on variables during runtime.
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images//watches.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/watches.png)
 
 ## Requirements
 You need the agentpath argument installed.
 
 !!! info "Learn more"
-    [Install Debug Library](/Installation/Manual/Manual-Installation/#step-2-download-the-fusionreactor-installation-files)
+    [Install Debug Library](/Monitor-your-data/FR-Agent/Installation/Manual/#step-2-download-the-fusionreactor-installation-files)
 
 ### How do I know if the agentpath argument is already enabled?
 
 Navigate to the Debug page and if the agentpath argument is not enabled, the following information will be displayed: 
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/debugmissing.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/debugmissing.png)
 
 
 ## How do I disable the debug capability?
@@ -59,7 +59,7 @@ To disable the Debugger:
 
 **Step 2**: Disable the setting.
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/config1.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/config1.png)
 
 To disable Event Snapshots:
 
@@ -67,7 +67,7 @@ To disable Event Snapshots:
 
 **Step 2**: Disable the setting.
 
-![!Screenshot](/frdocs/Data-insights/Features/Debugger/images/config2.png)
+![!Screenshot](/Data-insights/Features/Debugger/images/config2.png)
 
 
 ### With Java arguments
@@ -85,7 +85,7 @@ To disable the debugger you need to take out the agentpath:
     Disabling the debugger also disables snapshots.
 
 !!! info "Learn more"
-    [Uninstall Debugger](/Installation/Manual/Manual-Installation/#step-1-stop-your-application-server)
+    [Uninstall Debugger](/Monitor-your-data/FR-Agent/Installation/Manual/#step-1-stop-your-application-server)
 
 
 

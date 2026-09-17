@@ -1,20 +1,20 @@
-# Memory Logs
+﻿# Memory Logs
 
-The Memory Logs section contains two pages. One explains
-the [memorysummary.log](#memory-summary-log) which is a basically a log
-containing heap and non heap memory information. The other page talk
-about how every server references memory in different ways and how
-FusionReactor handles this and manages to create a logs that match the
-types of memory used by that server.
+The **Memory Logs** section contains two pages:
+
+1. **[memorysummary.log](#memory-summary-log)**  -  a log containing heap and non-heap memory information.
+2. A page explaining how different servers reference memory, and how FusionReactor adapts to capture logs that accurately reflect the types of memory used by each server.
+
+
 
 ## Memory Summary Log
 
-For information on changing log settings see the [Log Settings](/frdocs/Data-insights/Features/Logs/Settings/) ttipage. This log displays
-information about the memory heap and non heap memory (into memorysummary.log). Each log entry
-occupies one line and contains various pieces of useful information,
-separated with a white space character. Below is a table explaining each
-element in the log. Elements are separated with a white space character.
-The log is called memorysummary.log.
+For information on changing log settings, see the [Log Settings](/Data-insights/Features/Logs/Settings/) page.
+
+The **memorysummary.log** records information about heap and non-heap memory. Each entry occupies a single line, with elements separated by a space. The table below explains the meaning of each element in the log.
+
+
+
 
 
 |Field Name|Number|Description|
@@ -39,13 +39,7 @@ The log is called memorysummary.log.
 
 ## Broken Down Memory Logs
 
-The heap memory and non heap memory can be further broken down to
-specific areas. Every server handles areas of memory differently and
-refers to them using terms other servers may not use. FusionReactor
-recognizes this and creates logs for all the different areas of memory
-that particular server supports, furthermore the logs are named after
-the area of memory that the server uses making it easier for you to
-locate your logs.
+Heap and non-heap memory can be divided into specific areas. Since each server handles and names these memory areas differently, FusionReactor adapts by creating logs for all areas supported by that server. The logs are named according to the server’s memory terminology, making them easier to locate and interpret.
 
 ## Log fields
 

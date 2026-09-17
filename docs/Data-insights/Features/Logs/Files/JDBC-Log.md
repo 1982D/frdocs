@@ -1,6 +1,6 @@
 # JDBC Log
 
-The JDBC Logs (which are a set of rotating files which you can configure
+The **JDBC Log** (which are a set of rotating files which you can configure
 from the [JDBC Settings](../../JDBC/Settings.md) page) are simple
 space separated files, so they can be easily imported into database or
 spreadsheet applications. The log is called **jdbc.log**, the bottom

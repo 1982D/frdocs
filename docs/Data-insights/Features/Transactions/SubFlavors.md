@@ -42,7 +42,7 @@ further breakdown of what is happening on an application server.
 
 ### Custom SubFlavors
 
-Through [FusionReactor's API (FRAPI)](../FRAPI/FRAPI.md), it is possible to
+Through [FusionReactor's API (FRAPI)](/Data-insights/Extras/FRAPI/), it is possible to
 create your own flavors and subflavors. Use the code below:
 
 ```java

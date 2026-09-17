@@ -5,7 +5,7 @@
 
 By default, the FusionReactor agent captures the following potentially sensitive data which **can be obfuscated** in the On-Prem FusionReactor, and defaults to being obfuscated when sent to the Cloud:
 
-  * **Request parameters**: The agent captures query parameters, but **not** form POST data. (See [JDBC Settings](/frdocs/Data-insights/Features/JDBC/Settings/))
+  * **Request parameters**: The agent captures query parameters, but **not** form POST data. (See [JDBC Settings](/Data-insights/Features/JDBC/Settings/))
  
  
   * **SQL**: The agent sets SQL recording to obfuscated, which removes the potentially sensitive numeric and string literal values.
@@ -20,7 +20,7 @@ The following potentially sensitive data is captured but **cannot** be obfuscate
   * **Event Snapshot and Debugger**: These cannot be obfuscated and may contain sensitive information. The Debugger has access to any and all variables/constants in the running application. You can disable the Event Snapshot feature or the whole Debugger.
 
 !!! info "Learn more"
-    [Debugger settings](/frdocs/Data-insights/Features/Debugger/Settings/)
+    [Debugger settings](/Data-insights/Features/Debugger/Settings/)
 
 ### Disabling data capture & access
 
@@ -75,7 +75,7 @@ OpenAI will not use data submitted by customers via our API to train or improve 
 
 OpenAI retains API data for 30 days for abuse and misuse monitoring purposes. A limited number of authorized OpenAI employees, as well as specialized third-party contractors that are subject to confidentiality and security obligations, can access this data solely to investigate and verify suspected abuse.
 
-The OpenAI API is [SOC 2 Type 2](/frdocs/Admin-and-data/security/#soc-2-type-2-compliance) compliant and has been audited by an independent third-party auditor against the 2017 Trust Services Criteria for Security.
+The OpenAI API is [SOC 2 Type 2](/Admin-and-data/security/#soc-2-type-2-compliance) compliant and has been audited by an independent third-party auditor against the 2017 Trust Services Criteria for Security.
 
 All customer data is processed and stored in the US. 
 
@@ -92,8 +92,8 @@ Intergral Information Systems GmbH has achieved SOC 2 Type 2 certification, rein
     
 ## Legal
 
-  * [License](/frdocs/Admin-and-data/Third-Party-Licenses/licenses/)
-  * [Terms of Service](/frdocs/Admin-and-data/tos/)
+  * [License](/Admin-and-data/Third-Party-Licenses/licenses/)
+  * [Terms of Service](/Admin-and-data/tos/)
   * [Privacy Statement](https://www.intergral.com/privacy-statement/)
   * [GDPR](http://www.intergral.com/GDPR/)
   * [Patents](https://www.fusion-reactor.com/patents/)

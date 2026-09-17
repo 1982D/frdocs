@@ -2,7 +2,7 @@
 
 The **Transactions History** page shows a list of the most-recently completed requests.  The number of historical requests stored is configurable.
 
-![](/frdocs/attachments/245550675/245550729.png)
+![](/attachments/245550675/245550729.png)
 
 ## Sorting Transaction History
 
@@ -31,7 +31,7 @@ This is the main content of the page and is a summary list of the currently stor
 |--- |--- |
 |**Finished**|This is the time at which this transaction finished.|
 |**Status / Type**|This is the status of the transaction, this will typically be Finished. The type of the transaction is also displayed here, as well as any protection contributed statues.|
-|**App / Txn**|The application (App) in which the request occurred from or to is shown on the top line. The transaction (Txn) shown on the lower line, is based on whichever rules you wish to use for your transaction naming. These rules can be set on the **FusionReactor Menu** > **Settings** page. <br> Learn more: [Transaction Naming](/Transactions/Transaction-Naming/)|
+|**App / Txn**|The application (App) in which the request occurred from or to is shown on the top line. The transaction (Txn) shown on the lower line, is based on whichever rules you wish to use for your transaction naming. These rules can be set on the **FusionReactor Menu** > **Settings** page. <br> Learn more: [Transaction Naming](/Data-insights/Features/Transactions/Transaction-Naming/)|
 |**ID / Thread**|This is the per type transaction ID, and the Thread name that this transaction ran on.|
 |**Description / URL / Statement**|This is the description of the transaction, defined by the user when the transaction is created for user defined transaction. This column also contains the details of contexts that are held on this transaction.  Depending on the flavor of the transaction, you will see either **Description**, **URL** or **Statement**.|
 |**Total & CPU Time (ms)**| The time that the transaction took to complete. If available then you will also see the amount of actual CPU time that this transaction used below it. |

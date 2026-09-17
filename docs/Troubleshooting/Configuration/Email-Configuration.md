@@ -6,39 +6,37 @@ To use features such as **Reporting**, **Debug** alerts, **Enterprise dashboard*
  
  To copy the configuration of FusionReactor from one instance to another:
 
-> 📖 **Learn more:**
->  [Copying FusionReactor configuration between instances](/Configuration/Copying-FusionReactor-Configuration-Between_Instances). 
+!!! info "Learn more"
+    [Copying FusionReactor configuration between instances](/Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/). 
  
  With this approach you can configure one instance of FusionReactor then copy the configuration across all five instances.
 
 ## Configure email settings
 
-🔎**Find it**: **FusionReactor** > **Settings** > **Email Settings**
 
+**Step 1:** To configure the email settings in FusionReactor, access the [Email Settings](/Data-insights/Features/Settings/Main-Menu/#email-setting) by navigating to: **FusionReactor menu** (on the top left hand side) >  **Settings**.
 
-**Step 1:** To configure the email settings in FusionReactor, access the [Email Settings](../Settings/Main-Menu.md#email-settings) by navigating to: **FusionReactor menu** (on the top left hand side) >  **Settings**.
-
-![Screenshot](../images/configuration/settingsemail.png)
+![Screenshot](/Troubleshooting/images/settingsemail.png)
 
 **Step 2:** Configure the SMTP settings for your chosen mail server. 
 
-> 💡 **Tip:**
-> To retrieve the SMTP configuration on most
- public mail servers, simply Google: *SMTP server gmail/gmx/outlook/etc...*.
+
+!!! tip
+    To retrieve the SMTP configuration on most public mail servers, simply Google: *SMTP server gmail/gmx/outlook/etc...*.
 
  **Step 3:** Once your SMTP server details have been entered, save the settings and select **Send Test Email**.
 
  **Step 4:** Sending a test email, should display the following green banner:
 
-  ![Email Success](../images/configuration/Email-success.jpg)
+  ![Email Success](/Troubleshooting/images/Email-success.jpg)
  
- You will now start to receive [Reporting](../Plugins/FusionReactor-Reports-Plugin.md) and [Enterprise dashboard alerts](../Enterprise-Dashboard/Enterprise-Dashboard.md) and can configure [Crash protection](../Crash-Protection/Crash-Protection.md) and [Email breakpoints](../Debugger/Debug-Email-Alert.md).
+ You will now start to receive [Reporting](/Data-insights/Extras/Plugins/FusionReactor-Reports-Plugin/) and [Enterprise dashboard alerts](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Dashboard/) and can configure [Crash protection](/Data-insights/Features/Crash-protection/Crash-Protection/) and [Email breakpoints](/Data-insights/Features/Debugger/Debug-Email-Alert/).
 
 
 
 ## What to do if the test email fails to send
 
-![Email_Failure](../images/configuration/Email-Failure.jpg)
+![Email_Failure](/Troubleshooting/images/Email-Failure.jpg)
 
 There are many reasons that sending an email from FusionReactor may fail, including:
 
@@ -55,13 +53,13 @@ It may be that we are able to send a mail to the SMTP server, but the mail serve
 
 If this is the case we will show **Email sent successfully**, but the email may never arrive in your mailbox. Please contact your mail server administrator.
 
-Any error FusionReactor sees when an attempt to send an email is stored in the [reactor.log](../Logs/Files/Reactor-Log.md). In this log file you will see the cause of the send failure and be able to diagnose what is stopping emails from being sent.
+Any error FusionReactor sees when an attempt to send an email is stored in the [reactor.log](/Data-insights/Features/Logs/Files/Reactor-Log/). In this log file you will see the cause of the send failure and be able to diagnose what is stopping emails from being sent.
 
 ## Configuring Gmail with FusionReactor
 
 If you are using Gmail either on a personal or business account, you can configure emails with a configuration similar to:
 
-![Email Gmail Example](../images/configuration/Email-Gmail.jpg)
+![Email Gmail Example](/Troubleshooting/images/Email-Gmail.jpg)
 
 The fields from the screenshot above are represented in a table below:
 

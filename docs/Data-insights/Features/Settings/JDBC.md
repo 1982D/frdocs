@@ -1,4 +1,4 @@
-# JDBC Settings
+﻿# JDBC Settings
 
 **JDBC &gt; Settings** allows you to modify various elements and
 behaviours relating to JDBC. The page is broken up into sections, each
@@ -49,7 +49,7 @@ are used to make the Java Stack Trace more manageable and readable.
 |||
 |--- |--- |
 |JDBC Transaction with the **Trace** tab activated and visible.|JDBC Transaction with the following filter active **.java**.<br>Therefore, it shows only and all .java file(s) in the stack trace.|
-|![](/frdocs/attachments/245551289/245551327.png)|![](/frdocs/attachments/245551289/245551334.png)|
+|![](/attachments/245551289/245551327.png)|![](/attachments/245551289/245551334.png)|
 
 
 #### New JDBC Java Stack Trace Filter
@@ -78,8 +78,8 @@ pattern has two icons next to it:
 
 |Button|Name|Description|
 |--- |--- |--- |
-|![](/frdocs/attachments/245548393/245548405.png)|Edit|Clicking this button prefills the Filter Pattern dialogue with the pattern for editing. Click **Save Filter** when you're done. (Whilst editing any filters you will be unable to delete any filters)|
-|![](/frdocs/attachments/245548393/245548420.png)|Delete|Clicking this button deletes the selected filter.|
+|![](/attachments/245548393/245548405.png)|Edit|Clicking this button prefills the Filter Pattern dialogue with the pattern for editing. Click **Save Filter** when you're done. (Whilst editing any filters you will be unable to delete any filters)|
+|![](/attachments/245548393/245548420.png)|Delete|Clicking this button deletes the selected filter.|
 
 
 ## Transaction Settings
@@ -96,7 +96,7 @@ In order to access the **JDBC Obfuscation Settings** please navigate to
 **Obfuscate SQL Data**. There you should be able to find something similar
 to the screenshot below.
 
-![](/frdocs/attachments/245551366/245551378.jpg)
+![](/attachments/245551366/245551378.jpg)
 
 By default, the **Obfuscate SQL Data** field is set to **Disabled**.
 If you decide to set that field to **Enabled** then that option will
@@ -115,7 +115,7 @@ If Obfuscate SQL Data is disabled, then you will be able to see
 something similar to the screenshot below. All the query VALUES are
 **visible**.
 
-![](/frdocs/attachments/245551366/245551393.png)
+![](/attachments/245551366/245551393.png)
 
 #### Enabled
 
@@ -123,7 +123,7 @@ If Obfuscate SQL Data is enabled, then you will be able to see something
 similar to the screenshot below. All the query VALUES are not visible
 and are **replaced with a question mark (?)**.
 
-![](/frdocs/attachments/245551366/245551400.png)
+![](/attachments/245551366/245551400.png)
 
 Keep in mind that the JDBC obfuscation can be **enabled** or
 **disabled** at any point and it will be instantly be reflected on all
@@ -148,7 +148,7 @@ Choosing when to close a transaction alters the timing data for JDBC statements.
 
 #### When statement execution completes
 
-The transaction closes as soon as the database finishes executing the statement.  The timing of the transaction – start / end / duration – is therefore tied solely to the time it took the engine to execute the statement.
+The transaction closes as soon as the database finishes executing the statement.  The timing of the transaction  -  start / end / duration  -  is therefore tied solely to the time it took the engine to execute the statement.
 Use this mode if you are happy with your result set handling, and you suspect the database is slowing you down.
 
 #### When the first result set closes
@@ -158,7 +158,7 @@ Use this mode if you suspect your page is spending too long processing a result 
 Caveat: if your statement doesn't have a result set (it might be a delete statement, for instance), then the JDBC transaction will close:
 
 When the statement is closed, or
-When its parent transaction – probably a Web Request – is closed.  In this case, you'll see **Cascade Closed** as the transaction status, indicating the parent was closed while the JDBC transaction was still open.
+When its parent transaction  -  probably a Web Request  -  is closed.  In this case, you'll see **Cascade Closed** as the transaction status, indicating the parent was closed while the JDBC transaction was still open.
 
 If your statement produces multiple result sets, all subsequent sets will be counted for aggregates (Row count etc.) but only the first will be used for transaction timing.|When statement execution completes|
 

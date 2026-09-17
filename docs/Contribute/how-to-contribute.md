@@ -3,7 +3,7 @@
 
 The Documentation Team at FusionReactor welcome contributions to our open-source documentation and appreciate the effort you put into improving it. To ensure consistency and maintain the high quality of our content, all proposed changes must adhere to the following guidelines:
 
-* **Style Guide compliance**: Contributions must align with our established [Style Guide](/frdocs/Contribute/style-guide/overview/). This ensures that the documentation remains clear, professional, and consistent.
+* **Style Guide compliance**: Contributions must align with our established [Style Guide](/Contribute/style-guide/overview/). This ensures that the documentation remains clear, professional, and consistent.
 
 * **Review process**: Our team will review your pull request (PR) within 5 working days. If your submission does not meet the style guide or other contribution standards, we will request changes before approving the PR.
 
@@ -14,7 +14,7 @@ The Documentation Team at FusionReactor welcome contributions to our open-source
 By following these guidelines, you help ensure that our documentation remains a valuable resource for everyone. If you have questions or need guidance, check our contribution guide or reach out to the team for support.
 
 !!! info "Learn more"
-    [Style Guide](/frdocs/Contribute/style-guide/overview/)
+    [Style Guide](/Contribute/style-guide/overview/)
 ## Prerequisites
 
 * A GitHub account
@@ -42,7 +42,7 @@ Contributing to our documentation is simpler than you might think. While you don
 
 - Click the pencil icon to enter edit mode.
 - Make your desired changes to the content.
-- Don't worry about perfect formatting or grammar — our team will help with that.
+- Don't worry about perfect formatting or grammar - our team will help with that.
 
 **Step 3: Save your work**
 

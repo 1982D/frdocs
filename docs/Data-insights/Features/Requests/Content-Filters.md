@@ -32,8 +32,8 @@ all existing filters. Each filter has two icons next to it:
 
 |Button|Description|
 |--- |--- |
-| ![](/frdocs/attachments/245550192/245550203.png) |Clicking this button changes the **Ass Filter** form above into the **Edit Filter** form, which is filled out with the details of the selected filter. Change any of the information and save it using **Save Filter** on the right.|
-| ![](/frdocs/attachments/245550192/245550198.png) |Click this button to delete a **Search and Replace Filter** from the list. FusionReactor will no longer use it to filter responses.|
+| ![](/attachments/245550192/245550203.png) |Clicking this button changes the **Ass Filter** form above into the **Edit Filter** form, which is filled out with the details of the selected filter. Change any of the information and save it using **Save Filter** on the right.|
+| ![](/attachments/245550192/245550198.png) |Click this button to delete a **Search and Replace Filter** from the list. FusionReactor will no longer use it to filter responses.|
 
 ## Content Filter Restrictions
 
@@ -45,9 +45,9 @@ works in, change the Restrictions option on the [Content Filter settings](#filte
 
 The **Content Filter Restrictions** page has two main areas: 
 
-* [New Content Filter Restriction](/Requests/Content-Filters/#new-content-filter-restriction)
+* [New Content Filter Restriction](/Data-insights/Features/Requests/Content-Filters/#new-content-filter-restriction)
 
-* [Managing Content Filter Restrictions](/Requests/Content-Filters/#managing-content-filter-restrictions)
+* [Managing Content Filter Restrictions](/Data-insights/Features/Requests/Content-Filters/#managing-content-filter-restrictions)
 
 !!! info
     At the top of the page there is a form to enter new restrictions and below this is a list of all existing restrictions for this feature.
@@ -74,8 +74,8 @@ restrictions. Each restriction has two icons next to it:
 
 |Button|Description|
 |--- |--- |
-| ![](/frdocs/attachments/245550228/245550260.png) |Clicking this icon changes the **New Filter** form above into the **Edit Filter** form, which will be filled out with the details of the selected filter. You can change any of the information which is listed above (New Content Filter Restrictions), and save it using the **Save Restriction** button on the right.|
-| ![](/frdocs/attachments/245550228/245550245.png) |Clicking this icon will prompt you if you are sure you want to delete this restriction. Select **OK** to remove the restriction from the **Existing Restrictions** list and the page will be refreshed.|
+| ![](/attachments/245550228/245550260.png) |Clicking this icon changes the **New Filter** form above into the **Edit Filter** form, which will be filled out with the details of the selected filter. You can change any of the information which is listed above (New Content Filter Restrictions), and save it using the **Save Restriction** button on the right.|
+| ![](/attachments/245550228/245550245.png) |Clicking this icon will prompt you if you are sure you want to delete this restriction. Select **OK** to remove the restriction from the **Existing Restrictions** list and the page will be refreshed.|
 
 ## Filter Settings
 

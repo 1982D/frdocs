@@ -2,7 +2,7 @@
 
 The **WebRequests History** page shows a list of the most-recently completed requests.  The number of historical requests stored is configurable - the default is set to 100.  All the request information is stored in memory - as new requests enter the list, older requests are removed.
 
-![](/frdocs/attachments/245549634/245549738.png)
+![](/attachments/245549634/245549738.png)
 
 !!! tip
     Examine these older requests by looking into the [Request Log](../Logs/Files/Request-Log.md).

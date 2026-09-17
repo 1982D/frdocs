@@ -1,23 +1,19 @@
 # Python
 
-## Introduction
-This page shows you how to instrument a simple Python application to ship metrics, traces and logs to FusionReactor Cloud.
+This guide demonstrates how to instrument a Python application with OpenTelemetry to send traces, metrics, and logs to OpsPilot.
 
-There are two steps to this process:
+## Prerequisites
 
-1. [Download Python library dependencies](/Cloud/OpenTelemetry/Python/#step-1-download-python-library-dependencies)
+* **FusionReactor API Key**: Obtain this from **Account Settings > API Keys** in OpsPilot.
+* **Python**: Python 3.8 or later installed on your system.
+* **Telemetry Pipeline**: You must have either an [OpenTelemetry Collector](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) configured and running to receive data from your Python application.
 
-2. [Instrument your code](/Cloud/OpenTelemetry/Python/#step-2-instrument-your-code)
+!!! tip "Set up your telemetry pipeline first"
+    Before instrumenting your Python application, ensure you have completed either the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/) or [Grafana Alloy setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Grafana-agent/) so your telemetry data has a destination.
 
+## Step 1: Install dependencies
 
-
-## Instrument and run your Python code
-
-Procedure
-
-### **Step 1**: Download Python library dependencies
-
-Install the OpenTelemetry supporting libraries using Pip:
+Install the required OpenTelemetry packages using pip:
 
 ```bash
 pip install opentelemetry-api
@@ -25,27 +21,15 @@ pip install opentelemetry-sdk
 pip install opentelemetry-exporter-otlp-proto-http
 ```
 
+## Step 2: Create your instrumented application
 
-
-### **Step 2**: Instrument your code
-The following listing can be saved as `fib.py` and run using:
-
-```bash
-python fib.py 20
-```
-
-The program will output 20 rounds of Fibonacci computation and then exit.
+Create a file named `fib.py` with the following code. This example calculates Fibonacci numbers while sending telemetry data:
 
 ```python
-
 # Fibonacci by Iteration
-# Example Python code for FR Cloud integration
-# Intergral GmbH 2023
+# Example Python code for OpsPilot integration
 
-# Required by program
 import sys
-
-# Support for instrumentation
 import logging
 
 # Instrumentation Libraries
@@ -56,34 +40,35 @@ from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExport
 from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExporter
 from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
 
-# Trace Import
+# Trace Imports
 from opentelemetry.trace import set_tracer_provider
 from opentelemetry.sdk.trace import TracerProvider, sampling
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.semconv.resource import ResourceAttributes
 
-# Metric Import
-from opentelemetry.sdk.metrics.export import (
-    PeriodicExportingMetricReader,
-)
-from opentelemetry.sdk.metrics import MeterProvider
+# Metric Imports
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader, AggregationTemporality
+from opentelemetry.sdk.metrics import MeterProvider, Counter, UpDownCounter, Histogram, ObservableCounter, ObservableUpDownCounter, ObservableGauge
 from opentelemetry.metrics import set_meter_provider, get_meter_provider
 
-# Logs Import
+# Logs Imports
 from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry._logs import set_logger_provider
 
 
 def fib(iterations: int):
+    """Calculate Fibonacci sequence with OpenTelemetry instrumentation."""
     total: int = 0
     last: int = [0, 1]
     iteration: int = 0
 
     tracer = TRACER_PROVIDER.get_tracer("fib_tracer")
     meter = get_meter_provider().get_meter("fib_meter")
-    iteration_counter = meter.create_counter(name="fib_iteration_counter",
-                                             description="The number of iterations")
+    iteration_counter = meter.create_counter(
+        name="fib_iteration_counter",
+        description="The number of iterations"
+    )
 
     # Start an OTEL span to trace the whole execution
     with tracer.start_as_current_span("fib-outer") as span:
@@ -96,100 +81,155 @@ def fib(iterations: int):
                 iteration += 1
                 iteration_counter.add(amount=1)
 
-                # Find the next number in the sequence by summing the last two
+                # Find the next number in the sequence
                 new_number = sum(last)
 
-                # Push the new number into the last array, discarding the earliest
+                # Update the sequence
                 last[0] = last[1]
                 last[1] = new_number
 
-                logging.info(f'{new_number} ')
+                logging.info(f'{new_number}')
 
 
-def initialize_otel(endpoint: str) -> (TracerProvider, MeterProvider, LoggerProvider):
-    logging.debug("Initialize OTEL")
+def initialize_otel(endpoint: str) -> tuple:
+    """Initialize OpenTelemetry providers for traces, metrics, and logs."""
+    logging.debug("Initializing OpenTelemetry")
 
-    # Global resources
+    # Define service resource
     resource = Resource.create(
-        attributes={ResourceAttributes.SERVICE_NAME: 'fib_by_iteration'})
+        attributes={ResourceAttributes.SERVICE_NAME: 'fib_by_iteration'}
+    )
 
-    # Tracing
-
-    tracer_provider: TracerProvider = TracerProvider(sampler=sampling.ALWAYS_ON, resource=resource)
+    # Initialize Tracing
+    tracer_provider = TracerProvider(
+        sampler=sampling.ALWAYS_ON,
+        resource=resource
+    )
     set_tracer_provider(tracer_provider)
     tracer_provider.add_span_processor(
         BatchSpanProcessor(
-            OTLPSpanExporter(
-                endpoint=endpoint + '/v1/traces'
-            )
+            OTLPSpanExporter(endpoint=endpoint + '/v1/traces')
         )
     )
 
-    # Metrics
-
-    exporter = OTLPMetricExporter(endpoint=endpoint + "/v1/metrics")
+    # Initialize Metrics
+    # OpsPilot is Prometheus-based and requires Cumulative temporality
+    cumulative = {
+        Counter: AggregationTemporality.CUMULATIVE,
+        UpDownCounter: AggregationTemporality.CUMULATIVE,
+        Histogram: AggregationTemporality.CUMULATIVE,
+        ObservableCounter: AggregationTemporality.CUMULATIVE,
+        ObservableUpDownCounter: AggregationTemporality.CUMULATIVE,
+        ObservableGauge: AggregationTemporality.CUMULATIVE,
+    }
+    exporter = OTLPMetricExporter(endpoint=endpoint + "/v1/metrics", preferred_temporality=cumulative)
     reader = PeriodicExportingMetricReader(exporter)
     meter_provider = MeterProvider(metric_readers=[reader], resource=resource)
     set_meter_provider(meter_provider)
 
-    # Logging
-
+    # Initialize Logging
     logger_provider = LoggerProvider(resource=resource)
     set_logger_provider(logger_provider)
     logger_provider.add_log_record_processor(
-        BatchLogRecordProcessor(OTLPLogExporter(
-            endpoint=endpoint + '/v1/logs')
+        BatchLogRecordProcessor(
+            OTLPLogExporter(endpoint=endpoint + '/v1/logs')
         )
     )
     handler = LoggingHandler(level=logging.NOTSET, logger_provider=logger_provider)
-
-    # Use the OTLP logging handler to send logs.
     logging.getLogger().addHandler(handler)
 
-    # Return the created providers
     return tracer_provider, meter_provider, logger_provider
 
 
-# Set up our own logging
+# Configure logging
 logging.basicConfig(level="INFO")
-logging.info("Starting up")
+logging.info("Starting Fibonacci calculator")
 
-# Set up the OTEL agent to talk to the collector
+# Initialize OpenTelemetry (connect to local collector)
 TRACER_PROVIDER, METER_PROVIDER, LOG_PROVIDER = initialize_otel("http://localhost:4318")
 
-# Process out command line options and actually run the sequence
-iters: int = int(sys.argv[1])
-logging.info(f'Fibonacci by Iteration - {iters} rounds\n')
-fib(iters)
+# Run the Fibonacci calculation
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python fib.py <iterations>")
+        sys.exit(1)
 
-logging.info("... Fibonacci complete.")
+    iters = int(sys.argv[1])
+    logging.info(f'Fibonacci by Iteration - {iters} rounds')
+    fib(iters)
+    logging.info("Fibonacci complete")
+
+    # Flush and shut down providers to ensure all telemetry is exported before exit
+    TRACER_PROVIDER.shutdown()
+    METER_PROVIDER.shutdown()
+    LOG_PROVIDER.shutdown()
 ```
 
-### Code commentary
+### How the code works
 
-The program above is broken down into two functions and the main body of the script:
+**`fib()` function:**
+Calculates the Fibonacci sequence while creating telemetry:
+- Creates an outer span (`fib-outer`) to trace the entire operation
+- Creates inner spans (`fib-inner`) for each iteration
+- Records the iteration number as a span attribute
+- Increments a counter metric for each iteration
+- Logs each Fibonacci number
 
+**`initialize_otel()` function:**
+Sets up the three OpenTelemetry providers:
+- **Tracer Provider** - Sends trace data to the collector
+- **Meter Provider** - Sends metrics data to the collector
+- **Logger Provider** - Sends log data to the collector
 
-1. **def fib(...)**:  
-This function calculates a Fibonacci sequence by iterating a given number of times and uses the metric, span and
-logging providers to send data to the collector on port 4318. An outer span (`fib-outer`) is created to trace the
-overall iteration, while inner spans (`fib-inner`) are created for each iteration. The current iteration number is
-set as an attribute (`span.set_attribute(...)`) on the inner span. The current Fibonacci number is written to the
-log (`logging.info(...)`) and will be also sent to the Collector implicitly by the Otel log handler. Finally, a
-metric counter (`iteration_counter`) is incremented for every iteration the loop processes.
+All three providers use the same service name (`fib_by_iteration`), which appears as the `job` label in OpsPilot.
 
-2. **def initialize_otel(...)**:   
-This function, which takes the URL of the collector endpoint, creates and returns the three Otel providers required
-to ship data:  a `tracer_provider`, a `meter_provider`, and a `logger_provider`. You can see all three providers are
-constructed with the same `Resource` object, whose `SERVICE_NAME` is `fib_by_iteration`. This will be transferred to FR Cloud as the `job` key, and used to later find our data.
+## Step 3: Run locally
 
-3. The main body of the script at the bottom of the file simply sets up logging, calls `initialize_otel(...)` in order
-to get the providers - which are stored as global variables - and finally calls `fib(...)` to actually do the work.
+Test your instrumented application:
 
+```bash
+python fib.py 20
+```
 
-___
+The application will calculate 20 Fibonacci numbers and send telemetry to your local collector at `localhost:4318`.
 
+!!! warning "Cannot connect to collector?"
+    **If you see:** `Connection refused` or `Max retries exceeded`
+    **Fix:** Your collector is not running. Start it first using the [Collector setup guide](/Monitor-your-data/OpenTelemetry/Shipping/Collector/).
+
+## Step 4: Verify in OpsPilot
+
+1. Log in to **OpsPilot**
+2. Navigate to **Explore**:
+   - **Traces**: Select `Resource Service Name = fib_by_iteration`
+   - **Metrics**: Go to **Explore > Metrics**, select `fib_iteration_counter`, and run the query. Filter by `job = fib_by_iteration` to scope to your service.
+   - **Logs**: Filter by `job = fib_by_iteration`
+
+You should see:
+- Trace spans showing the execution flow (`fib-outer` and `fib-inner`)
+- A counter metric showing the total number of iterations
+- Log entries for each Fibonacci number calculated
+
+## Next steps
+
+* Add automatic instrumentation for popular frameworks using [`opentelemetry-instrumentation`](https://opentelemetry.io/docs/languages/python/automatic/)
+* Instrument HTTP requests with `opentelemetry-instrumentation-requests`
+* Instrument database calls with `opentelemetry-instrumentation-sqlalchemy`
+* Create [custom dashboards](/Getting-started/Tutorials/create-dashboard/) in OpsPilot to visualize your Python application metrics
+
+---
+
+## Related Guides
+
+- **[Configuration Guide](/Monitor-your-data/OpenTelemetry/Configuration/)**: Configure semantic conventions, resource attributes, and sampling strategies
+- **[Visualize Your Data](/Monitor-your-data/OpenTelemetry/Visualize/Metrics/)**: Query and visualize your telemetry in OpsPilot
+- **[Troubleshooting](/Monitor-your-data/OpenTelemetry/Troubleshooting/)**: Debug common instrumentation issues
+- **[FAQ](/Monitor-your-data/OpenTelemetry/FAQ/)**: Common questions about instrumentation
+
+---
+
+!!! info "Learn more"
+    [OpenTelemetry Python Documentation](https://opentelemetry.io/docs/languages/python/)
 
 !!! question "Need more help?"
     Contact support in the chat bubble and let us know how we can assist.
-

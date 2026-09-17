@@ -5,10 +5,10 @@
 ## What is distributed tracing?
 
 
-Distributed tracing is a technique of tracking application requests as they move from frontend devices to backend services and databases. Distributed tracing can be used by developers to successfully troubleshoot applications and optimize application performance. Requests that show errors or high latency can be pinpointed and performance issues diagnosed to offer real-time visibility of the user experience.
+Distributed tracing is a technique of tracking application requests as they move from frontend devices to backend services and databases. Developers use distributed tracing to troubleshoot applications and optimize application performance. You can pinpoint requests with errors or high latency and quickly diagnose performance issues to gain real-time visibility of the user experience.
 
 
-FusionReactor is now able to provide distributed trace information which is captured and displayed in a graphical format, so you can visualize the entire request flow and quickly identify any issues or bottlenecks.  
+OpsPilot is able to provide distributed trace information which is captured and displayed in a graphical format, so you can visualize the entire request flow and quickly identify any issues or bottlenecks.  
 
 
 
@@ -16,9 +16,9 @@ FusionReactor is now able to provide distributed trace information which is capt
 
 Distributed tracing occurs when a single request is assigned a unique trace ID. As user requests travel through a distributed system, sets of spans are generated for every new operation that is required on the journey.
 
- Multiple functions are performed on the request that generate different connected and/or nested spans — all of which have trace data encoded in them. This data can include recorded annotation information like date, time, duration, error messages, service names or any metadata.
- 
- This trace data, logs and signal information provides a metric enabling developers to not only debug current systems, but to optimize their code for future service enhancement.
+Multiple functions are performed on the request that generate different connected and/or nested spans - all of which have trace data encoded in them. This data can include recorded annotation information like date, time, duration, error messages, service names or any metadata.
+
+This trace data, logs and signal information provides a metric enabling developers to not only debug current systems, but to optimize their code for future service enhancement.
 
 ## Benefits
 
@@ -50,7 +50,7 @@ In order for instances/services to propagate trace information to other services
 | W3C Baggage | `baggage` |
 | B3 Single | `b3` |
 | B3 Multi | `b3multi` |
-| Jaeger | `jaegar` |
+| Jaeger | `jaeger` |
 | AWS X-ray | `xray` |
 | OT Trace | `ottrace` |
 

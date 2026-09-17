@@ -4,16 +4,16 @@ The **Thread Visualizer** page shows all threads within the Java Virtual
 Machine (JVM) for this server. Each color represents the state the
 thread was in when the data was updated. 
 
-![](/frdocs/attachments/245552075/245552242.png)
+![](/attachments/245552075/245552242.png)
 
 The **Thread Visualizer** page is session based. As soon as the browser tab
 is closed or refreshed the data will be lost and the graph will restart.
 
 ## Searching
 
-![](/frdocs/attachments/245552075/245552236.png)
+![](/attachments/245552075/245552236.png)
 
-![](/frdocs/attachments/245552075/245552173.png)
+![](/attachments/245552075/245552173.png)
 
 The search bar allows the user to filter the threads shown based on if
 the thread name contains the characters in the search.
@@ -30,9 +30,9 @@ displayed.  
 
 ## Sorting
 
-![](/frdocs/attachments/245552075/245552087.png)
+![](/attachments/245552075/245552087.png)
 
-![](/frdocs/attachments/245552075/245552189.png)
+![](/attachments/245552075/245552189.png)
 
 Threads in the Thread Visualizer page by five categories both ascending
 and descending:
@@ -51,8 +51,8 @@ whether you are sorting by ascending or descending.
 ## Condensed View
 
 
-![](/frdocs/attachments/245552075/245552081.png)
-![](/frdocs/attachments/245552075/245552178.png)
+![](/attachments/245552075/245552081.png)
+![](/attachments/245552075/245552178.png)
 
 Condensed view allows the user to view more threads in the same amount
 of space by hiding the table and making the size of threads smaller.
@@ -64,9 +64,9 @@ top right of the screen, next to the search bar.
 
 ## Navigation
 
-![](/frdocs/attachments/245552075/245552098.png)
+![](/attachments/245552075/245552098.png)
 
-![](/frdocs/attachments/245552075/245552225.png)
+![](/attachments/245552075/245552225.png)
 
 The navigation bar allows the user to change the time domain of the
 graph. This means the user can go backwards and forwards in time and see
@@ -91,9 +91,9 @@ graph received data from in that particular update.  
 
 |Button|Description|
 |--- |--- |
-|Stack trace: ![](/frdocs/attachments/245552075/245552142.png)|Opens a stacktrace of the thread the button is associated with in a new window.|
-|Start Profile: ![](/frdocs/attachments/245552075/245552136.png)|Starts a profile of the thread the button is associated with. Will then change to the stop profile button while the thread is profiling.|
-|Stop Profile: ![](/frdocs/attachments/245552075/245552183.png)|Stops a profile of the thread the button is associated with. Will then return to the start profile button.|
+|Stack trace: ![](/attachments/245552075/245552142.png)|Opens a stacktrace of the thread the button is associated with in a new window.|
+|Start Profile: ![](/attachments/245552075/245552136.png)|Starts a profile of the thread the button is associated with. Will then change to the stop profile button while the thread is profiling.|
+|Stop Profile: ![](/attachments/245552075/245552183.png)|Stops a profile of the thread the button is associated with. Will then return to the start profile button.|
 
 
 !!! info
@@ -103,10 +103,10 @@ graph received data from in that particular update.  
 
 |Thread State|Description|
 |--- |--- |
-|Runnable ![](/frdocs/attachments/245552075/245552109.png)|A thread which is ready to execute, or is actually executing in the Java virtual machine is in this state.|
-|Waiting ![](/frdocs/attachments/245552075/245552104.png)|A thread that is waiting indefinitely for another thread to perform a particular action is in this state.  This state corresponds to an Object Wait/Notify condition becoming satisfied. These conditions are often used to signal explicit interprocess communication, and java Lock semantics.|
-|Timed-Waiting ![](/frdocs/attachments/245552075/245552121.png)|A thread that is waiting for another thread to perform an action (with explicit timeout) is in this state.|
-|Blocked ![](/frdocs/attachments/245552075/245552115.png)|A thread in this state indicates it is waiting for a monitor to become free, but FusionReactor has calculated this will never occur due to the state of one or more other threads.|
+|Runnable ![](/attachments/245552075/245552109.png)|A thread which is ready to execute, or is actually executing in the Java virtual machine is in this state.|
+|Waiting ![](/attachments/245552075/245552104.png)|A thread that is waiting indefinitely for another thread to perform a particular action is in this state.  This state corresponds to an Object Wait/Notify condition becoming satisfied. These conditions are often used to signal explicit interprocess communication, and java Lock semantics.|
+|Timed-Waiting ![](/attachments/245552075/245552121.png)|A thread that is waiting for another thread to perform an action (with explicit timeout) is in this state.|
+|Blocked ![](/attachments/245552075/245552115.png)|A thread in this state indicates it is waiting for a monitor to become free, but FusionReactor has calculated this will never occur due to the state of one or more other threads.|
 
 
 !!! info "Learn more"

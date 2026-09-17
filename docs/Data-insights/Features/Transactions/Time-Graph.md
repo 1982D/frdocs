@@ -10,7 +10,7 @@ Activity** graph by clicking **Activity**.
 Below is a sample image of the **JDBCRequest (Time)** graph with the tool-tip
 showing.
 
-![](/frdocs/attachments/245550770/245550786.png)
+![](/attachments/245550770/245550786.png)
 
 
 ## JDBCRequest (Time) Graph

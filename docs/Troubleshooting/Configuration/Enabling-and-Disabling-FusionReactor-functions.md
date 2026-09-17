@@ -5,11 +5,11 @@
 To **enable** or **disable** parts of FusionReactor, simply select the
 FusionReactor dropdown located in the top left hand corner of the FusionReactor UI. 
 
-![Screenshot](../images/configuration/enabledisable.png)
+![Screenshot](/Troubleshooting/images/enabledisable.png)
 
 The following screen is displayed:
 
-![Screenshot](../images/configuration/enabledisable2.png)
+![Screenshot](/Troubleshooting/images/enabledisable2.png)
 
 This page contains three different **Enable / Disable** settings.
 

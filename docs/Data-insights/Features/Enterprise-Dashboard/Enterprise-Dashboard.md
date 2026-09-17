@@ -1,4 +1,4 @@
-# Enterprise Dashboard
+﻿# Enterprise Dashboard
 
 With FusionReactor Enterprise Edition, you have the ability to monitor more than one server instances easily with the use of the
 **Enterprise Dashboard**. Any FusionReactor Enterprise Edition
@@ -9,7 +9,7 @@ The **Enterprise Dashboard** lets you track the state of installations on one or
 
 Using the **Ephemeral Data Service** you also have the ability to proxy the FusionReactor user interface,  allowing you to access the local FusionReactor instance without having an exposed port.
 
-![Full Enterprise Dashboard](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/Full-Dashboard.png)
+![Full Enterprise Dashboard](/Data-insights/Features/Enterprise-Dashboard/images/Full-Dashboard.png)
 
 Once you have your machines set up, go to the dashboard. The default view when bringing up the **Enterprise Dashboard** is to show all groups along with any servers which are currently ungrouped.
 
@@ -19,7 +19,7 @@ The **Enterprise Dashboard** contains either grouped or ungrouped instances of F
 
 ### Group information
 
-![Enterprise Dashboard group metrics](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/Group-Metrics.jpg)
+![Enterprise Dashboard group metrics](/Data-insights/Features/Enterprise-Dashboard/images/Group-Metrics.jpg)
 
 The group information pane shows you how many servers are within this
 group as well as showing statistics for all grouped servers. These
@@ -40,7 +40,7 @@ statistics section but they are presented visually for ease of use.
 
 ### Server information
 
-![Enterprise Dashboard Group Metrics](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/Server-Metrics.jpg)
+![Enterprise Dashboard Group Metrics](/Data-insights/Features/Enterprise-Dashboard/images/Server-Metrics.jpg)
 
 The server information pane shows you various statistics about your
 selected server. Statistics which are listed with blue titles are links.
@@ -109,7 +109,7 @@ These graphs show the same information displayed in the statistics section but t
 
 When you access FRAM, navigate to **Manage Server**. 
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images//245548868.png)
+![](/Data-insights/Features/Enterprise-Dashboard/images//245548868.png)
 
 From this screen you can add new servers to the **Enterprise Dashboard** or manage existing servers.
 
@@ -129,7 +129,7 @@ bottom of the page (Current Servers) along with its current connect
 status. 
 
 !!! example
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548885.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245548885.png)
 
 ### Add an external server in the Enterprise Dashboard
 
@@ -140,7 +140,7 @@ Amazon EC2 instance was used.
 Navigate to the **Manage Servers** tab and **add** all the details of
 the external server as described in the section above. 
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548897.jpg)
+![](/Data-insights/Features/Enterprise-Dashboard/images/245548897.png)
 
 From the screenshot above, we see that the Status code of the
 FusionReactor instance with name "tomcat8\_External\_Server" is set to
@@ -149,7 +149,7 @@ instance externally.
 
 The next step is to access the **Enterprise Dashboard**. Here, you should be able to see the new FusionReactor instance as in the screenshot below:
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548891.jpg)
+![](/Data-insights/Features/Enterprise-Dashboard/images/245548891.jpg)
 
 Now, you are able to monitor the external server with FusionReactor.
 
@@ -158,7 +158,7 @@ Now, you are able to monitor the external server with FusionReactor.
 Below the **Add Server** form you will see a list of all servers currently
 available in the Enterprise Dashboard.
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548879.png)
+![](/Data-insights/Features/Enterprise-Dashboard/images/245548879.png)
 
 Each server has three buttons next to it:
 
@@ -195,7 +195,7 @@ The process of creating a group is very simple. First, you need to
 navigate through the **Manage Groups** page. 
 
 !!! example
-    ![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548938.png)
+    ![](/Data-insights/Features/Enterprise-Dashboard/images/245548938.png)
 
 When you access the page, you will see the following fields.
 
@@ -208,7 +208,7 @@ When you access the page, you will see the following fields.
 When the new group has been created, you will be able to see that under
 the **Current Server Groups** area. 
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548953.png)
+![](/Data-insights/Features/Enterprise-Dashboard/images/245548953.png)
 
 ### Manage existing groups
 
@@ -225,7 +225,7 @@ the **Current Server Groups** area.
 After the creation of the group, you can access the **Enterprise Dashboard**
 and see that a new group has been created. 
 
-![](/frdocs/Data-insights/Features/Enterprise-Dashboard/images/245548948.png)
+![](/Data-insights/Features/Enterprise-Dashboard/images/245548948.png)
 
 
 ## Ephemeral Data Service
@@ -234,10 +234,10 @@ The Ephemeral Data Service provides **Enterprise Dashboard** services to contain
 
 You can use the Ephemeral Data Service to get instant insight into your fleet of containers. It is possible to mix Ephemeral instances and traditionally-configured instances in the same dashboard, and you can group them together or separately.
 
-When an instance registers to the **Enterprise Dashboard**, it establishes an SSL secure channel to FRAM.  This tunnel is used to get metric data and as a proxy for web requests.  This means that FusionReactor instances within your containerized overlay network – which were previously opaque and unavailable to you – can now be accessed directly from the **Enterprise Dashboard**.  All the functionality of FusionReactor's user interface is available.
+When an instance registers to the **Enterprise Dashboard**, it establishes an SSL secure channel to FRAM.  This tunnel is used to get metric data and as a proxy for web requests.  This means that FusionReactor instances within your containerized overlay network  -  which were previously opaque and unavailable to you  -  can now be accessed directly from the **Enterprise Dashboard**.  All the functionality of FusionReactor's user interface is available.
 
 !!! info "Learn more"
-    [Automatically registering FusionReactor instances to the dashboard](/Configuration/Enterprise-Dashboard-Configuration/).
+    [Automatically registering FusionReactor instances to the dashboard](/Troubleshooting/Configuration/Enterprise-Dashboard-Configuration/).
 
 !!! note
     With the Ephemeral Data Service, if an instance becomes unresponsive or goes offline, it is not possible to receive an alert as the instance unregisters from the dashboard automatically.
@@ -253,18 +253,18 @@ You can manually add a server in the **Manage Servers** page of the **Enterprise
 ### Automatically adding instances
 
 !!! info "Learn more"
-    [Automatically registering FusionReactor instances to the dashboard](/Configuration/Enterprise-Dashboard-Configuration/).
+    [Automatically registering FusionReactor instances to the dashboard](/Troubleshooting/Configuration/Enterprise-Dashboard-Configuration/).
 
 ## Restart or connection issue alerts
 
 Instances that were manually added to the **Enterprise Dashboard** will be actively monitored and generate alerts if an instance restarts or becomes unresponsive.
 
-These alerts come in the form of [notifications in FusionReactor](../UI/Notifications.md) or through an email alert.
+These alerts come in the form of [notifications in FusionReactor](/UI/Notifications/) or through an email alert.
 
-![Instance unavailable alert](/images/Enterprise-Dashboard/Instance-Unavailable-Email.jpg)
+![Instance unavailable alert](/Data-insights/Features/Enterprise-Dashboard/images/Instance-Unavailable-Email.jpg)
 
 !!! note
-    In order to receive email notification you will need to [configure the email settings in FusionReactor](../Configuration/Email-Configuration.md).
+    In order to receive email notification you will need to [configure the email settings in FusionReactor](/Troubleshooting/Configuration/Email-Configuration/).
 
 ## Enterprise scripting
 
@@ -290,7 +290,7 @@ The script will be run with the current working directory (CWD) of the applicati
 
 
 !!! info "Learn more"
-    [Enterprise scripting](/Enterprise-Dashboard/Enterprise-Scripting/)
+    [Enterprise scripting](/Data-insights/Features/Enterprise-Dashboard/Enterprise-Scripting/)
 ___
 
 

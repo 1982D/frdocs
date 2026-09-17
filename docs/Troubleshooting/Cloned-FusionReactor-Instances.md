@@ -4,7 +4,7 @@
 
 All FusionReactor instances have a unique identifier assigned to them when they are first created, in the context of FusionReactor this is called the FRUID. Throughout the versions of FusionReactor, how this FRUID was generated and stored has been altered but the concept of having a FRUID has been consistent.
 
-There is also a GRUID or globally unique identifier assigned to each instance, this is used by external sources such as the **Enterprise Dashboard**, **FusionAnalytics** and the **FusionReactor Cloud**.
+There is also a GRUID or globally unique identifier assigned to each instance, this is used by external sources such as the **Enterprise Dashboard**, **FusionAnalytics** and the **OpsPilot**.
 
 Cloning FusionReactor refers to two instances of FusionReactor having the same FRUID or GRUID, so they are identified as the same unique instance although there are two distinct copies.
 
@@ -18,7 +18,7 @@ Cloning FusionReactor refers to two instances of FusionReactor having the same F
     We recommend the base virtual image be fixed so that it will not cause cloned instances to occur.
 
 
-While with a cloned instance both instances with the same FRUID and GRUID pair will appear to operate as normal, in our external servers such as our licensing server, the **FusionAnalaytics** target and the **FusionReactor Cloud** will see your two or more distinct instances as one single instance.
+While with a cloned instance both instances with the same FRUID and GRUID pair will appear to operate as normal, in our external servers such as our licensing server, the **FusionAnalaytics** target and the **OpsPilot** will see your two or more distinct instances as one single instance.
 
 When this is the case the following will occur:
 
@@ -26,7 +26,7 @@ When this is the case the following will occur:
  
 - In **FusionAnalytics** all data from multiple instances is merged so you won't know if one particular instance is experiencing issues as your metrics will be inaccurate.
 
-- In the **FusionReactor Cloud**, rather than seeing and being able to analyze all your instances, you will only have access to some of your data under one single instance and the rest will not be available to you.
+- In the **OpsPilot**, rather than seeing and being able to analyze all your instances, you will only have access to some of your data under one single instance and the rest will not be available to you.
 
 ## How to stop instances becoming cloned
 

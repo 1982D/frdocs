@@ -1,6 +1,94 @@
-
+﻿
 # FusionReactor Agent Releases
 
+## 2026.1.3 - 29th Jun. 2026
+
+| Issue Type  | Summary                                                             |
+|-------------|---------------------------------------------------------------------|
+| Improvement | Expose license and data shipping state in FRAPI                     |
+| Bug         | Further increase the reliability of the UI tunnel connection.       |
+| Bug         | Ensure instance name config changes are reflected in exported data. |
+| Bug         | Decrease likelihood of config corruption on unplanned shutdowns.    |
+
+
+## 2026.1.2 - 26th May 2026
+
+| Issue Type  | Summary                               |
+|-------------|---------------------------------------|
+| Bug         | Fix cfhttp tracking for Lucee 7       |
+| Improvement | Expose more transaction info in FRAPI |
+| Improvement | Export Linux meminfo as metrics       |
+
+## 2026.1.1 - 6th May 2026
+
+| Issue Type  | Summary                                |
+|-------------|----------------------------------------|
+| Improvement | Reduce cardinality of request metrics. |
+
+## 2026.1.0 - 20th Apr. 2026
+
+| Issue Type  | Summary                                                                                      |
+|-------------|----------------------------------------------------------------------------------------------|
+| New Feature | Add new request metrics for HTTP, database, and messaging transactions.                      |
+| New Feature | Add new/improved JVM metrics.                                                                |
+| New Feature | Add support for changing metric names and recordings to be more OTel-like.                   |
+| New Feature | Add ability to exports JVM metrics similar to Prometheus' JMX exporter.                      |
+| Improvement | Add support for sending emails without requiring an SMTP server.                             | 
+| Bug         | Fix variables not showing within the debugger, when using Java 21+                           | 
+| New Feature | Include ColdFusion DB Pool metrics in the exported metrics.                                  |
+| Bug         | Prevent debugger from showing the incorrect Lucee file contents when sources are configured. | 
+| Bug         | Separate Lucee classes by filename when different files are compiled to the same class name. | 
+| Bug         | Fix thread ID parsing, in the debugger, when the ID is a single digit (<10)                  |
+| Improvement | Update support for tracking later versions of Mongo transactions to prevent errors.          |
+| Improvement | Capture additional Lucee request errors.                                                     |
+| New Feature | Add support for capturing Lucee stack trace on errors.                                       |
+| New Feature | Add support for disabling/enabling specific locations on installed breakpoints.              | 
+| Bug         | Increase reliability of the UI tunnel connection.                                            |
+| Improvement | Add status page for non-cloud users that export data.                                        |
+| Bug         | Prevent possible IllegalArgumentException when using Framework One (FW/1)                    |
+| New Feature | Add option to add query parameters to request metrics' route label/attribute                 |
+| Improvement | Update automatic installer (FRAM) to use correct debug library for Mac ARM64.                |
+
+## 2025.2.1 - 3rd Feb. 2026
+
+| Issue Type | Summary                                                                                         |
+|------------|-------------------------------------------------------------------------------------------------|
+| Bug        | Prevent quotes in comments from breaking PreparedStatement binding.                             |
+| Bug        | Stop metrics being sent with old labels when client ID changes.                                 |
+| Bug        | Add support for Jersey classes that use Jakarta to prevent errors.                              |
+| Bug        | Prevent possibility of XSS exploit in UI.                                                       |
+| Bug        | Update Jetty dependency to support later versions of Java. Prevent use of deprecated functions. | 
+
+## 2025.2.0 - 24th Nov. 2025
+
+| Issue Type  | Summary                                                                                              |
+|-------------|------------------------------------------------------------------------------------------------------|
+| New Feature | Migrate exported data to OTLP format, allowing greater integration with other environments.          |
+| New Feature | Send Crash Protection alerts to cloud for greater visibility and analysis with other tools and data. |
+| New Feature | Add OpsPilot integration within the on-prem UI tunnel to include AI analysis within the on-prem UI.  |
+| Improvement | Implement new colour themes within the on-prem UI.                                                   |
+| New Feature | Support Lucee 7 installation within FRAM.                                                            |
+| Improvement | Update the JRE bundled with FRAM.                                                                    |
+
+
+!!! warning
+    If you are upgrading to **FusionReactor 2025.2** and are already using **OTel**, FusionReactor will now automatically use any existing configured endpoints. To ensure you continue receiving data in **FusionReactor Cloud** while using an OTel Collector, you must update your `collector.yaml` configuration file. Please refer to the [documentation linked here](https://docs.fusionreactor.io/Monitor-your-data/FR-Agent/Configuration/OTel-shipping-config/) for the required changes.
+
+## 2025.1.0 - 3rd Mar. 2025
+
+
+| Issue Type  | Summary                                                                                                |
+|-------------|--------------------------------------------------------------------------------------------------------|
+| Feature     | Add support for ColdFusion 2025.                                                                       |
+| Bug         | Prevent stack overflow when viewing certain transactions in Lucee.                                     |
+| Feature     | Ship metric metadata with metrics so that their help info is displayed in cloud.                       |
+| Bug         | Fix service name not being set for Deep integration.                                                   |
+| Improvement | Update CC websocket port to connect using port 443.                                                    |
+| Feature     | Add support for creating web requests via FRAPI.                                                       |
+| Feature     | Add support for setting properties on transactions via FRAPI.                                          |
+| Improvement | Improve UI elements: Cloud Logging settings button location, FRAM instance name help info.             |
+| Improvement | Accessing instances via external port should be disabled by default when installing instances in FRAM. |
+| New Feature | Add ability to view transaction profiles in Pyroscope and support traces to profiles linkage in Tempo. |
 
 ## 12.1.1 - 26th Sep. 2024
 
@@ -107,7 +195,7 @@
 | Improvement | Add JVM arg (-D) for disabling email notification from reports plugin.                                                                                        |
 | Improvement | Add JVM arg (-D) for setting homepage.                                                                                                                        |
 | Improvement | Add JVM args (-D) for setting passwords for manager and observer roles.                                                                                       |
-| New Feature | Implement transaction tracking for JMS/MDB. See [FusionReactor System Properties](./Configuration/FusionReactor-System-Properties.md) for configuration info. |
+| New Feature | Implement transaction tracking for JMS/MDB. See [FusionReactor System Properties](/Monitor-your-data/FR-Agent/Configuration/FusionReactor-System-Properties/) for configuration info. |
 | New Feature | Replace datapack with Prometheus Remote Write for sending FR metrics.                                                                                         |
 | Bug         | Protect against NullPointerException when detecting CommandBox servers.                                                                                       |
 | Improvement | Add JVM arg (-D) for disabling CommandBox server detection.                                                                                                   |                                                                                                      |
@@ -152,7 +240,7 @@
 | FR8392 | New Feature  | Transactions will be created to track RabbitMQ operations.                                                                                                                                                                                  |
 | FR8393 | New Feature  | Transactions will be created to track Kafka Streams operations.                                                                                                                                                                             |
 | FR8394 | Improvement  | The CF metrics graphs and CF system metrics graphs now have all metrics in ColdFusion 2021                                                                                                                                                  |
-| FR8395 | New Feature  | Support for setting up to 8 custom key-value labels on metrics, logs, and traces. [More info.](../Cloud/guides/data-labels)                                                                                                                 |
+| FR8395 | New Feature  | Support for setting up to 8 custom key-value labels on metrics, logs, and traces.                                                                                                                 |
 | FR8396 | Bug          | FR now shows the correct source code for recompiled classes in Lucee.                                                                                                                                                                       | 
 
 ## 9.1.0
@@ -217,7 +305,7 @@
 | FR8309 | Improvement | In web request details, service time has been renamed to API time |
 | FR8307 | Improvement | Included CFHTTP in the request API time |
 
-##8.7.5
+## 8.7.5
 | Key | Issue Type | Summary |
 | --- | --- | --- |
 | FR8301 | Improvement | Added the ability to preview Headers in the transaction history summary views via a settings page |
@@ -333,7 +421,7 @@
 |FR8066|Improvement|Add hostname and ipaddress of instances from EDDS.|
 |FR8062|Improvement|Remove the final page of the installer and automatically show Instance Manager.|
 |FR8060|Improvement|Improce Lucee line performance so it uses<br>pagePoolClear function, rather than resseting the engine, this prevents<br>CFML pages being aborted.|
-|FR8054|Improvement|Bump ASM to 8.0.1 – to support newest Java versions|
+|FR8054|Improvement|Bump ASM to 8.0.1  -  to support newest Java versions|
 |FR7885|Improvement|Enable System Resources when a CF server is running as a non admin user on windows.|
 |FR8073|Improvement|Decompililation support for java 10-15|
 |FR8085|Bug|Fix data truncation for massive JDBC statements /  BLOBS going to FusionReactor Cloud.|
@@ -396,7 +484,7 @@
 ## 8.2.3
 |Key|Issue Type|Summary|
 | --- | --- | --- |
-|FR7953|Improvement|Track RMI calls in java 6 – 8.|
+|FR7953|Improvement|Track RMI calls in java 6  -  8.|
 |FR7952|Bug|Fix the Enterprise Dashboard proxy so that it honors the ‘use proxy’ setting for local connections.|
 |FR7951|Bug|Fix an ArrayIndexOutOfBounds exception in licensing on some RedHat operating systems.|
 

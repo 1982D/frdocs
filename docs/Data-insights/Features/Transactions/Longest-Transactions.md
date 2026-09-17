@@ -2,7 +2,7 @@
 
 The **Longest Transaction** page is similar to the [Longest Request](../Requests/Long-Requests.md) page. It displays the transaction of the selected type that are currently stored in the memory that have the longest run time of all the transactions of this type, since the server started (or history was cleared).
 
-![](/frdocs/attachments/245550793/245550825.png)
+![](/attachments/245550793/245550825.png)
 
 ## Longest Transaction Table
 

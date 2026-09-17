@@ -6,10 +6,10 @@ activity currently stored by FusionReactor.
 Below is a sample image of the JDBC Activity Graph with the tool-tip
 showing:
 
-![](/frdocs/attachments/245551114/245551140.png)
+![](/attachments/245551114/245551140.png)
 
-!!!note
-    The JDBC Activity Graph is the same as [Transaction->Activity(../Transactions/Activity-Graph.md) but filtered    
+!!! note
+    The JDBC Activity Graph is the same as [Transaction->Activity](../Transactions/Activity-Graph.md) but filtered    
     to only show transactions of JDBC type.
 
 !!! info "Learn more"

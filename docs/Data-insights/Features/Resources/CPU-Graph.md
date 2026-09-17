@@ -4,7 +4,7 @@ The **CPU Graph** page show you a graph of samples currently stored in
 memory by FusionReactor. The graph displays the current load of the CPU
 consumed by the server and the JVM instance.
 
-![](/frdocs/attachments/245552248/245552258.png)
+![](/attachments/245552248/245552258.png)
 
 The CPU graph allows you to see if the CPU is particularly busy with
 J2EE or other work, as an aid to troubleshooting performance issues.

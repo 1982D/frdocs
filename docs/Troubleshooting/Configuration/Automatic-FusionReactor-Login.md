@@ -21,7 +21,7 @@ To view the cookie for FusionReactor, use the console of your browser.
 **Step 1:** Navigate to the **Application** tab and view the cookie for FusionReactor.
 
 
-![Screenshot](../images/Troubleshooting/FR_login_cookie.png)
+![Screenshot](/Troubleshooting/images/FR_login_cookie.png)
 
 
 **Step 2:** Create a blank html page.
@@ -46,13 +46,10 @@ To view the cookie for FusionReactor, use the console of your browser.
 </html>
 ```
 
-> 💡 **Tip:**
-> In the example above, the cookie name and value have been copied from my instance testTC7 into the document.cookie. My server is located on port 8098 so I have specified this as the window location.
+!!! tip
+	In the example above, the cookie name and value have been copied from my instance testTC7 into the document.cookie. My server is located on port 8098 so I have specified this as the window location.
 
 **Step 4:** Edit these values (see Tip) to match your servers configuration. Once complete, your automatic login script should direct you straight into your FusionReactor instance.
 
 
 
-## Need more help?
-
-<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6;"> Contact support in the chat bubble and let us know how we can assist. </div> 

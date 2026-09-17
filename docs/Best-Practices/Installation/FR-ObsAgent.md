@@ -1,7 +1,7 @@
 #  Java/Lucee & databases 
 
 
-![!Screenshot](/frdocs/Best-Practices/Installation/Images/Docker1.png)
+![!Screenshot](/Best-Practices/Installation/Images/Docker1.png)
 
 ## Step 1: Add FusionReactor to your image
 
@@ -63,7 +63,7 @@ The Observability Agent provides you with the necessary tools and insights to ef
 
 ### Run via Docker
 
-Run the following command, replacing **YOUR_API_KEY** with your actual [API key](/frdocs/Cloud/logs/Log-Shipper/#generating-api-keys) and adjusting the environment variables as needed: 
+Run the following command, replacing **YOUR_API_KEY** with your actual [API key](/Monitor-your-data/Log-monitoring/log-shipper/#generating-api-keys) and adjusting the environment variables as needed: 
 
 ```
 docker run --env api_key=YOUR_API_KEY --env ENV_VARIABLE=VALUE --env mysql_connection_string=root:my-secret-pw@(mysql:3306)/ intergral/observability-agent:latest
@@ -72,7 +72,7 @@ docker run --env api_key=YOUR_API_KEY --env ENV_VARIABLE=VALUE --env mysql_conne
 
 
 !!! info
-    Docker automatically pulls the latest version of the Observability Agent image from the [Dockerhub](intergral/observability-agent - Docker Image | Docker Hub) repository.
+    Docker automatically pulls the latest version of the Observability Agent image from the [Dockerhub](https://hub.docker.com/r/intergral/observability-agent) repository.
 
 
 <iframe src="https://player.vimeo.com/video/827268952?h=0f2c0e8fad" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -80,11 +80,7 @@ docker run --env api_key=YOUR_API_KEY --env ENV_VARIABLE=VALUE --env mysql_conne
 
 
 !!! info "Learn more"
-<<<<<<< HEAD
-    [Log collection, OTEL and other databases](/frdocs-oss/frdocs/Cloud/Observability-Agent-Install/Configuration/) can be enabled by setting the appropriate environment variables.
-=======
-    [Log collection, OTEL and other databases](/frdocs/Cloud/Observability-Agent-Install/Configuration/) can be enabled by setting the appropriate environment variables.
->>>>>>> 8c4a48ccd55a6aaf74eaa82df95b486e789748bb
+    [Log collection, OTEL and other databases](/Monitor-your-data/Observability-agent/Configuration/) can be enabled by setting the appropriate environment variables.
 
 
 
@@ -117,7 +113,7 @@ services:
 ```
 
 !!! info "Learn more"
-    [Log collection, OTEL and other databases](/Cloud/Observability-Agent-Install/Configuration/) can be enabled by setting the appropriate environment variables.
+    [Log collection, OTEL and other databases](/Monitor-your-data/Observability-agent/Configuration/) can be enabled by setting the appropriate environment variables.
 
 ___
     

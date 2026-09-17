@@ -8,12 +8,12 @@ The FusionReactor Settings page lets you modify the FusionReactor in order to:
 * Secure the FusionReactor API
 * Configure Application and Transaction name detection
 * Configure FusionReactor to either track or ignore specific URLS
-* Configure a proxy for FusionReactor to contact its external servers for licensing and the FusionReactor Cloud
+* Configure a proxy for FusionReactor to contact its external servers for licensing and the OpsPilot
 * Configure which error types should be tracked in FusionReactor
 
 !!! note
     These settings are specific to this instance of FusionReactor, but it is possible to copy these settings to a new instance
-     by following [Copying FusionReactor Configuration Between Instances](/Configuration/Copying-FusionReactor-Configuration-Between_Instances).
+     by following [Copying FusionReactor Configuration Between Instances](/Monitor-your-data/FR-Agent/FAQs/Copying-FusionReactor-Configuration-Between_Instances/).
 
 ### Email Settings
 
@@ -102,11 +102,11 @@ FusionReactor API (FRAPI) Log Clients - Log File Settings
 
 |Configuration|Description|Default|
 |--- |--- |--- |
-|Auto Transaction Naming|When enabled, the Transaction Name will be [Automatically detected](/Configuration/Transaction-Naming-Configuration/). |Enabled|
+|Auto Transaction Naming|When enabled, the Transaction Name will be [Automatically detected](/Troubleshooting/Configuration/Transaction-Naming-Configuration/). |Enabled|
 |Default Transaction Name|The Default Transaction Name. If Auto Transaction Naming is disabled, this name will be used for all transactions. |Ungrouped|
 |Transaction Page Identifier Type |Enables manual page identification of transactions based specific URL parameters. This can be Disabled, Parameter or URL Element <br> <br> **Parameter** - This allows you to select a Request parameter as the transaction name. <br> <br>   **URL Element** - This allows you to select a section of the URL as the transaction name.|Disabled|
-|Parameter Name|Parameter Name is visible when the Transaction Page Identifier Type is set to parameter. <br> <br> Set this to the parameter name that your framework uses to determine what page is being requested. <br> <br> [See Example](/Configuration/Transaction-Naming-Configuration/)|<Empty>|
-|Enable SES Parameter|Enable this if you need to look for the name of the page in an SES style URL. <br> <br> [See Example](/Configuration/Transaction-Naming-Configuration/).|Disabled|
+|Parameter Name|Parameter Name is visible when the Transaction Page Identifier Type is set to parameter. <br> <br> Set this to the parameter name that your framework uses to determine what page is being requested. <br> <br> [See Example](/Troubleshooting/Configuration/Transaction-Naming-Configuration/)|<Empty>|
+|Enable SES Parameter|Enable this if you need to look for the name of the page in an SES style URL. <br> <br> [See Example](/Troubleshooting/Configuration/Transaction-Naming-Configuration/).|Disabled|
 |SES Element Offset|SES Element Offset is visible when the Transaction Page Identifier Type is set to URL element.|1|
 
 The transaction name (App/Txn) is made visible in various views, such as

@@ -24,4 +24,4 @@ values for each process:
     Details' page for the respective process. Please see [Process
     Details](Process-Details.md) for more information
 
-![](/frdocs/attachments/245554768/245554774.png)
+![](/attachments/245554768/245554774.png)

@@ -1,8 +1,14 @@
+---
+search:
+  exclude: true
+---
+
+
 # Licenses
 
 ## FusionReactor use of Grafana
 
-Parts of **FusionReactor Cloud** use [Grafana](https://grafana.com/) and other open source software.
+Parts of **OpsPilot** use [Grafana](https://grafana.com/) and other open source software.
 
 ### Copyright notice for Grafana
 
@@ -66,7 +72,7 @@ Licensees may convey the work under these licenses
 | yaml	                            | [ISC](/tpl/ISC_LICENSE/)                                                                                   |
 
 ## FusionReactor Agent licenses
-[Third-party license agreements & additional notices](/Third_Party_License_Agreements/)
+[Third-party license agreements & additional notices](/Admin-and-data/Third-Party-Licenses/Third_Party_License_Agreements/)
 
 ## EULA
 [EULA](https://fusion-reactor.com/eula-intergral-software-end-user-license-agreement/)
